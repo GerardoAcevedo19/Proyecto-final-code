@@ -1,0 +1,1010 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fomento Productivo de la Municipalidad de Angol. Información sobre emprendimiento, apoyo a productores, programas municipales, capacitación y desarrollo económico local.">
+    <title>Fomento Productivo | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .fomento-portada {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 14px;
+            margin-bottom: 38px;
+            background: #456514;
+            color: #fff;
+        }
+
+        .fomento-portada img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fomento-portada::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(35, 55, 13, .88) 0%,
+                rgba(35, 55, 13, .62) 52%,
+                rgba(35, 55, 13, .12) 100%
+            );
+        }
+
+        .fomento-portada-contenido {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            padding: 52px;
+        }
+
+        .fomento-etiqueta {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 7px 13px;
+            border: 1px solid rgba(255,255,255,.65);
+            border-radius: 30px;
+            font-size: .85rem;
+            letter-spacing: .7px;
+            text-transform: uppercase;
+        }
+
+        .fomento-portada h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            line-height: 1.08;
+            color: #fff;
+        }
+
+        .fomento-portada p {
+            max-width: 620px;
+            margin: 0 0 25px;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: #f5f7ef;
+        }
+
+        .fomento-boton {
+            display: inline-block;
+            padding: 13px 21px;
+            border-radius: 6px;
+            background: #94A740;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background .2s, transform .2s;
+        }
+
+        .fomento-boton:hover {
+            background: #788d2e;
+            transform: translateY(-2px);
+        }
+
+        .fomento-boton-secundario {
+            display: inline-block;
+            padding: 12px 19px;
+            border: 2px solid #456514;
+            border-radius: 6px;
+            color: #456514;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background .2s, color .2s;
+        }
+
+        .fomento-boton-secundario:hover {
+            background: #456514;
+            color: #fff;
+        }
+
+        .fomento-introduccion {
+            max-width: 950px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .fomento-introduccion h2 {
+            margin-bottom: 15px;
+            color: #456514;
+            font-size: clamp(1.7rem, 3vw, 2.4rem);
+        }
+
+        .fomento-introduccion p {
+            color: #555;
+            font-size: 1.03rem;
+            line-height: 1.85;
+        }
+
+        .fomento-titulo-seccion {
+            margin: 48px 0 22px;
+        }
+
+        .fomento-titulo-seccion h2 {
+            margin: 0 0 10px;
+            color: #456514;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+        }
+
+        .fomento-titulo-seccion p {
+            max-width: 850px;
+            margin: 0;
+            color: #5b5b5b;
+            line-height: 1.7;
+        }
+
+        .fomento-accesos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-bottom: 45px;
+        }
+
+        .fomento-acceso {
+            min-height: 175px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #456514;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,.08);
+            transition: transform .2s, background .2s;
+        }
+
+        .fomento-acceso:hover {
+            background: #354e0e;
+            transform: translateY(-4px);
+        }
+
+        .fomento-acceso h3 {
+            margin: 0;
+            font-size: 1.45rem;
+            line-height: 1.35;
+            color: #fff;
+        }
+
+        .fomento-acceso p {
+            margin: 0;
+            color: #f2f5e9;
+            line-height: 1.65;
+        }
+
+        .fomento-acceso .fomento-enlace {
+            font-weight: 700;
+            color: #e6edc9;
+        }
+
+        .fomento-programas {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            margin-bottom: 42px;
+        }
+
+        .fomento-tarjeta {
+            overflow: hidden;
+            border-radius: 11px;
+            background: #fff;
+            border: 1px solid #e4e8dc;
+            box-shadow: 0 5px 17px rgba(0,0,0,.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fomento-tarjeta-imagen {
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            background: #e8eddf;
+        }
+
+        .fomento-tarjeta-contenido {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 23px;
+        }
+
+        .fomento-categoria {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background: #edf2df;
+            color: #456514;
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .fomento-tarjeta h3 {
+            margin: 0 0 12px;
+            color: #456514;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .fomento-tarjeta p {
+            margin: 0 0 17px;
+            color: #555;
+            line-height: 1.75;
+        }
+
+        .fomento-tarjeta ul {
+            padding-left: 20px;
+            margin: 0 0 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .fomento-tarjeta .fomento-boton-secundario {
+            margin-top: auto;
+        }
+
+        .fomento-destacado {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+            margin: 48px 0;
+            padding: 30px;
+            border-radius: 12px;
+            background: #f2f5eb;
+        }
+
+        .fomento-destacado img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 9px;
+        }
+
+        .fomento-destacado h2 {
+            margin: 0 0 15px;
+            color: #456514;
+            font-size: 1.9rem;
+            line-height: 1.3;
+        }
+
+        .fomento-destacado p {
+            margin: 0 0 18px;
+            color: #4e4e4e;
+            line-height: 1.8;
+        }
+
+        .fomento-lista-enlaces {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 45px;
+        }
+
+        .fomento-enlace-util {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            padding: 20px;
+            border: 1px solid #dfe6d2;
+            border-left: 5px solid #94A740;
+            border-radius: 7px;
+            background: #fff;
+            text-decoration: none;
+            transition: background .2s, transform .2s;
+        }
+
+        .fomento-enlace-util:hover {
+            background: #f5f7ef;
+            transform: translateX(3px);
+        }
+
+        .fomento-enlace-util strong {
+            color: #456514;
+            font-size: 1.08rem;
+        }
+
+        .fomento-enlace-util span {
+            color: #555;
+            line-height: 1.55;
+            font-size: .94rem;
+        }
+
+        .fomento-contacto {
+            margin: 45px 0 20px;
+            padding: 34px;
+            border-radius: 12px;
+            background: #456514;
+            color: #fff;
+        }
+
+        .fomento-contacto h2 {
+            margin: 0 0 12px;
+            color: #fff;
+            font-size: 1.9rem;
+        }
+
+        .fomento-contacto p {
+            max-width: 850px;
+            color: #f2f5e9;
+            line-height: 1.8;
+        }
+
+        .fomento-contacto .fomento-boton {
+            margin-top: 8px;
+            background: #fff;
+            color: #456514;
+        }
+
+        .fomento-contacto .fomento-boton:hover {
+            background: #e8eddf;
+        }
+
+        .fomento-nota {
+            margin: 18px 0;
+            padding: 14px 17px;
+            border-radius: 6px;
+            background: #f5f5f1;
+            color: #555;
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .fomento-programas,
+            .fomento-accesos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .fomento-destacado {
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .fomento-portada {
+                min-height: 420px;
+            }
+
+            .fomento-portada-contenido {
+                padding: 28px 22px;
+            }
+
+            .fomento-programas,
+            .fomento-accesos,
+            .fomento-lista-enlaces,
+            .fomento-destacado {
+                grid-template-columns: 1fr;
+            }
+
+            .fomento-tarjeta-imagen {
+                height: 220px;
+            }
+
+            .fomento-destacado {
+                padding: 20px;
+            }
+
+            .fomento-destacado img {
+                height: 230px;
+            }
+
+            .fomento-contacto {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="Fomento Productivo" data-page-url="fomento-productivo.html">
+
+    <!-- ENCABEZADO Y MENÚ INSTITUCIONAL -->
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html" aria-label="Volver al inicio">
+            <img src="Angol.ico" alt="" class="escudo-angol">
+            <span>Municipalidad de Angol</span>
+        </a>
+
+        <div class="interior-menu">
+            <button
+                type="button"
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav
+                class="interior-menu-panel"
+                id="menuDesplegable"
+                aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button type="button"
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuCiudad">
+                            La Ciudad <span aria-hidden="true">▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button"
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuMunicipalidad">
+                            Municipalidad <span aria-hidden="true">▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button"
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuConcejo">
+                            Concejo Municipal <span aria-hidden="true">▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button"
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuServicios">
+                            Servicios Online <span aria-hidden="true">▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button type="button"
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuInformacion">
+                            Información <span aria-hidden="true">▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="conoce-mas.html">Plan Regulador</a></li>
+                    <li><a href="conoce-mas.html">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HISTORIAL DE NAVEGACIÓN -->
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-interior">
+
+        <section class="fomento-portada">
+            <img
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                alt="Personas trabajando y colaborando en el desarrollo de proyectos"
+                fetchpriority="high">
+
+            <div class="fomento-portada-contenido">
+                <span class="fomento-etiqueta">Municipalidad de Angol</span>
+                <h1>Fomento Productivo</h1>
+                <p>
+                    Impulsamos el desarrollo económico local mediante el apoyo a
+                    emprendedores, comerciantes y productores de la comuna,
+                    promoviendo oportunidades de crecimiento, capacitación y
+                    colaboración para fortalecer las iniciativas urbanas y rurales.
+                </p>
+                <a class="fomento-boton" href="#programas">Conocer los programas</a>
+            </div>
+        </section>
+
+        <section class="fomento-introduccion">
+            <h2>Desarrollo local, oportunidades para todos</h2>
+            <p>
+                El área de Fomento Productivo trabaja para fortalecer las capacidades
+                de las personas que desarrollan actividades económicas en Angol.
+                Su labor considera la orientación técnica, el apoyo a proyectos,
+                la articulación con instituciones públicas y privadas, la formación
+                de redes y la promoción de iniciativas que contribuyan al empleo y
+                al desarrollo sustentable de la comuna.
+            </p>
+            <p>
+                Desde los emprendimientos urbanos hasta las actividades
+                silvoagropecuarias del sector rural, el objetivo es facilitar el
+                acceso a herramientas, información y oportunidades que permitan
+                iniciar, mejorar y consolidar proyectos productivos.
+            </p>
+        </section>
+
+        <section aria-labelledby="accesos-titulo">
+            <div class="fomento-titulo-seccion">
+                <h2 id="accesos-titulo">Accesos destacados</h2>
+                <p>
+                    Encuentra información y recursos para desarrollar tu actividad,
+                    buscar apoyo o conocer las oportunidades disponibles.
+                </p>
+            </div>
+
+            <div class="fomento-accesos">
+                <a class="fomento-acceso" href="#emprendimiento">
+                    <h3>Emprendimiento y negocios</h3>
+                    <p>Orientación para desarrollar ideas, fortalecer negocios y formular proyectos.</p>
+                    <span class="fomento-enlace">Conocer más →</span>
+                </a>
+
+                <a class="fomento-acceso" href="#desarrollo-rural">
+                    <h3>Desarrollo rural y agrícola</h3>
+                    <p>Información sobre apoyo técnico y programas dirigidos a productores.</p>
+                    <span class="fomento-enlace">Conocer más →</span>
+                </a>
+
+                <a class="fomento-acceso" href="#fondos">
+                    <h3>Fondos y financiamiento</h3>
+                    <p>Consulta instituciones y plataformas que publican instrumentos de apoyo.</p>
+                    <span class="fomento-enlace">Ver recursos →</span>
+                </a>
+
+                <a class="fomento-acceso" href="#capacitacion">
+                    <h3>Capacitación y formación</h3>
+                    <p>Accede a recursos para fortalecer habilidades laborales y empresariales.</p>
+                    <span class="fomento-enlace">Ver recursos →</span>
+                </a>
+
+                <a class="fomento-acceso" href="#ferias">
+                    <h3>Ferias y actividades productivas</h3>
+                    <p>Espacio informativo para iniciativas, encuentros y exhibiciones locales.</p>
+                    <span class="fomento-enlace">Conocer más →</span>
+                </a>
+
+                <a class="fomento-acceso" href="#contacto-fomento">
+                    <h3>Contacto y orientación</h3>
+                    <p>Consulta los canales oficiales para resolver dudas sobre los programas.</p>
+                    <span class="fomento-enlace">Ir a contacto →</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="programas" aria-labelledby="programas-titulo">
+            <div class="fomento-titulo-seccion">
+                <h2 id="programas-titulo">Programas y áreas de apoyo</h2>
+                <p>
+                    Las distintas líneas de trabajo permiten abordar necesidades
+                    de emprendimiento, producción, asistencia técnica y desarrollo
+                    económico en sectores urbanos y rurales.
+                </p>
+            </div>
+
+            <div class="fomento-programas">
+                <article class="fomento-tarjeta" id="emprendimiento">
+                    <img class="fomento-tarjeta-imagen"
+                        src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        alt="Personas trabajando en un proyecto de emprendimiento"
+                        loading="lazy">
+
+                    <div class="fomento-tarjeta-contenido">
+                        <span class="fomento-categoria">Emprendimiento</span>
+                        <h3>Centro de Emprendimiento y Negocios</h3>
+                        <p>
+                            Espacio de orientación técnica para personas que buscan
+                            iniciar o consolidar un negocio. Entre sus líneas de
+                            trabajo se encuentra la formulación y postulación de
+                            proyectos, la formación de redes entre microempresarios
+                            y la realización de talleres, charlas, encuentros y
+                            actividades productivas.
+                        </p>
+                        <ul>
+                            <li>Orientación para formular proyectos.</li>
+                            <li>Información sobre oportunidades de apoyo.</li>
+                            <li>Fortalecimiento de redes y negocios locales.</li>
+                            <li>Actividades de formación y encuentro.</li>
+                        </ul>
+                        <a class="fomento-boton-secundario" href="https://www.angol.cl/">
+                            Visitar sitio municipal
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fomento-tarjeta" id="desarrollo-rural">
+                    <img class="fomento-tarjeta-imagen"
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        alt="Paisaje de campos cultivados y actividad agrícola"
+                        loading="lazy">
+
+                    <div class="fomento-tarjeta-contenido">
+                        <span class="fomento-categoria">Sector rural</span>
+                        <h3>PRODER</h3>
+                        <p>
+                            El Programa de Desarrollo Rural entrega orientación
+                            técnica y apoyo a usuarios vinculados al desarrollo
+                            productivo urbano y rural, especialmente a quienes no
+                            forman parte de los programas de asesoría técnica
+                            convenidos con INDAP.
+                        </p>
+                        <p>
+                            Su ámbito de trabajo contempla actividades
+                            hortofrutícolas, ganaderas, silvícolas y de
+                            emprendimiento turístico y socioproductivo.
+                        </p>
+                        <a class="fomento-boton-secundario" href="https://www.angol.cl/">
+                            Consultar en el municipio
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fomento-tarjeta">
+                    <img class="fomento-tarjeta-imagen"
+                        src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        alt="Productos frescos de origen agrícola"
+                        loading="lazy">
+
+                    <div class="fomento-tarjeta-contenido">
+                        <span class="fomento-categoria">Producción local</span>
+                        <h3>Desarrollo silvoagropecuario</h3>
+                        <p>
+                            Apoyo al fortalecimiento de actividades productivas
+                            relacionadas con la agricultura, la producción
+                            hortofrutícola, la ganadería y los recursos forestales.
+                            Estas actividades contribuyen a mantener y desarrollar
+                            las capacidades productivas de las comunidades rurales.
+                        </p>
+                        <ul>
+                            <li>Orientación para iniciativas productivas.</li>
+                            <li>Fortalecimiento de capacidades técnicas.</li>
+                            <li>Promoción de prácticas sustentables.</li>
+                        </ul>
+                        <a class="fomento-boton-secundario" href="https://www.angol.cl/">
+                            Consultar información
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fomento-tarjeta">
+                    <img class="fomento-tarjeta-imagen"
+                        src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        alt="Equipo de trabajo colaborando en una actividad"
+                        loading="lazy">
+
+                    <div class="fomento-tarjeta-contenido">
+                        <span class="fomento-categoria">Desarrollo económico</span>
+                        <h3>Articulación y redes de colaboración</h3>
+                        <p>
+                            El trabajo municipal contempla la vinculación con
+                            instituciones públicas y privadas para facilitar el
+                            acceso a instrumentos de fomento, coordinar iniciativas
+                            y promover oportunidades de desarrollo para distintos
+                            sectores productivos de la comuna.
+                        </p>
+                        <a class="fomento-boton-secundario" href="https://www.angol.cl/">
+                            Conocer iniciativas
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fomento-tarjeta" id="capacitacion">
+                    <img class="fomento-tarjeta-imagen"
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        alt="Personas participando en una actividad formativa"
+                        loading="lazy">
+
+                    <div class="fomento-tarjeta-contenido">
+                        <span class="fomento-categoria">Formación</span>
+                        <h3>Capacitación y fortalecimiento de competencias</h3>
+                        <p>
+                            La capacitación contribuye al desarrollo de
+                            emprendimientos y a mejorar las posibilidades de
+                            inserción laboral. Las actividades disponibles pueden
+                            variar según los programas, las convocatorias y los
+                            convenios vigentes.
+                        </p>
+                        <a class="fomento-boton-secundario" href="https://www.angol.cl/">
+                            Ver capacitaciones
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fomento-tarjeta" id="ferias">
+                    <img class="fomento-tarjeta-imagen"
+                        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        alt="Productos frescos exhibidos en un mercado"
+                        loading="lazy">
+
+                    <div class="fomento-tarjeta-contenido">
+                        <span class="fomento-categoria">Comercialización</span>
+                        <h3>Ferias y encuentros productivos</h3>
+                        <p>
+                            Las ferias, exposiciones y encuentros territoriales
+                            permiten dar visibilidad a productos y servicios,
+                            generar redes y acercar las iniciativas locales a la
+                            comunidad. Este espacio reunirá información de futuras
+                            actividades y sus mecanismos de participación.
+                        </p>
+                        <a class="fomento-boton-secundario" href="https://www.angol.cl/">
+                            Ver actividades
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="fomento-destacado" id="fondos">
+            <div>
+                <h2>Encuentra oportunidades para tu proyecto</h2>
+                <p>
+                    Existen instituciones públicas que publican fondos concursables,
+                    asesorías y programas de apoyo para emprendedores, microempresas
+                    y productores. Las condiciones, fechas, requisitos y montos
+                    dependen de cada convocatoria.
+                </p>
+                <p>
+                    Antes de postular, revisa las bases oficiales y verifica que tu
+                    proyecto cumpla los requisitos establecidos.
+                </p>
+                <a class="fomento-boton-secundario"
+                    href="https://www.sercotec.cl/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Conocer Sercotec
+                </a>
+            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+                alt="Planificación y análisis financiero para un proyecto"
+                loading="lazy">
+        </section>
+
+        <section aria-labelledby="recursos-titulo">
+            <div class="fomento-titulo-seccion">
+                <h2 id="recursos-titulo">Enlaces y recursos de utilidad</h2>
+                <p>
+                    Accesos a plataformas institucionales para buscar apoyo,
+                    capacitación, información laboral y oportunidades de
+                    financiamiento. Los enlaces conducen a sitios externos.
+                </p>
+            </div>
+
+            <div class="fomento-lista-enlaces">
+                <a class="fomento-enlace-util" href="https://www.sercotec.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>Sercotec</strong>
+                    <span>Programas, asesoría y recursos para el desarrollo de pequeñas empresas y emprendimientos.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.corfo.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>Corfo</strong>
+                    <span>Información sobre instrumentos de apoyo a la innovación, el emprendimiento y la productividad.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.indap.gob.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>INDAP</strong>
+                    <span>Programas y herramientas dirigidos al desarrollo de la agricultura familiar campesina y rural.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.chileatiende.gob.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>ChileAtiende</strong>
+                    <span>Información sobre beneficios, trámites y servicios públicos disponibles para la ciudadanía.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.sii.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>Servicio de Impuestos Internos</strong>
+                    <span>Consultas tributarias, inicio de actividades y trámites relacionados con la formalización de negocios.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.bne.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>Bolsa Nacional de Empleo</strong>
+                    <span>Plataforma para buscar oportunidades laborales y consultar recursos relacionados con el empleo.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.dt.gob.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>Dirección del Trabajo</strong>
+                    <span>Información sobre derechos laborales, normativa y servicios relacionados con el trabajo.</span>
+                </a>
+
+                <a class="fomento-enlace-util" href="https://www.mercadopublico.cl/" target="_blank" rel="noopener noreferrer">
+                    <strong>Mercado Público</strong>
+                    <span>Plataforma de compras públicas para consultar licitaciones y oportunidades para proveedores.</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="fomento-contacto" id="contacto-fomento">
+            <h2>¿Necesitas orientación?</h2>
+            <p>
+                Si tienes una idea de negocio, buscas apoyo para un proyecto o
+                necesitas información sobre programas productivos, consulta los
+                canales oficiales de la Municipalidad de Angol para conocer las
+                opciones de atención, los requisitos y las convocatorias vigentes.
+            </p>
+            <p>
+                Los horarios, datos de contacto y condiciones de acceso deben
+                confirmarse directamente con el municipio.
+            </p>
+            <a class="fomento-boton"
+                href="https://www.angol.cl/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Ir al sitio municipal
+            </a>
+        </section>
+
+        <p class="fomento-nota">
+            Nota: las fotografías de esta página son ilustrativas. Los programas,
+            beneficios, fechas y requisitos pueden cambiar. Consulta siempre las
+            fuentes oficiales antes de iniciar una postulación.
+        </p>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer-content">
+        <div class="footer-section">
+            <h3>Municipalidad de Angol</h3>
+            <p>El Angol que todos queremos.</p>
+            <p>Información y servicios para la comunidad.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Enlaces de interés</h3>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="noticias-municipales.html">Noticias municipales</a></li>
+                <li><a href="servicios-online.html">Servicios online</a></li>
+                <li><a href="departamento-turismo.html">Departamento de Turismo</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Fomento Productivo</h3>
+            <ul>
+                <li><a href="#programas">Programas municipales</a></li>
+                <li><a href="#emprendimiento">Emprendimiento y negocios</a></li>
+                <li><a href="#desarrollo-rural">Desarrollo rural</a></li>
+                <li><a href="#fondos">Fondos y recursos</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© Municipalidad de Angol. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MENÚ DESPLEGABLE E HISTORIAL DE NAVEGACIÓN -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const botonMenu = document.getElementById("menuBoton");
+            const panelMenu = document.getElementById("menuDesplegable");
+
+            // Abrir y cerrar el menú principal
+            if (botonMenu && panelMenu) {
+                botonMenu.addEventListener("click", function () {
+                    const abierto = panelMenu.classList.toggle("abierto");
+
+                    botonMenu.setAttribute("aria-expanded", String(abierto));
+                    botonMenu.setAttribute(
+                        "aria-label",
+                        abierto ? "Cerrar menú" : "Abrir menú"
+                    );
+                });
+            }
+
+            // Abrir y cerrar los submenús
+            document.querySelectorAll(".interior-submenu-toggle").forEach(function (boton) {
+                boton.addEventListener("click", function () {
+                    const idSubmenu = boton.getAttribute("aria-controls");
+                    const submenu = document.getElementById(idSubmenu);
+
+                    if (!submenu) return;
+
+                    const abierto = submenu.classList.toggle("abierto");
+                    boton.setAttribute("aria-expanded", String(abierto));
+                });
+            });
+
+            // Historial de navegación
+            const paginaActual = document.body.dataset.page;
+            const urlActual = document.body.dataset.pageUrl;
+            const historialElemento = document.getElementById("historialPaginas");
+
+            if (paginaActual && urlActual && historialElemento) {
+                let historial = [];
+
+                try {
+                    historial = JSON.parse(
+                        sessionStorage.getItem("historialAngol") || "[]"
+                    );
+
+                    if (!Array.isArray(historial)) {
+                        historial = [];
+                    }
+                } catch (error) {
+                    historial = [];
+                }
+
+                historial = historial.filter(function (pagina) {
+                    return pagina && pagina.url !== urlActual;
+                });
+
+                historial.push({
+                    nombre: paginaActual,
+                    url: urlActual
+                });
+
+                historial = historial.slice(-8);
+
+                try {
+                    sessionStorage.setItem(
+                        "historialAngol",
+                        JSON.stringify(historial)
+                    );
+                } catch (error) {
+                    // La página sigue funcionando si sessionStorage no está disponible.
+                }
+
+                historialElemento.replaceChildren();
+
+                const elementoInicio = document.createElement("li");
+                const enlaceInicio = document.createElement("a");
+                enlaceInicio.href = "index.html";
+                enlaceInicio.textContent = "Inicio";
+                elementoInicio.appendChild(enlaceInicio);
+                historialElemento.appendChild(elementoInicio);
+
+                historial.forEach(function (pagina, indice) {
+                    const elemento = document.createElement("li");
+
+                    if (indice === historial.length - 1) {
+                        elemento.textContent = pagina.nombre;
+                        elemento.setAttribute("aria-current", "page");
+                    } else {
+                        const enlace = document.createElement("a");
+                        enlace.href = pagina.url;
+                        enlace.textContent = pagina.nombre;
+                        elemento.appendChild(enlace);
+                    }
+
+                    historialElemento.appendChild(elemento);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

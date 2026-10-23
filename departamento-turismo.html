@@ -1,0 +1,1044 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre los paisajes, senderos, parques, miradores y patrimonio turístico de Angol y sus alrededores.">
+    <title>Departamento de Turismo | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ESTILOS EXCLUSIVOS DE TURISMO */
+
+        .turismo {
+            --verde: #456514;
+            --verde-claro: #94A740;
+            --fondo: #f5f6f0;
+            color: #333;
+        }
+
+        .turismo * {
+            box-sizing: border-box;
+        }
+
+        /* Encabezado compacto: sin fotografía gigante */
+        .turismo-portada {
+            background: #eef2e5;
+            padding: 48px 6%;
+            border-bottom: 1px solid #dfe6d2;
+        }
+
+        .turismo-portada-contenido {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .turismo-etiqueta {
+            margin: 0 0 12px;
+            color: var(--verde);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .turismo-portada h1 {
+            max-width: 850px;
+            margin: 0 0 16px;
+            color: var(--verde);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.12;
+        }
+
+        .turismo-portada p {
+            max-width: 850px;
+            margin: 0;
+            color: #41483a;
+            font-size: 1.05rem;
+            line-height: 1.85;
+        }
+
+        .turismo-contenedor {
+            width: min(1150px, 90%);
+            margin: 0 auto;
+        }
+
+        .turismo-introduccion {
+            padding: 45px 0 25px;
+        }
+
+        .turismo-introduccion p {
+            max-width: 950px;
+            margin: 0;
+            line-height: 1.9;
+            font-size: 1.02rem;
+        }
+
+        .turismo-seccion {
+            padding: 55px 0;
+        }
+
+        .turismo-seccion-fondo {
+            background: var(--fondo);
+        }
+
+        .turismo-titulo-seccion {
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .turismo-titulo-seccion h2 {
+            margin: 10px 0 14px;
+            color: var(--verde);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.2;
+        }
+
+        .turismo-titulo-seccion p {
+            margin: 0;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .turismo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .turismo-tarjeta {
+            min-width: 0;
+            overflow: hidden;
+            border-radius: 9px;
+            background: #fff;
+            box-shadow: 0 4px 18px rgba(40, 55, 24, .09);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .turismo-tarjeta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 9px 24px rgba(40, 55, 24, .14);
+        }
+
+        .turismo-imagen {
+            height: 230px;
+            overflow: hidden;
+            background: #e0e5d7;
+        }
+
+        .turismo-imagen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .35s;
+        }
+
+        .turismo-tarjeta:hover .turismo-imagen img {
+            transform: scale(1.04);
+        }
+
+        .turismo-texto-tarjeta {
+            padding: 23px;
+        }
+
+        .turismo-texto-tarjeta h3 {
+            margin: 0 0 12px;
+            color: var(--verde);
+            font-size: 1.28rem;
+            line-height: 1.35;
+        }
+
+        .turismo-texto-tarjeta p {
+            margin: 0 0 17px;
+            color: #505050;
+            font-size: .96rem;
+            line-height: 1.8;
+        }
+
+        .turismo-enlace {
+            color: var(--verde) !important;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .turismo-enlace:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección especial de Nahuelbuta */
+        .turismo-destacado {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(40, 55, 24, .08);
+        }
+
+        .turismo-destacado-imagen {
+            min-height: 430px;
+        }
+
+        .turismo-destacado-imagen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+            object-fit: cover;
+        }
+
+        .turismo-destacado-contenido {
+            padding: clamp(25px, 4vw, 45px);
+        }
+
+        .turismo-destacado-contenido h3 {
+            margin: 10px 0 15px;
+            color: var(--verde);
+            font-size: clamp(1.7rem, 3vw, 2.4rem);
+            line-height: 1.2;
+        }
+
+        .turismo-destacado-contenido p {
+            line-height: 1.85;
+        }
+
+        .turismo-lista-senderos {
+            display: grid;
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        .turismo-sendero {
+            padding: 14px 16px;
+            border-left: 4px solid var(--verde-claro);
+            background: #f3f5ed;
+        }
+
+        .turismo-sendero strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--verde);
+        }
+
+        .turismo-sendero p {
+            margin: 0;
+            font-size: .92rem;
+            line-height: 1.7;
+        }
+
+        .turismo-boton {
+            display: inline-block;
+            padding: 12px 19px;
+            border-radius: 4px;
+            background: var(--verde);
+            color: white !important;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s;
+        }
+
+        .turismo-boton:hover {
+            background: #30470f;
+        }
+
+        /* Bloque de patrimonio */
+        .turismo-patrimonio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .turismo-patrimonio img {
+            width: 100%;
+            height: 340px;
+            display: block;
+            object-fit: cover;
+            border-radius: 9px;
+        }
+
+        .turismo-patrimonio h3 {
+            margin: 0 0 14px;
+            color: var(--verde);
+            font-size: 1.7rem;
+        }
+
+        .turismo-patrimonio p {
+            line-height: 1.85;
+        }
+
+        /* Recomendaciones */
+        .turismo-consejos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .turismo-consejo {
+            padding: 24px;
+            border: 1px solid #e1e6d7;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .turismo-consejo-numero {
+            display: flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            background: #e8eddc;
+            color: var(--verde);
+            font-weight: 800;
+        }
+
+        .turismo-consejo h3 {
+            margin: 0 0 10px;
+            color: var(--verde);
+            font-size: 1.12rem;
+        }
+
+        .turismo-consejo p {
+            margin: 0;
+            color: #555;
+            line-height: 1.75;
+        }
+
+        .turismo-nota {
+            margin-top: 24px;
+            padding: 16px 19px;
+            border-left: 4px solid var(--verde-claro);
+            background: #edf0e5;
+            font-size: .93rem;
+            line-height: 1.75;
+        }
+
+        .turismo-enlaces-finales {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        @media (max-width: 900px) {
+            .turismo-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .turismo-destacado,
+            .turismo-patrimonio {
+                grid-template-columns: 1fr;
+            }
+
+            .turismo-destacado-imagen,
+            .turismo-destacado-imagen img {
+                min-height: 300px;
+                max-height: 390px;
+            }
+
+            .turismo-consejos {
+                grid-template-columns: 1fr;
+            }
+
+            .turismo-patrimonio img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .turismo-portada {
+                padding: 34px 6%;
+            }
+
+            .turismo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .turismo-seccion {
+                padding: 40px 0;
+            }
+
+            .turismo-imagen {
+                height: 235px;
+            }
+
+            .turismo-enlaces-finales {
+                flex-direction: column;
+            }
+
+            .turismo-boton {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="Departamento de Turismo"
+      data-page-url="departamento-turismo.html">
+
+    <!-- ENCABEZADO ORIGINAL DE LAS PÁGINAS INTERIORES -->
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html">
+            Municipalidad de Angol
+        </a>
+
+        <div class="interior-menu">
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="conoce-mas.html">Plan Regulador</a></li>
+                    <li><a href="conoce-mas.html">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- HISTORIAL DE NAVEGACIÓN ORIGINAL -->
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+    <ol id="historialPaginas">
+        <li><a href="index.html">Inicio</a></li>
+    </ol>
+</nav>
+
+    <main class="turismo">
+
+        <!-- ENCABEZADO DE TEXTO, SIN IMAGEN GIGANTE -->
+        <section class="turismo-portada">
+            <div class="turismo-portada-contenido">
+                <p class="turismo-etiqueta">Turismo · Angol</p>
+                <h1>Descubre la naturaleza y los paisajes de Angol</h1>
+                <p>
+                    Explora los bosques de Nahuelbuta, conoce sus senderos y
+                    miradores, recorre los espacios verdes de la ciudad y descubre
+                    el patrimonio natural y cultural de la capital de Malleco.
+                </p>
+            </div>
+        </section>
+
+        <section class="turismo-contenedor turismo-introduccion">
+            <p>
+                Angol se encuentra en la Región de La Araucanía y es una puerta
+                de entrada a los paisajes de la cordillera de Nahuelbuta. Sus
+                alrededores reúnen bosques nativos, áreas de conservación,
+                caminos rurales y lugares para disfrutar al aire libre. La ciudad
+                también ofrece plazas, parques y espacios vinculados con su historia
+                e identidad local. Esta guía reúne algunos destinos para organizar
+                una visita y conocer mejor el territorio.
+            </p>
+        </section>
+
+        <!-- PRINCIPALES ATRACTIVOS -->
+        <section class="turismo-seccion turismo-seccion-fondo" id="lugares">
+            <div class="turismo-contenedor">
+                <div class="turismo-titulo-seccion">
+                    <p class="turismo-etiqueta">Lugares destacados</p>
+                    <h2>Un territorio para explorar</h2>
+                    <p>
+                        Desde los bosques de montaña hasta los espacios urbanos,
+                        Angol permite combinar recorridos naturales con paseos
+                        por la ciudad.
+                    </p>
+                </div>
+
+                <div class="turismo-grid">
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
+                                alt="Bosque de árboles altos y vegetación frondosa"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Parque Nacional Nahuelbuta</h3>
+                            <p>
+                                Una de las áreas naturales más reconocidas del
+                                entorno de Angol. Protege bosques de araucarias
+                                y otras especies nativas, junto con paisajes
+                                de montaña y rutas para caminar.
+                            </p>
+                            <a class="turismo-enlace"
+                               href="https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+                               target="_blank" rel="noopener">
+                                Información oficial de CONAF →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85"
+                                alt="Montañas y cordillera vistas desde un paisaje elevado"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Piedra del Águila</h3>
+                            <p>
+                                Mirador natural ubicado en el Parque Nacional
+                                Nahuelbuta. Es conocido por sus vistas panorámicas
+                                y por el paisaje de montañas, bosque y horizontes
+                                que se puede apreciar desde sus alturas.
+                            </p>
+                            <a class="turismo-enlace"
+                               href="https://destinoaraucania.cl/explorar/lugares/piedra-del-aguila"
+                               target="_blank" rel="noopener">
+                                Conocer el lugar →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85"
+                                alt="Entorno natural con árboles y fauna silvestre"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Parque CMPC Junquillar</h3>
+                            <p>
+                                Un espacio natural de los alrededores de Angol
+                                asociado a actividades al aire libre. Antes de
+                                organizar la visita, es importante consultar
+                                qué sectores y recorridos están habilitados.
+                            </p>
+                            <a class="turismo-enlace"
+                               href="https://www.google.com/maps/search/?api=1&query=Parque+CMPC+Junquillar+Angol"
+                               target="_blank" rel="noopener">
+                                Consultar ubicación →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=85"
+                                alt="Sendero rodeado de vegetación y árboles"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Caminatas por Nahuelbuta</h3>
+                            <p>
+                                Los senderos del parque permiten recorrer
+                                distintos ambientes del bosque y acercarse
+                                a la biodiversidad de la cordillera. La ruta
+                                elegida debe ajustarse al estado físico y a
+                                las condiciones de acceso.
+                            </p>
+                            <a class="turismo-enlace" href="#senderos">
+                                Conocer los senderos →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85"
+                                alt="Luz natural entre árboles de un bosque"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Parque Vergara</h3>
+                            <p>
+                                Un espacio verde urbano para caminar, descansar
+                                y complementar un recorrido por Angol. Es una
+                                alternativa para disfrutar de áreas arboladas
+                                sin alejarse del entorno de la ciudad.
+                            </p>
+                            <a class="turismo-enlace"
+                               href="https://www.google.com/maps/search/?api=1&query=Parque+Vergara+Angol"
+                               target="_blank" rel="noopener">
+                                Consultar ubicación →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=85"
+                                alt="Arquitectura urbana y espacios públicos"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Plaza Siete Fundaciones</h3>
+                            <p>
+                                La plaza principal de Angol es un lugar de
+                                encuentro y un punto desde el cual recorrer
+                                el centro de la ciudad. Su nombre recuerda
+                                la historia de las distintas fundaciones
+                                y refundaciones de Angol.
+                            </p>
+                            <a class="turismo-enlace"
+                               href="https://www.google.com/maps/search/?api=1&query=Plaza+Siete+Fundaciones+Angol"
+                               target="_blank" rel="noopener">
+                                Consultar ubicación →
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SENDEROS -->
+        <section class="turismo-seccion" id="senderos">
+            <div class="turismo-contenedor">
+                <div class="turismo-titulo-seccion">
+                    <p class="turismo-etiqueta">Turismo de naturaleza</p>
+                    <h2>Senderos del Parque Nacional Nahuelbuta</h2>
+                    <p>
+                        El parque ofrece recorridos que permiten conocer sus
+                        bosques y miradores. Las distancias, duración, dificultad
+                        y apertura pueden variar, por lo que es necesario
+                        confirmar los datos vigentes con CONAF antes de viajar.
+                    </p>
+                </div>
+
+                <div class="turismo-destacado">
+                    <div class="turismo-destacado-imagen">
+                        <img
+                            src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=85"
+                            alt="Bosque nativo con árboles altos"
+                            loading="lazy">
+                    </div>
+
+                    <div class="turismo-destacado-contenido">
+                        <p class="turismo-etiqueta">Recorridos naturales</p>
+                        <h3>Caminar entre araucarias</h3>
+                        <p>
+                            El paisaje de Nahuelbuta combina bosques nativos,
+                            vegetación de montaña y puntos panorámicos. Recorrer
+                            sus senderos permite observar el entorno natural
+                            y comprender la importancia de proteger estos
+                            ecosistemas.
+                        </p>
+
+                        <div class="turismo-lista-senderos">
+                            <div class="turismo-sendero">
+                                <strong>Piedra del Águila</strong>
+                                <p>
+                                    Ruta hacia uno de los miradores más conocidos
+                                    del parque. Confirma la distancia, dificultad
+                                    y acceso con CONAF.
+                                </p>
+                            </div>
+
+                            <div class="turismo-sendero">
+                                <strong>Casa de Piedra</strong>
+                                <p>
+                                    Recorrido señalado en la información turística
+                                    del parque. Revisa su habilitación antes de salir.
+                                </p>
+                            </div>
+
+                            <div class="turismo-sendero">
+                                <strong>Estero Los Gringos</strong>
+                                <p>
+                                    Alternativa de caminata en el entorno natural
+                                    del parque, sujeta a las condiciones vigentes.
+                                </p>
+                            </div>
+
+                            <div class="turismo-sendero">
+                                <strong>El Aguilucho y Cerro Anay</strong>
+                                <p>
+                                    Otros nombres de recorridos asociados al parque.
+                                    Consulta cuáles están abiertos y las condiciones
+                                    para realizarlos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a class="turismo-boton"
+                           href="https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+                           target="_blank" rel="noopener">
+                            Consultar a CONAF
+                        </a>
+                    </div>
+                </div>
+
+                <div class="turismo-nota">
+                    <strong>Importante:</strong> no inicies un recorrido sin
+                    comprobar el estado del parque y sus senderos. Lleva agua,
+                    abrigo y calzado adecuado; respeta la señalización, no
+                    enciendas fuego donde esté prohibido y regresa con todos
+                    tus residuos.
+                </div>
+            </div>
+        </section>
+
+        <!-- PAISAJES Y ENTORNO NATURAL -->
+        <section class="turismo-seccion turismo-seccion-fondo" id="naturaleza">
+            <div class="turismo-contenedor">
+                <div class="turismo-titulo-seccion">
+                    <p class="turismo-etiqueta">Riqueza natural</p>
+                    <h2>Un paisaje que merece ser protegido</h2>
+                    <p>
+                        La naturaleza del entorno de Angol es uno de sus
+                        principales atractivos. Los bosques nativos y las
+                        áreas de montaña forman parte de un patrimonio
+                        que requiere cuidado y conservación.
+                    </p>
+                </div>
+
+                <div class="turismo-grid">
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
+                                alt="Vegetación y árboles en un bosque"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Bosques nativos</h3>
+                            <p>
+                                Los bosques de Nahuelbuta constituyen un ambiente
+                                de gran valor ecológico. Observarlos con respeto
+                                permite reconocer la importancia de conservar
+                                sus especies y sus hábitats.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85"
+                                alt="Panorama de montañas y relieve natural"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Miradores y panorámicas</h3>
+                            <p>
+                                Los sectores elevados ofrecen perspectivas
+                                amplias del territorio. Antes de visitar
+                                un mirador, revisa el acceso y sigue las
+                                indicaciones de seguridad.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="turismo-tarjeta">
+                        <div class="turismo-imagen">
+                            <img
+                                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85"
+                                alt="Paisaje natural con árboles y fauna"
+                                loading="lazy">
+                        </div>
+                        <div class="turismo-texto-tarjeta">
+                            <h3>Biodiversidad</h3>
+                            <p>
+                                La flora y fauna del territorio son parte
+                                fundamental de su riqueza natural. Evita
+                                alimentar animales, extraer plantas o
+                                alterar los espacios que visites.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PATRIMONIO DE ANGOL -->
+        <section class="turismo-seccion" id="patrimonio">
+            <div class="turismo-contenedor">
+                <div class="turismo-titulo-seccion">
+                    <p class="turismo-etiqueta">Historia e identidad</p>
+                    <h2>También hay lugares para conocer en la ciudad</h2>
+                </div>
+
+                <div class="turismo-patrimonio">
+                    <img
+                        src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1100&q=85"
+                        alt="Arquitectura y espacio público urbano"
+                        loading="lazy">
+
+                    <div>
+                        <h3>Plaza Siete Fundaciones</h3>
+                        <p>
+                            La Plaza de Armas es uno de los espacios públicos
+                            más representativos de Angol. Su nombre se relaciona
+                            con la historia de las fundaciones y refundaciones
+                            de la ciudad, cuyo establecimiento definitivo se
+                            remonta a 1862.
+                        </p>
+                        <p>
+                            Desde el centro se puede organizar un paseo por
+                            los espacios públicos y conocer más sobre la
+                            historia y la identidad local.
+                        </p>
+                        <a class="turismo-enlace"
+                           href="https://www.monumentos.gob.cl/monumentos/monumentos-publicos/fundacion-de-angol"
+                           target="_blank" rel="noopener">
+                            Información patrimonial →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECOMENDACIONES -->
+        <section class="turismo-seccion turismo-seccion-fondo" id="planifica">
+            <div class="turismo-contenedor">
+                <div class="turismo-titulo-seccion">
+                    <p class="turismo-etiqueta">Antes de salir</p>
+                    <h2>Planifica una visita responsable</h2>
+                    <p>
+                        Prepararse con anticipación ayuda a disfrutar del
+                        recorrido y proteger los espacios naturales.
+                    </p>
+                </div>
+
+                <div class="turismo-consejos">
+                    <article class="turismo-consejo">
+                        <span class="turismo-consejo-numero">01</span>
+                        <h3>Consulta las condiciones</h3>
+                        <p>
+                            Comprueba horarios, accesos, clima y senderos
+                            habilitados en fuentes oficiales antes de
+                            comenzar el viaje.
+                        </p>
+                    </article>
+
+                    <article class="turismo-consejo">
+                        <span class="turismo-consejo-numero">02</span>
+                        <h3>Equípate para el recorrido</h3>
+                        <p>
+                            Lleva agua, alimentos, abrigo y calzado adecuado.
+                            Escoge una ruta que se ajuste a tu experiencia
+                            y condición física.
+                        </p>
+                    </article>
+
+                    <article class="turismo-consejo">
+                        <span class="turismo-consejo-numero">03</span>
+                        <h3>Protege la naturaleza</h3>
+                        <p>
+                            No dejes basura, no extraigas flora y fauna,
+                            respeta los senderos señalizados y evita
+                            encender fuego en lugares no autorizados.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="turismo-enlaces-finales">
+                    <a class="turismo-boton"
+                       href="https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+                       target="_blank" rel="noopener">
+                        Parque Nacional Nahuelbuta
+                    </a>
+
+                    <a class="turismo-boton"
+                       href="https://destinoaraucania.cl/explorar/comunas/angol"
+                       target="_blank" rel="noopener">
+                        Destinos de Angol
+                    </a>
+
+                    <a class="turismo-boton" href="index.html">
+                        Volver al inicio
+                    </a>
+                </div>
+
+                <div class="turismo-nota">
+                    Esta página entrega información general para orientar
+                    la visita. Los horarios, accesos, servicios disponibles
+                    y condiciones de los senderos deben confirmarse con
+                    las entidades responsables antes de viajar.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA ORIGINAL -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
+                <p>✉️ contacto@angol.cl</p>
+                <p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="conoce-mas.html" class="btn-secondary">Ley de Transparencia</a>
+                <br><br>
+                <a href="conoce-mas.html" class="btn-secondary">Ley del Lobby</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MENÚ E HISTORIAL: MISMA LÓGICA DE NOTICIAS MUNICIPALES -->
+    <script>
+        const botonMenu = document.getElementById("menuBoton");
+        const panelMenu = document.getElementById("menuDesplegable");
+
+        botonMenu.addEventListener("click", () => {
+            const abierto = panelMenu.classList.toggle("abierto");
+            botonMenu.setAttribute("aria-expanded", String(abierto));
+        });
+
+        document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+            boton.addEventListener("click", () => {
+                const submenu = document.getElementById(
+                    boton.getAttribute("aria-controls")
+                );
+
+                const abierto = submenu.classList.toggle("abierto");
+                boton.setAttribute("aria-expanded", String(abierto));
+            });
+        });
+
+        // Historial de páginas visitadas durante esta sesión.
+        const paginaActual = {
+            nombre: document.body.dataset.page,
+            url: document.body.dataset.pageUrl
+        };
+
+        let historial = [];
+
+        try {
+            historial = JSON.parse(
+                sessionStorage.getItem("historialAngol") || "[]"
+            );
+        } catch (error) {
+            historial = [];
+        }
+
+        // Si se vuelve a una página anterior, se recupera esa ruta.
+        const posicionExistente = historial.findIndex(
+            pagina => pagina.url === paginaActual.url
+        );
+
+        if (posicionExistente >= 0) {
+            historial = historial.slice(0, posicionExistente + 1);
+        } else {
+            historial.push(paginaActual);
+        }
+
+        if (historial.length > 8) {
+            historial = historial.slice(-8);
+        }
+
+        sessionStorage.setItem("historialAngol", JSON.stringify(historial));
+
+        const listaHistorial = document.getElementById("historialPaginas");
+
+        historial.forEach((pagina, indice) => {
+            const elemento = document.createElement("li");
+
+            if (indice === historial.length - 1) {
+                elemento.textContent = pagina.nombre;
+                elemento.setAttribute("aria-current", "page");
+            } else {
+                const enlace = document.createElement("a");
+                enlace.href = pagina.url;
+                enlace.textContent = pagina.nombre;
+                elemento.appendChild(enlace);
+            }
+
+            listaHistorial.appendChild(elemento);
+        });
+    </script>
+
+</body>
+</html>

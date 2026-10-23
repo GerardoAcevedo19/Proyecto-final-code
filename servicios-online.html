@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Servicios Online | Municipalidad de Angol</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Estilos exclusivos de Servicios Online */
+        .servicios-intro {
+            background: #eef4e5;
+            border-left: 5px solid #456514;
+            border-radius: 8px;
+            padding: 25px 28px;
+            margin-bottom: 32px;
+        }
+
+        .servicios-intro p {
+            margin: 10px 0 0;
+            line-height: 1.8;
+        }
+
+        .servicios-acceso-rapido {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 25px 0 40px;
+        }
+
+        .servicio-rapido {
+            background: #456514;
+            color: #ffffff;
+            padding: 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .servicio-rapido:hover {
+            background: #354e0e;
+            transform: translateY(-3px);
+        }
+
+        .servicio-rapido .icono {
+            font-size: 2rem;
+        }
+
+        .servicio-rapido h3 {
+            margin: 0;
+            font-size: 1.15rem;
+        }
+
+        .servicio-rapido p {
+            margin: 0;
+            line-height: 1.6;
+            color: #f4f7ee;
+        }
+
+        .servicios-subtitulo {
+            margin: 35px 0 8px;
+            color: #456514;
+            font-size: 1.65rem;
+        }
+
+        .servicios-descripcion {
+            margin-bottom: 22px;
+            line-height: 1.8;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 22px;
+            margin: 25px 0 40px;
+        }
+
+        .servicio-card {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border: 1px solid #dce5d1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(35, 55, 20, 0.07);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 7px 18px rgba(35, 55, 20, 0.13);
+        }
+
+        .servicio-card-cabecera {
+            min-height: 115px;
+            padding: 22px;
+            background: #e8efd9;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .servicio-icono {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #456514;
+            color: #ffffff;
+            font-size: 1.8rem;
+        }
+
+        .servicio-card h3 {
+            color: #456514;
+            font-size: 1.12rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .servicio-card-contenido {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 22px;
+        }
+
+        .servicio-card-contenido p {
+            line-height: 1.7;
+            margin: 0 0 18px;
+        }
+
+        .servicio-card-contenido ul {
+            padding-left: 20px;
+            margin: 0 0 20px;
+            line-height: 1.8;
+        }
+
+        .servicio-enlace {
+            display: inline-block;
+            margin-top: auto;
+            padding: 11px 16px;
+            background: #456514;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .servicio-enlace:hover {
+            background: #2f470c;
+        }
+
+        .servicio-enlace-secundario {
+            display: inline-block;
+            margin-top: 10px;
+            color: #456514;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .servicios-aviso {
+            padding: 22px 25px;
+            background: #f6f6ef;
+            border: 1px solid #d9dfc9;
+            border-radius: 8px;
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+
+        .servicios-aviso h3 {
+            color: #456514;
+            margin-bottom: 8px;
+        }
+
+        .servicios-contacto {
+            background: #f0f4e9;
+            padding: 28px;
+            border-radius: 10px;
+            margin-top: 35px;
+        }
+
+        .servicios-contacto h2 {
+            color: #456514;
+            margin-bottom: 10px;
+        }
+
+        .servicios-contacto p {
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .servicios-intro,
+            .servicios-contacto {
+                padding: 20px;
+            }
+
+            .servicio-card-cabecera {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body
+    data-page="Servicios Online"
+    data-page-url="servicios-online.html">
+
+    <!-- ENCABEZADO INSTITUCIONAL -->
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html">
+            Municipalidad de Angol
+        </a>
+
+        <div class="interior-menu">
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav
+                class="interior-menu-panel"
+                id="menuDesplegable"
+                aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="true"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu abierto" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="conoce-mas.html">Plan Regulador</a></li>
+                    <li><a href="conoce-mas.html">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HISTORIAL DE NAVEGACIÓN: MISMA ESTRUCTURA QUE NOTICIAS -->
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-interior">
+
+        <section class="encabezado-seccion">
+            <h1>Servicios Online</h1>
+            <p>Trámites, consultas y servicios municipales desde un solo lugar.</p>
+        </section>
+
+        <section class="bloque-contenido">
+
+            <div class="servicios-intro">
+                <h2>Realiza tus trámites en línea</h2>
+                <p>
+                    Esta sección reúne accesos a servicios y trámites de la
+                    Municipalidad de Angol. Selecciona el área que corresponde
+                    a tu solicitud para consultar los requisitos, revisar la
+                    información disponible o ingresar a la plataforma habilitada.
+                </p>
+                <p>
+                    Los trámites pueden tener distintas modalidades de atención.
+                    Antes de comenzar, revisa las instrucciones y los documentos
+                    que se solicitan en cada plataforma.
+                </p>
+            </div>
+
+            <!-- ACCESOS DESTACADOS -->
+            <h2 class="servicios-subtitulo">Accesos destacados</h2>
+            <p class="servicios-descripcion">
+                Accede rápidamente a los servicios digitales más consultados.
+            </p>
+
+            <div class="servicios-acceso-rapido">
+
+                <a class="servicio-rapido"
+                   href="https://angol.municipalidad.digital.gob.cl/home"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <h3>Portal de trámites digitales</h3>
+                    <p>Consulta los trámites disponibles en la plataforma municipal.</p>
+                </a>
+
+                <a class="servicio-rapido"
+                   href="REEMPLAZAR_LINK_PERMISOS_CIRCULACION">
+                    
+                    <h3>Permisos de circulación</h3>
+                    <p>Espacio para incorporar el acceso al trámite vehicular.</p>
+                </a>
+
+                <a class="servicio-rapido"
+                   href="REEMPLAZAR_LINK_PATENTES">
+                   
+                    <h3>Patentes comerciales</h3>
+                    <p>Acceso para consultas, pagos o gestiones relacionadas con patentes.</p>
+                </a>
+
+            </div>
+
+            <!-- TARJETAS DE SERVICIOS POR ÁREA -->
+            <h2 class="servicios-subtitulo">Trámites por área municipal</h2>
+            <p class="servicios-descripcion">
+                Encuentra el servicio que necesitas según la dirección u oficina
+                municipal responsable. Los botones están preparados para enlazar
+                con las páginas específicas de cada trámite.
+            </p>
+
+            <div class="servicios-grid">
+
+                <!-- TESORERÍA -->
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">💰</div>
+                        <h3>Tesorería Municipal</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Accede a la información relacionada con pagos,
+                            obligaciones municipales y consultas de carácter
+                            financiero.
+                        </p>
+                        <ul>
+                            <li>Información de pagos municipales.</li>
+                            <li>Consultas sobre obligaciones y cobros.</li>
+                            <li>Acceso a plataformas habilitadas.</li>
+                        </ul>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_TESORERIA">
+                            Ir a Tesorería
+                        </a>
+                    </div>
+                </article>
+
+                <!-- TRÁNSITO -->
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">🚘</div>
+                        <h3>Dirección de Tránsito</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Reúne accesos para gestiones relacionadas con
+                            vehículos, circulación y trámites de tránsito.
+                        </p>
+                        <ul>
+                            <li>Permisos de circulación.</li>
+                            <li>Solicitud de hora para licencia de conducir.</li>
+                            <li>Información sobre trámites de tránsito.</li>
+                        </ul>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_TRANSITO">
+                            Ir a Tránsito
+                        </a>
+                    </div>
+                </article>
+
+                <!-- RENTAS Y PATENTES -->
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">🏪</div>
+                        <h3>Rentas y Patentes Comerciales</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Espacio destinado a la información y los accesos
+                            relacionados con actividades comerciales y patentes.
+                        </p>
+                        <ul>
+                            <li>Información sobre patentes comerciales.</li>
+                            <li>Consultas de pagos y obligaciones.</li>
+                            <li>Requisitos y documentación.</li>
+                        </ul>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_RENTAS_PATENTES">
+                            Ir a Rentas y Patentes
+                        </a>
+                    </div>
+                </article>
+
+                <!-- OBRAS MUNICIPALES -->
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">🏗️</div>
+                        <h3>Dirección de Obras Municipales</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Consulta la información y los canales disponibles
+                            para gestiones relacionadas con obras y edificación.
+                        </p>
+                        <ul>
+                            <li>Información sobre permisos y solicitudes.</li>
+                            <li>Requisitos para trámites de obras.</li>
+                            <li>Orientación sobre documentación.</li>
+                        </ul>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_OBRAS_MUNICIPALES">
+                            Ir a Obras Municipales
+                        </a>
+                    </div>
+                </article>
+
+                <!-- JUZGADO DE POLICÍA LOCAL -->
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">⚖️</div>
+                        <h3>Juzgado de Policía Local</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Encuentra el acceso a los formularios y canales
+                            de información habilitados por el Juzgado de
+                            Policía Local.
+                        </p>
+                        <ul>
+                            <li>Formularios de solicitud.</li>
+                            <li>Consultas e información de procedimientos.</li>
+                            <li>Reserva de audiencia, si está disponible.</li>
+                        </ul>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_JUZGADO_POLICIA_LOCAL">
+                            Ir al Juzgado
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ASEO DOMICILIARIO -->
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">🏠</div>
+                        <h3>Aseo Domiciliario</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Espacio para consultar información sobre derechos
+                            de aseo domiciliario y los trámites que el municipio
+                            tenga habilitados.
+                        </p>
+                        <ul>
+                            <li>Consulta de deuda.</li>
+                            <li>Información de pagos.</li>
+                            <li>Solicitudes y formularios disponibles.</li>
+                        </ul>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_ASEO_DOMICILIARIO">
+                            Ir a Aseo Domiciliario
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- OTROS TRÁMITES -->
+            <h2 class="servicios-subtitulo">Otros trámites y solicitudes</h2>
+            <p class="servicios-descripcion">
+                En este espacio se pueden agregar nuevos servicios digitales
+                a medida que se incorporen enlaces oficiales al sitio municipal.
+            </p>
+
+            <div class="servicios-grid">
+
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">📝</div>
+                        <h3>Solicitudes y formularios</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Acceso a formularios electrónicos para realizar
+                            solicitudes o entregar antecedentes al municipio.
+                        </p>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_FORMULARIOS">
+                            Ver formularios
+                        </a>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">📢</div>
+                        <h3>Consultas y atención ciudadana</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Espacio para incorporar canales de consulta,
+                            contacto, orientación o atención a la comunidad.
+                        </p>
+                        <a class="servicio-enlace"
+                           href="REEMPLAZAR_LINK_ATENCION_CIUDADANA">
+                            Ver canales de atención
+                        </a>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <div class="servicio-card-cabecera">
+                        <div class="servicio-icono" aria-hidden="true">🔎</div>
+                        <h3>Consulta de trámites</h3>
+                    </div>
+                    <div class="servicio-card-contenido">
+                        <p>
+                            Revisa los servicios disponibles en el portal digital
+                            y comprueba si tu solicitud puede realizarse en línea.
+                        </p>
+                        <a class="servicio-enlace"
+                           href="https://angol.municipalidad.digital.gob.cl/home"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Consultar trámites
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- AVISO PARA LOS USUARIOS -->
+            <aside class="servicios-aviso">
+                <h3>Antes de iniciar un trámite</h3>
+                <p>
+                    Verifica que el enlace corresponda a una plataforma oficial
+                    y revisa los requisitos, documentos y modalidades de atención.
+                    Algunos procedimientos pueden requerir una visita presencial
+                    o contar con plazos específicos.
+                </p>
+            </aside>
+
+            <!-- CONTACTO -->
+            <section class="servicios-contacto">
+                <h2>¿Necesitas orientación?</h2>
+                <p>
+                    Si no encuentras el trámite que buscas, consulta los canales
+                    de contacto institucional para identificar la oficina
+                    responsable y conocer las alternativas de atención.
+                </p>
+                <p>
+                    <strong>Dirección:</strong> Pedro Aguirre Cerda 509, Angol.
+                </p>
+                <p>
+                    <strong>Correo:</strong>
+                    <a href="mailto:contacto@angol.cl">contacto@angol.cl</a>
+                </p>
+                <p>
+                    <a href="telefonos-y-direccion.html">
+                        Ver teléfonos y dirección
+                    </a>
+                </p>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA INSTITUCIONAL -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
+                <p>✉️ contacto@angol.cl</p>
+                <p>
+                    <a href="telefonos-y-direccion.html">
+                        Teléfonos y Dirección
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="conoce-mas.html" class="btn-secondary">
+                    Ley de Transparencia
+                </a>
+                <br><br>
+                <a href="conoce-mas.html" class="btn-secondary">
+                    Ley del Lobby
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; 2026 Ilustre Municipalidad de Angol -
+                Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MENÚ E HISTORIAL: MISMA LÓGICA QUE NOTICIAS MUNICIPALES -->
+    <script>
+        const botonMenu = document.getElementById("menuBoton");
+        const panelMenu = document.getElementById("menuDesplegable");
+
+        botonMenu.addEventListener("click", () => {
+            const abierto = panelMenu.classList.toggle("abierto");
+            botonMenu.setAttribute("aria-expanded", String(abierto));
+        });
+
+        document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+            boton.addEventListener("click", () => {
+                const submenu = document.getElementById(
+                    boton.getAttribute("aria-controls")
+                );
+
+                const abierto = submenu.classList.toggle("abierto");
+                boton.setAttribute("aria-expanded", String(abierto));
+            });
+        });
+
+        // Registrar la página actual en el historial de navegación.
+        const paginaActual = {
+            nombre: document.body.dataset.page,
+            url: document.body.dataset.pageUrl
+        };
+
+        let historial = [];
+
+        try {
+            historial = JSON.parse(
+                sessionStorage.getItem("historialAngol") || "[]"
+            );
+        } catch (error) {
+            historial = [];
+        }
+
+        // Si se regresa a una página anterior, continuar desde esa posición.
+        const posicionExistente = historial.findIndex(
+            pagina => pagina.url === paginaActual.url
+        );
+
+        if (posicionExistente >= 0) {
+            historial = historial.slice(0, posicionExistente + 1);
+        } else {
+            historial.push(paginaActual);
+        }
+
+        // Conservar un máximo de ocho páginas.
+        if (historial.length > 8) {
+            historial = historial.slice(-8);
+        }
+
+        sessionStorage.setItem(
+            "historialAngol",
+            JSON.stringify(historial)
+        );
+
+        const listaHistorial = document.getElementById("historialPaginas");
+
+        // Evitar duplicar el elemento inicial de la lista.
+        listaHistorial.innerHTML = "";
+
+        historial.forEach((pagina, indice) => {
+            const elemento = document.createElement("li");
+
+            if (indice === historial.length - 1) {
+                elemento.textContent = pagina.nombre;
+                elemento.setAttribute("aria-current", "page");
+            } else {
+                const enlace = document.createElement("a");
+                enlace.href = pagina.url;
+                enlace.textContent = pagina.nombre;
+                elemento.appendChild(enlace);
+            }
+
+            listaHistorial.appendChild(elemento);
+        });
+    </script>
+
+</body>
+</html>

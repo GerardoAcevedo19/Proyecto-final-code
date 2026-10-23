@@ -564,8 +564,19 @@ footer {
     font-size: clamp(1.25rem, 2.5vw, 1.8rem);
     font-weight: 700;
     text-decoration: none;
+    display: flex;
+align-items: center;
+gap: 12px;
+text-decoration: none;
 }
 
+.interior-logo .escudo-angol {
+    display: block;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
 .interior-menu {
     position: relative;
 }
@@ -776,6 +787,19 @@ footer {
 
 .lista-interior li {
     margin-bottom: 10px;
+}
+
+.servicio-rapido h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.servicio-rapido p {
+    margin: 0;
+    line-height: 1.6;
+    color: #f4f7ee;
 }
 
 @media (max-width: 768px) {

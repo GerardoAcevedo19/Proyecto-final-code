@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conoce Angol | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="Conoce Angol" data-page-url="conoce-mas.html">
+
+    <!-- ENCABEZADO Y MENÚ PRINCIPAL -->
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html">
+            Municipalidad de Angol
+        </a>
+
+        <div class="interior-menu">
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="#historia">Reseña</a></li>
+                            <li><a href="#identidad">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="#municipalidad">Alcaldía Municipal</a></li>
+                            <li><a href="#municipalidad">Dirección de Administración</a></li>
+                            <li><a href="#municipalidad">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="#municipalidad">Integrantes Concejo</a></li>
+                            <li><a href="#municipalidad">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="#municipalidad">Cuentas Públicas</a></li>
+                            <li><a href="#municipalidad">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#territorio">Plan Regulador</a></li>
+                    <li><a href="#territorio">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="https://www.flickr.com/photos/158801214@N04/"
+                           target="_blank" rel="noopener noreferrer">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HISTORIAL DE NAVEGACIÓN -->
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-interior">
+
+        <section class="encabezado-seccion">
+            <h1>Conoce Angol</h1>
+            <p>
+                Historia, patrimonio, naturaleza e identidad de una comuna
+                ubicada en el corazón de la provincia de Malleco,
+                Región de La Araucanía.
+            </p>
+        </section>
+
+        <!-- PRESENTACIÓN -->
+        <section class="bloque-contenido" id="presentacion">
+            <h2>Una comuna con historia e identidad</h2>
+
+            <p>
+                Angol es la capital de la provincia de Malleco, en la Región
+                de La Araucanía. Su entorno combina áreas urbanas, paisajes
+                rurales, cursos de agua y la cercanía de la cordillera de
+                Nahuelbuta, territorio reconocido por su riqueza natural.
+            </p>
+
+            <p>
+                La comuna posee una historia marcada por distintas etapas,
+                transformaciones territoriales y procesos sociales que han
+                influido en su desarrollo. Su identidad se expresa en sus
+                espacios públicos, actividades culturales, tradiciones,
+                patrimonio y vida cotidiana de sus habitantes.
+            </p>
+
+            <p>
+                Conocer Angol permite acercarse a los acontecimientos que
+                dieron forma a la ciudad y a los lugares que hoy constituyen
+                parte de su memoria colectiva.
+            </p>
+        </section>
+
+        <!-- HISTORIA -->
+        <section class="bloque-contenido" id="historia">
+            <h2>Historia de Angol</h2>
+
+            <p>
+                La historia de Angol se remonta al siglo XVI. La ciudad fue
+                fundada por primera vez en 1553 por orden de Pedro de Valdivia,
+                con el nombre de Los Confines. Debido a los conflictos de la
+                época y a la resistencia del pueblo mapuche frente al avance
+                español sobre su territorio, el asentamiento fue abandonado,
+                destruido y refundado en distintas ocasiones.
+            </p>
+
+            <p>
+                Estas sucesivas fundaciones reflejan la importancia
+                estratégica que tuvo el lugar durante la Guerra de Arauco.
+                También forman parte de una historia territorial compleja,
+                vinculada a la resistencia mapuche y a los procesos de
+                expansión y control impulsados por la Corona española.
+            </p>
+
+            <p>
+                La fundación de la ciudad actual ocurrió el 7 de diciembre
+                de 1862, bajo el mando de Cornelio Saavedra, en el contexto
+                de la ocupación militar de la Araucanía por parte del Estado
+                chileno. Este proceso transformó profundamente el territorio
+                y afectó a las comunidades mapuches que lo habitaban.
+            </p>
+
+            <p>
+                En 1871, Angol fue reconocida oficialmente como ciudad.
+                Durante las décadas siguientes adquirió relevancia como
+                centro agrícola y comercial, especialmente por la producción
+                de trigo y la conexión ferroviaria con otras localidades.
+                Con el paso del tiempo, su desarrollo urbano, educacional
+                y cultural contribuyó a consolidar su papel como centro
+                provincial.
+            </p>
+        </section>
+
+        <!-- LÍNEA DE TIEMPO -->
+        <section class="bloque-contenido">
+            <h2>Angol a través del tiempo</h2>
+
+            <div class="tarjetas-interiores">
+
+                <article class="tarjeta-interior">
+                    <h3>1553 · Primera fundación</h3>
+                    <p>
+                        Se establece el asentamiento de Los Confines por
+                        orden de Pedro de Valdivia, en el contexto de la
+                        expansión española hacia el sur.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Siglos XVI–XVIII · Refundaciones</h3>
+                    <p>
+                        El asentamiento es fundado nuevamente en diferentes
+                        momentos, en medio de los conflictos y la resistencia
+                        mapuche en el territorio.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>1862 · Fundación de la ciudad actual</h3>
+                    <p>
+                        Angol es refundada el 7 de diciembre, durante el
+                        proceso de ocupación estatal de la Araucanía.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>1871 · Reconocimiento como ciudad</h3>
+                    <p>
+                        Angol obtiene oficialmente la condición de ciudad
+                        y continúa desarrollándose como centro urbano
+                        y comercial de la provincia.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- GEOGRAFÍA Y NATURALEZA -->
+        <section class="bloque-contenido" id="territorio">
+            <h2>Territorio y naturaleza</h2>
+
+            <p>
+                Angol se encuentra en un valle de la provincia de Malleco,
+                próximo a la cordillera de Nahuelbuta. Su ubicación permite
+                acceder a paisajes de bosque nativo, zonas rurales y espacios
+                naturales que forman parte de la diversidad ambiental de
+                La Araucanía.
+            </p>
+
+            <p>
+                El entorno natural es uno de los elementos que distingue
+                a la comuna. La vegetación, los cursos de agua y las
+                variaciones del paisaje ofrecen oportunidades para el
+                turismo de naturaleza, la educación ambiental y las
+                actividades al aire libre.
+            </p>
+
+            <div class="tarjetas-interiores">
+
+                <article class="tarjeta-interior">
+                    <h3>Cordillera de Nahuelbuta</h3>
+                    <p>
+                        Un entorno natural de gran valor ecológico,
+                        conocido por sus bosques nativos y por la presencia
+                        de la araucaria en sectores de la cordillera.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Ríos y paisajes rurales</h3>
+                    <p>
+                        El territorio de la comuna y sus alrededores
+                        reúnen cursos de agua, áreas agrícolas y paisajes
+                        que forman parte de la identidad local.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Turismo de naturaleza</h3>
+                    <p>
+                        Los espacios naturales cercanos permiten conocer
+                        la biodiversidad y recorrer distintos paisajes
+                        de la provincia de Malleco.
+                    </p>
+                    <a href="departamento-turismo.html" class="enlace-interior">
+                        Explorar turismo
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- PATRIMONIO -->
+        <section class="bloque-contenido" id="patrimonio">
+            <h2>Patrimonio y espacios de encuentro</h2>
+
+            <p>
+                Los espacios públicos permiten reconocer parte de la
+                historia urbana de Angol. La Plaza de Armas constituye
+                un punto central de encuentro, circulación y actividad
+                ciudadana. También es conocida como Plaza Siete Fundaciones,
+                nombre relacionado con las distintas etapas históricas
+                de la ciudad.
+            </p>
+
+            <p>
+                En la plaza se encuentra el monumento dedicado a la
+                fundación de Angol. Sus esculturas y su espejo de agua
+                forman parte de los elementos patrimoniales reconocidos
+                del espacio público local.
+            </p>
+
+            <div class="tarjetas-interiores">
+
+                <article class="tarjeta-interior">
+                    <h3>Plaza de Armas</h3>
+                    <p>
+                        Espacio público central vinculado a la vida
+                        cotidiana, los encuentros ciudadanos y la
+                        memoria urbana de la comuna.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Plaza Siete Fundaciones</h3>
+                    <p>
+                        Su denominación recuerda las sucesivas fundaciones
+                        que marcaron la historia de Angol desde el siglo XVI.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Monumento a la Fundación</h3>
+                    <p>
+                        Monolito ubicado en la Plaza de Armas que recuerda
+                        la primera fundación de la ciudad en 1553.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CULTURA E IDENTIDAD -->
+        <section class="bloque-contenido" id="identidad">
+            <h2>Cultura e identidad local</h2>
+
+            <p>
+                La identidad de Angol se construye a partir de su historia,
+                las comunidades que habitan el territorio, sus expresiones
+                culturales y las actividades que forman parte de la vida
+                comunal. La memoria local, las artes, la educación y las
+                celebraciones contribuyen a mantener vivo ese patrimonio.
+            </p>
+
+            <p>
+                La historia cultural de la ciudad también se relaciona
+                con escritores, artistas y espacios educativos que han
+                contribuido a la vida intelectual de la zona. Reconocer
+                estas expresiones permite valorar la diversidad de
+                experiencias y conocimientos presentes en la comuna.
+            </p>
+
+            <div class="tarjetas-interiores">
+
+                <article class="tarjeta-interior">
+                    <h3>Historia y memoria</h3>
+                    <p>
+                        Conocer los acontecimientos y las distintas
+                        experiencias históricas que han configurado
+                        el territorio de Angol.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Arte y cultura</h3>
+                    <p>
+                        Las expresiones artísticas, la creación local
+                        y las actividades culturales forman parte de
+                        la vida comunitaria.
+                    </p>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Tradiciones y comunidad</h3>
+                    <p>
+                        Las actividades locales y los espacios de
+                        encuentro fortalecen los vínculos entre
+                        habitantes y organizaciones.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- MUNICIPALIDAD -->
+        <section class="bloque-contenido" id="municipalidad">
+            <h2>La Municipalidad y la comuna</h2>
+
+            <p>
+                La Municipalidad de Angol es la institución encargada
+                de la administración local y de impulsar acciones
+                orientadas al desarrollo de la comuna, la atención
+                de sus habitantes y el mejoramiento de los espacios
+                y servicios municipales.
+            </p>
+
+            <p>
+                A través de sus departamentos y unidades, la institución
+                desarrolla funciones vinculadas a la gestión municipal,
+                la prestación de servicios, el desarrollo comunitario
+                y el acceso a información pública.
+            </p>
+
+            <p>
+                Para conocer los canales de atención y los datos de
+                contacto institucional, puedes consultar la siguiente
+                sección.
+            </p>
+
+            <a href="telefonos-y-direccion.html" class="enlace-interior">
+                Teléfonos y dirección
+            </a>
+        </section>
+
+        <!-- INVITACIÓN FINAL -->
+        <section class="bloque-contenido">
+            <h2>Descubre más de Angol</h2>
+
+            <p>
+                Angol reúne historia, patrimonio, naturaleza y vida
+                comunitaria. Explorar sus espacios y conocer sus
+                actividades permite acercarse a las características
+                que distinguen a la comuna y a su entorno.
+            </p>
+
+            <div class="tarjetas-interiores">
+
+                <article class="tarjeta-interior">
+                    <h3>Actualidad municipal</h3>
+                    <p>
+                        Revisa información, actividades y novedades
+                        relacionadas con la comuna.
+                    </p>
+                    <a href="noticias-municipales.html" class="enlace-interior">
+                        Ver noticias
+                    </a>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Turismo</h3>
+                    <p>
+                        Conoce los atractivos naturales, las rutas
+                        y los panoramas disponibles en el territorio.
+                    </p>
+                    <a href="departamento-turismo.html" class="enlace-interior">
+                        Conocer turismo
+                    </a>
+                </article>
+
+                <article class="tarjeta-interior">
+                    <h3>Servicios municipales</h3>
+                    <p>
+                        Accede a información sobre trámites y
+                        servicios disponibles para la comunidad.
+                    </p>
+                    <a href="servicios-online.html" class="enlace-interior">
+                        Ver servicios
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA VERDE OSCURO -->
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="#identidad">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
+                <p>✉️ contacto@angol.cl</p>
+                <p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="#municipalidad" class="btn-secondary">
+                    Ley de Transparencia
+                </a>
+                <br><br>
+                <a href="#municipalidad" class="btn-secondary">
+                    Ley del Lobby
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; 2026 Ilustre Municipalidad de Angol -
+                Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MENÚ DESPLEGABLE E HISTORIAL -->
+    <script>
+        const botonMenu = document.getElementById("menuBoton");
+        const panelMenu = document.getElementById("menuDesplegable");
+
+        botonMenu.addEventListener("click", () => {
+            const abierto = panelMenu.classList.toggle("abierto");
+            botonMenu.setAttribute("aria-expanded", String(abierto));
+        });
+
+        document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+            boton.addEventListener("click", () => {
+                const submenu = document.getElementById(
+                    boton.getAttribute("aria-controls")
+                );
+
+                const abierto = submenu.classList.toggle("abierto");
+                boton.setAttribute("aria-expanded", String(abierto));
+            });
+        });
+
+        // Historial de páginas visitadas durante la sesión.
+        const paginaActual = {
+            nombre: document.body.dataset.page,
+            url: document.body.dataset.pageUrl
+        };
+
+        let historial = [];
+
+        try {
+            historial = JSON.parse(
+                sessionStorage.getItem("historialAngol") || "[]"
+            );
+        } catch (error) {
+            historial = [];
+        }
+
+        const posicionExistente = historial.findIndex(
+            pagina => pagina.url === paginaActual.url
+        );
+
+        if (posicionExistente >= 0) {
+            historial = historial.slice(0, posicionExistente + 1);
+        } else {
+            historial.push(paginaActual);
+        }
+
+        if (historial.length > 8) {
+            historial = historial.slice(-8);
+        }
+
+        sessionStorage.setItem("historialAngol", JSON.stringify(historial));
+
+        const listaHistorial = document.getElementById("historialPaginas");
+
+        listaHistorial.innerHTML = "";
+
+        historial.forEach((pagina, indice) => {
+            const elemento = document.createElement("li");
+
+            if (indice === historial.length - 1) {
+                elemento.textContent = pagina.nombre;
+                elemento.setAttribute("aria-current", "page");
+            } else {
+                const enlace = document.createElement("a");
+                enlace.href = pagina.url;
+                enlace.textContent = pagina.nombre;
+                elemento.appendChild(enlace);
+            }
+
+            listaHistorial.appendChild(elemento);
+        });
+    </script>
+
+</body>
+</html>
