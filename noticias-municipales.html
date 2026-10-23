@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias Municipales | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="Noticias Municipales"
+      data-page-url="noticias-municipales.html">
+
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html">
+            Municipalidad de Angol
+        </a>
+
+        <div class="interior-menu">
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="conoce-mas.html">Plan Regulador</a></li>
+                    <li><a href="conoce-mas.html">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <!-- REEMPLAZAR ESTE MAIN POR EL CONTENIDO DE CADA PÁGINA -->
+    <main class="contenido-interior">
+        <section class="encabezado-seccion">
+            <h1>Noticias Municipales</h1>
+            <p>Información y actualidad de la comuna de Angol.</p>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Actualidad municipal</h2>
+            <p>Conoce las actividades, iniciativas y novedades de la Municipalidad de Angol.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
+                <p>✉️ contacto@angol.cl</p>
+                <p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="conoce-mas.html" class="btn-secondary">Ley de Transparencia</a>
+                <br><br>
+                <a href="conoce-mas.html" class="btn-secondary">Ley del Lobby</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const botonMenu = document.getElementById("menuBoton");
+        const panelMenu = document.getElementById("menuDesplegable");
+
+        botonMenu.addEventListener("click", () => {
+            const abierto = panelMenu.classList.toggle("abierto");
+            botonMenu.setAttribute("aria-expanded", String(abierto));
+        });
+
+        document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+            boton.addEventListener("click", () => {
+                const submenu = document.getElementById(
+                    boton.getAttribute("aria-controls")
+                );
+                const abierto = submenu.classList.toggle("abierto");
+                boton.setAttribute("aria-expanded", String(abierto));
+            });
+        });
+
+        // Historial de páginas visitadas durante esta sesión.
+        const paginaActual = {
+            nombre: document.body.dataset.page,
+            url: document.body.dataset.pageUrl
+        };
+
+        let historial = [];
+
+        try {
+            historial = JSON.parse(
+                sessionStorage.getItem("historialAngol") || "[]"
+            );
+        } catch (error) {
+            historial = [];
+        }
+
+        // Si se vuelve a una página anterior, se recupera esa ruta.
+        const posicionExistente = historial.findIndex(
+            pagina => pagina.url === paginaActual.url
+        );
+
+        if (posicionExistente >= 0) {
+            historial = historial.slice(0, posicionExistente + 1);
+        } else {
+            historial.push(paginaActual);
+        }
+
+        if (historial.length > 8) {
+            historial = historial.slice(-8);
+        }
+
+        sessionStorage.setItem("historialAngol", JSON.stringify(historial));
+
+        const listaHistorial = document.getElementById("historialPaginas");
+
+        historial.forEach((pagina, indice) => {
+            const elemento = document.createElement("li");
+
+            if (indice === historial.length - 1) {
+                elemento.textContent = pagina.nombre;
+                elemento.setAttribute("aria-current", "page");
+            } else {
+                const enlace = document.createElement("a");
+                enlace.href = pagina.url;
+                enlace.textContent = pagina.nombre;
+                elemento.appendChild(enlace);
+            }
+
+            listaHistorial.appendChild(elemento);
+        });
+    </script>
+</body>
+</html>
