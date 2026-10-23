@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información sobre el Plan Maestro de Evacuación y Drenaje de Aguas Lluvias de la comuna de Angol.">
+    <title>Plan Maestro de Aguas Lluvias | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .aguas-lluvias-intro {
+            margin-bottom: 30px;
+        }
+
+        .aguas-lluvias-intro p,
+        .bloque-contenido p {
+            line-height: 1.8;
+        }
+
+        .aguas-lluvias-destacado {
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #2877a8;
+            border-radius: 6px;
+            background: #f1f6fa;
+        }
+
+        .aguas-lluvias-destacado h2 {
+            margin-top: 0;
+        }
+
+        .aguas-lluvias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .aguas-lluvias-card {
+            padding: 24px;
+            border: 1px solid #dce4ea;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .aguas-lluvias-card h3 {
+            margin-top: 0;
+            color: #245d80;
+        }
+
+        .aguas-lluvias-card p {
+            line-height: 1.7;
+        }
+
+        .aguas-lluvias-enlace {
+            display: inline-block;
+            margin-top: 10px;
+            color: #175f91;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .aguas-lluvias-enlace:hover {
+            color: #103d5c;
+        }
+
+        .aguas-lluvias-lista {
+            padding-left: 22px;
+            line-height: 1.9;
+        }
+
+        .aguas-lluvias-nota {
+            margin-top: 25px;
+            padding: 18px 22px;
+            background: #f5f5f5;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .aguas-lluvias-boton {
+            display: inline-block;
+            margin: 8px 8px 8px 0;
+            padding: 12px 18px;
+            border-radius: 5px;
+            background: #245d80;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .aguas-lluvias-boton:hover {
+            background: #17415c;
+        }
+
+        .aguas-lluvias-subtitulo {
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .aguas-lluvias-destacado {
+                padding: 18px;
+            }
+
+            .aguas-lluvias-card {
+                padding: 18px;
+            }
+
+            .aguas-lluvias-boton {
+                display: block;
+                text-align: center;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="Plan Maestro de Aguas Lluvias"
+      data-page-url="plan-maestro-aguas-lluvias.html">
+
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html" aria-label="Volver al inicio">
+            <img src="Angol.ico" alt="" class="escudo-angol">
+            <span>Municipalidad de Angol</span>
+        </a>
+
+        <div class="interior-menu">
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="conoce-mas.html">Plan Regulador</a></li>
+                    <li><a href="plan-maestro-aguas-lluvias.html" aria-current="page">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <main class="contenido-interior">
+
+        <section class="encabezado-seccion">
+            <h1>Plan Maestro de Aguas Lluvias</h1>
+            <p>Planificación de la evacuación y el drenaje de aguas lluvias en la comuna de Angol.</p>
+        </section>
+
+        <section class="bloque-contenido aguas-lluvias-intro">
+            <h2>Plan Maestro de Evacuación y Drenaje de Aguas Lluvias de Angol</h2>
+
+            <p>
+                El Plan Maestro de Evacuación y Drenaje de Aguas Lluvias de Angol
+                es un instrumento de planificación elaborado por la Dirección de
+                Obras Hidráulicas del Ministerio de Obras Públicas. Su propósito
+                es estudiar los problemas asociados a la evacuación de aguas
+                lluvias y analizar alternativas de solución para el desarrollo
+                urbano de la comuna.
+            </p>
+
+            <p>
+                El estudio considera las características naturales del territorio,
+                la cuenca que aporta las aguas lluvias, los cauces que atraviesan
+                la ciudad y las proyecciones de crecimiento urbano. A partir de
+                estos antecedentes, se definen criterios para el desarrollo de
+                sistemas de drenaje y la planificación de obras asociadas.
+            </p>
+
+            <div class="aguas-lluvias-destacado">
+                <h2>¿Cuál es el objetivo del plan?</h2>
+                <p>
+                    Analizar y planificar soluciones para mejorar la evacuación
+                    y el drenaje de las aguas lluvias, contribuyendo a mitigar
+                    los efectos de las inundaciones y considerando las
+                    características del territorio y el crecimiento futuro de
+                    la ciudad.
+                </p>
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>¿Qué aspectos aborda?</h2>
+
+            <div class="aguas-lluvias-grid">
+
+                <article class="aguas-lluvias-card">
+                    <h3>Evacuación y drenaje</h3>
+                    <p>
+                        Estudia alternativas para conducir y evacuar las aguas
+                        lluvias de la cuenca aportante, considerando un sistema
+                        integrado de drenaje para la ciudad.
+                    </p>
+                </article>
+
+                <article class="aguas-lluvias-card">
+                    <h3>Cauces naturales</h3>
+                    <p>
+                        Analiza los ríos, esteros y otros cauces que atraviesan
+                        Angol y que reciben las aguas lluvias, considerando
+                        también las condiciones aguas abajo de los ríos
+                        Malleco y Vergara.
+                    </p>
+                </article>
+
+                <article class="aguas-lluvias-card">
+                    <h3>Remoción en masa</h3>
+                    <p>
+                        Considera el estudio de sectores susceptibles a
+                        fenómenos de remoción en masa, así como las restricciones
+                        de uso de suelo y las condiciones que deben contemplarse
+                        en el desarrollo inmobiliario.
+                    </p>
+                </article>
+
+                <article class="aguas-lluvias-card">
+                    <h3>Desarrollo urbano</h3>
+                    <p>
+                        Relaciona las soluciones de drenaje con las condiciones
+                        naturales del territorio y con la expansión urbana
+                        contemplada en la planificación comunal.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Red primaria de aguas lluvias</h2>
+
+            <p>
+                El decreto que aprueba el Plan Maestro define la red primaria
+                del sistema de evacuación y drenaje de aguas lluvias de Angol.
+                Esta comprende los cauces receptores identificados en el patrón
+                de drenaje, además de canales abiertos o entubados y colectores
+                existentes o proyectados que cumplen los criterios técnicos
+                establecidos.
+            </p>
+
+            <p>
+                La planificación de esta red sirve como referencia para el
+                desarrollo de proyectos de evacuación y drenaje, y debe
+                considerarse al definir las redes secundarias y las nuevas
+                urbanizaciones dentro del área de estudio.
+            </p>
+
+            <h3 class="aguas-lluvias-subtitulo">Componentes considerados</h3>
+
+            <ul class="aguas-lluvias-lista">
+                <li>Ríos, esteros y quebradas que reciben aguas lluvias.</li>
+                <li>Canales abiertos y canales entubados, existentes o proyectados.</li>
+                <li>Colectores de aguas lluvias existentes y proyectados que cumplen los criterios de la red primaria.</li>
+                <li>Mejoramientos de cauces y sistemas de drenaje contemplados en el plan.</li>
+            </ul>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Documentos y fuentes oficiales</h2>
+
+            <p>
+                Para consultar los antecedentes técnicos, el resumen del estudio
+                y la normativa relacionada con el Plan Maestro de Aguas Lluvias
+                de Angol, se encuentran disponibles los siguientes recursos
+                institucionales.
+            </p>
+
+            <div class="aguas-lluvias-grid">
+
+                <article class="aguas-lluvias-card">
+                    <h3>Estudio del Plan Maestro</h3>
+                    <p>
+                        Registro del estudio desarrollado para la evacuación
+                        y el drenaje de aguas lluvias de Angol. Incluye
+                        información sobre la memoria técnica, el resumen
+                        ejecutivo, anexos y planos.
+                    </p>
+                    <a class="aguas-lluvias-enlace"
+                       href="https://repositoriodirplan.mop.gob.cl/biblioteca/items/ae38d1ec-5f00-4e14-9dfc-eb89fb27cd25"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consultar estudio en el MOP ↗
+                    </a>
+                </article>
+
+                <article class="aguas-lluvias-card">
+                    <h3>Decreto de aprobación</h3>
+                    <p>
+                        Consulta el decreto que aprueba el Plan Maestro de
+                        Evacuación y Drenaje de Aguas Lluvias de Angol y
+                        establece la definición de su red primaria.
+                    </p>
+                    <a class="aguas-lluvias-enlace"
+                       href="https://www.bcn.cl/leychile/navegar?idNorma=1224902"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Leer decreto en Ley Chile ↗
+                    </a>
+                </article>
+
+                <article class="aguas-lluvias-card">
+                    <h3>Dirección de Obras Hidráulicas</h3>
+                    <p>
+                        Información sobre los servicios de la Dirección de
+                        Obras Hidráulicas y los procedimientos relacionados
+                        con las redes primarias de evacuación y drenaje.
+                    </p>
+                    <a class="aguas-lluvias-enlace"
+                       href="https://doh.mop.gob.cl/servicios/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consultar servicios DOH ↗
+                    </a>
+                </article>
+
+            </div>
+
+            <div class="aguas-lluvias-destacado">
+                <h2>Consulta de antecedentes</h2>
+                <p>
+                    El registro del Ministerio de Obras Públicas permite acceder
+                    a los antecedentes publicados del estudio. La disponibilidad
+                    de cada archivo y sus formatos dependen de la plataforma
+                    de origen.
+                </p>
+                <a class="aguas-lluvias-boton"
+                   href="https://repositoriodirplan.mop.gob.cl/biblioteca/items/ae38d1ec-5f00-4e14-9dfc-eb89fb27cd25"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Ver documentos del plan
+                </a>
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Importancia para la comuna</h2>
+
+            <p>
+                La planificación de los sistemas de aguas lluvias permite
+                identificar necesidades de infraestructura, estudiar alternativas
+                de intervención y orientar el desarrollo de futuros proyectos.
+                Su implementación requiere coordinación entre los organismos
+                competentes y consideración de las condiciones de cada sector.
+            </p>
+
+            <p>
+                El Plan Maestro constituye una referencia técnica para la
+                planificación de la red primaria y para que los proyectos
+                relacionados con el drenaje urbano sean compatibles con el
+                sistema definido para Angol.
+            </p>
+
+            <div class="aguas-lluvias-nota">
+                <strong>Importante:</strong> esta página es informativa. Para
+                conocer el alcance técnico, los planos, las obras contempladas
+                y las disposiciones oficiales, se recomienda consultar los
+                documentos originales del Ministerio de Obras Públicas.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
+                <p>✉️ contacto@angol.cl</p>
+                <p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="conoce-mas.html" class="btn-secondary">Ley de Transparencia</a>
+                <br><br>
+                <a href="conoce-mas.html" class="btn-secondary">Ley del Lobby</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const botonMenu = document.getElementById("menuBoton");
+            const panelMenu = document.getElementById("menuDesplegable");
+
+            if (botonMenu && panelMenu) {
+                botonMenu.addEventListener("click", () => {
+                    const abierto = panelMenu.classList.toggle("abierto");
+                    botonMenu.setAttribute("aria-expanded", String(abierto));
+                });
+            }
+
+            document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+                boton.addEventListener("click", () => {
+                    const submenu = document.getElementById(
+                        boton.getAttribute("aria-controls")
+                    );
+
+                    if (!submenu) return;
+
+                    const abierto = submenu.classList.toggle("abierto");
+                    boton.setAttribute("aria-expanded", String(abierto));
+                });
+            });
+
+            // Historial de páginas visitadas durante esta sesión.
+            const paginaActual = {
+                nombre: document.body.dataset.page,
+                url: document.body.dataset.pageUrl
+            };
+
+            let historial = [];
+
+            try {
+                historial = JSON.parse(
+                    sessionStorage.getItem("historialAngol") || "[]"
+                );
+
+                if (!Array.isArray(historial)) {
+                    historial = [];
+                }
+            } catch (error) {
+                historial = [];
+            }
+
+            const posicionExistente = historial.findIndex(
+                pagina => pagina.url === paginaActual.url
+            );
+
+            if (posicionExistente >= 0) {
+                historial = historial.slice(0, posicionExistente + 1);
+            } else {
+                historial.push(paginaActual);
+            }
+
+            if (historial.length > 8) {
+                historial = historial.slice(-8);
+            }
+
+            try {
+                sessionStorage.setItem(
+                    "historialAngol",
+                    JSON.stringify(historial)
+                );
+            } catch (error) {
+                // La página sigue funcionando si el almacenamiento está bloqueado.
+            }
+
+            const listaHistorial = document.getElementById("historialPaginas");
+
+            if (listaHistorial) {
+                historial.forEach((pagina, indice) => {
+                    const elemento = document.createElement("li");
+
+                    if (indice === historial.length - 1) {
+                        elemento.textContent = pagina.nombre;
+                        elemento.setAttribute("aria-current", "page");
+                    } else {
+                        const enlace = document.createElement("a");
+                        enlace.href = pagina.url;
+                        enlace.textContent = pagina.nombre;
+                        elemento.appendChild(enlace);
+                    }
+
+                    listaHistorial.appendChild(elemento);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

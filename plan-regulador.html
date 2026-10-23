@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta información, normativa, planos y documentos oficiales del Plan Regulador Comunal de Angol.">
+    <title>Plan Regulador Comunal | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .plan-regulador-intro p,
+        .bloque-contenido p {
+            line-height: 1.8;
+        }
+
+        .pr-destacado {
+            margin: 25px 0;
+            padding: 25px;
+            border-left: 5px solid #2877a8;
+            border-radius: 6px;
+            background: #f1f6fa;
+        }
+
+        .pr-destacado h2 {
+            margin-top: 0;
+        }
+
+        .pr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .pr-card {
+            padding: 24px;
+            border: 1px solid #dce4ea;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .pr-card h3 {
+            margin-top: 0;
+            color: #245d80;
+        }
+
+        .pr-card p {
+            line-height: 1.7;
+        }
+
+        .pr-enlace {
+            display: inline-block;
+            margin-top: 10px;
+            color: #175f91;
+            font-weight: 600;
+            text-decoration: underline;
+            overflow-wrap: anywhere;
+        }
+
+        .pr-enlace:hover {
+            color: #103d5c;
+        }
+
+        .pr-boton {
+            display: inline-block;
+            margin: 8px 8px 8px 0;
+            padding: 12px 18px;
+            border-radius: 5px;
+            background: #245d80;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .pr-boton:hover {
+            background: #17415c;
+            color: #fff;
+        }
+
+        .pr-lista {
+            padding-left: 22px;
+            line-height: 1.9;
+        }
+
+        .pr-nota {
+            margin-top: 25px;
+            padding: 18px 22px;
+            border-radius: 6px;
+            background: #f5f5f5;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .pr-subtitulo {
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .pr-destacado,
+            .pr-card {
+                padding: 18px;
+            }
+
+            .pr-boton {
+                display: block;
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="Plan Regulador"
+      data-page-url="plan-regulador.html">
+
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html" aria-label="Volver al inicio">
+            <img src="Angol.ico" alt="" class="escudo-angol">
+            <span>Municipalidad de Angol</span>
+        </a>
+
+        <div class="interior-menu">
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="plan-regulador.html" aria-current="page">
+                            Plan Regulador
+                        </a>
+                    </li>
+                    <li>
+                        <a href="plan-maestro-aguas-lluvias.html">
+                            Plan Maestro de Aguas Lluvias
+                        </a>
+                    </li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <main class="contenido-interior">
+
+        <section class="encabezado-seccion">
+            <h1>Plan Regulador Comunal de Angol</h1>
+            <p>
+                Instrumento de planificación territorial que establece las normas
+                para el desarrollo urbano de la comuna.
+            </p>
+        </section>
+
+        <section class="bloque-contenido plan-regulador-intro">
+            <h2>¿Qué es el Plan Regulador Comunal?</h2>
+
+            <p>
+                El Plan Regulador Comunal de Angol (PRCA) es un instrumento de
+                planificación territorial que establece las normas urbanísticas
+                aplicables al área urbana de la comuna. Define el límite urbano,
+                la zonificación, los usos de suelo, las condiciones de edificación,
+                la vialidad estructurante y las áreas sujetas a restricciones
+                o protección.
+            </p>
+
+            <p>
+                Su objetivo es orientar el crecimiento y la organización de la
+                ciudad, estableciendo condiciones para el uso del suelo y el
+                desarrollo de nuevos proyectos, de acuerdo con la normativa
+                urbanística vigente.
+            </p>
+
+            <div class="pr-destacado">
+                <h2>Actualización del Plan Regulador</h2>
+                <p>
+                    La actualización del Plan Regulador Comunal de Angol fue
+                    promulgada mediante la Resolución N.º 40 del Gobierno
+                    Regional de La Araucanía, publicada en el Diario Oficial
+                    el 14 de octubre de 2022.
+                </p>
+                <p>
+                    El instrumento contempla una ordenanza local, una memoria
+                    explicativa, planos y estudios técnicos que forman parte
+                    de sus antecedentes normativos.
+                </p>
+                <a class="pr-boton"
+                   href="https://www.bcn.cl/leychile/navegar?i=1182816"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Consultar resolución oficial
+                </a>
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>¿Qué regula este instrumento?</h2>
+
+            <div class="pr-grid">
+
+                <article class="pr-card">
+                    <h3>Límite urbano</h3>
+                    <p>
+                        Define el territorio comprendido dentro del área urbana
+                        regulada por el plan y establece el límite representado
+                        en los planos oficiales.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Zonificación y usos de suelo</h3>
+                    <p>
+                        Organiza el área urbana en zonas y establece las
+                        disposiciones urbanísticas correspondientes a cada una,
+                        incluyendo condiciones para usos residenciales,
+                        productivos, comerciales y áreas verdes.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Vialidad estructurante</h3>
+                    <p>
+                        Define la estructura vial representada en los planos
+                        del instrumento y establece antecedentes para la
+                        planificación de las vías urbanas.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Áreas de riesgo</h3>
+                    <p>
+                        Identifica áreas que presentan riesgos asociados a
+                        procesos de remoción en masa, inundaciones o anegamientos,
+                        considerando las disposiciones correspondientes.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Patrimonio cultural</h3>
+                    <p>
+                        Reconoce inmuebles y elementos patrimoniales sujetos
+                        a protección, de acuerdo con las categorías establecidas
+                        en el Plan Regulador y la normativa aplicable.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Normas de edificación</h3>
+                    <p>
+                        Establece condiciones urbanísticas aplicables a las
+                        construcciones, de acuerdo con la zona en la que se
+                        emplaza cada propiedad.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Zonificación del área urbana</h2>
+
+            <p>
+                La ordenanza del Plan Regulador Comunal de Angol identifica
+                distintas zonas urbanas. Cada una posee disposiciones específicas
+                que deben revisarse para conocer las condiciones aplicables
+                a un terreno o proyecto.
+            </p>
+
+            <div class="pr-grid">
+
+                <article class="pr-card">
+                    <h3>Zona Z-1</h3>
+                    <p><strong>Centro Histórico.</strong></p>
+                    <p>
+                        Zona que contempla normas urbanísticas para el sector
+                        central e histórico de la ciudad.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Zona Z-2</h3>
+                    <p><strong>Eje Bernardo O’Higgins.</strong></p>
+                    <p>
+                        Zona asociada al eje urbano de la avenida Bernardo
+                        O’Higgins, regulada por las disposiciones del plan.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Zona Z-3</h3>
+                    <p><strong>Residencial Mixta Densidad Media.</strong></p>
+                    <p>
+                        Zona residencial mixta con normas específicas de
+                        densidad y condiciones de desarrollo urbano.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Zona Z-4</h3>
+                    <p><strong>Residencial Mixta Densidad Baja.</strong></p>
+                    <p>
+                        Zona residencial mixta sujeta a las condiciones
+                        urbanísticas establecidas para una densidad baja.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Zona Z-5</h3>
+                    <p><strong>Residencial Mixta Productiva.</strong></p>
+                    <p>
+                        Zona que contempla usos residenciales mixtos y
+                        actividades productivas compatibles, según las
+                        disposiciones de la ordenanza.
+                    </p>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Zona Z-AV</h3>
+                    <p><strong>Área Verde.</strong></p>
+                    <p>
+                        Zona destinada a áreas verdes, de acuerdo con las
+                        disposiciones establecidas en el instrumento.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="pr-nota">
+                <strong>Importante:</strong> la zonificación indicada es
+                referencial. Para determinar la zona correspondiente a una
+                propiedad y conocer sus usos permitidos, condiciones de
+                edificación o restricciones, es necesario revisar los planos
+                y la ordenanza oficial vigente.
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Áreas de riesgo y protección</h2>
+
+            <p>
+                El Plan Regulador identifica sectores sujetos a restricciones
+                asociadas a riesgos naturales y establece categorías de
+                protección relacionadas con el patrimonio cultural.
+            </p>
+
+            <h3 class="pr-subtitulo">Áreas de riesgo</h3>
+
+            <ul class="pr-lista">
+                <li>
+                    <strong>AR-1: Procesos de remoción en masa.</strong>
+                    Incluye áreas asociadas a deslizamientos, flujos y
+                    desprendimientos.
+                </li>
+                <li>
+                    <strong>AR-2: Riesgos vinculados a factores hídricos.</strong>
+                    Incluye áreas inundables o potencialmente inundables y
+                    áreas de riesgo por anegamiento.
+                </li>
+            </ul>
+
+            <h3 class="pr-subtitulo">Áreas de protección patrimonial</h3>
+
+            <p>
+                El instrumento contempla inmuebles de conservación histórica
+                y monumentos nacionales, de acuerdo con las categorías y
+                disposiciones que establece la normativa aplicable.
+            </p>
+
+            <p>
+                Las condiciones específicas de cada sector deben verificarse
+                mediante la consulta de los planos, la ordenanza local y los
+                antecedentes técnicos oficiales.
+            </p>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Documentos oficiales del Plan Regulador</h2>
+
+            <p>
+                Consulta los documentos que integran el Plan Regulador Comunal
+                de Angol. Estos antecedentes permiten revisar la normativa,
+                las características de la planificación territorial y la
+                representación gráfica de las zonas urbanas.
+            </p>
+
+            <div class="pr-grid">
+
+                <article class="pr-card">
+                    <h3>Ordenanza local</h3>
+                    <p>
+                        Documento normativo que contiene las disposiciones
+                        urbanísticas del Plan Regulador Comunal de Angol.
+                    </p>
+                    <a class="pr-enlace"
+                       href="https://angol.cl/images/planregulador/Ordenanza_Local_actualizada_ENE_2024.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consultar ordenanza en PDF ↗
+                    </a>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Memoria explicativa</h3>
+                    <p>
+                        Presenta los antecedentes, fundamentos y criterios
+                        utilizados para la elaboración y actualización del
+                        instrumento de planificación territorial.
+                    </p>
+                    <a class="pr-enlace"
+                       href="https://www.angol.cl/transparencia/actos%2Cdecisiones/PLAN_REGULADOR/Memoria_Explicativa.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consultar memoria explicativa ↗
+                    </a>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Planos de zonificación y vialidad</h3>
+                    <p>
+                        Representación gráfica del límite urbano, las zonas
+                        y la vialidad definida en el Plan Regulador.
+                    </p>
+                    <a class="pr-enlace"
+                       href="https://angol.cl/index.php/plan-regulador"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consultar planos en la página municipal ↗
+                    </a>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Resolución de promulgación</h3>
+                    <p>
+                        Acto administrativo que promulga la actualización
+                        del Plan Regulador Comunal de Angol.
+                    </p>
+                    <a class="pr-enlace"
+                       href="https://www.bcn.cl/leychile/navegar?i=1182816"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Leer resolución en Ley Chile ↗
+                    </a>
+                </article>
+
+                <article class="pr-card">
+                    <h3>Informe ambiental</h3>
+                    <p>
+                        Antecedentes de la Evaluación Ambiental Estratégica
+                        incorporada al proceso de planificación comunal.
+                    </p>
+                    <a class="pr-enlace"
+                       href="https://angol.cl/images/planregulador/Informe_Ambiental.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consultar informe ambiental ↗
+                    </a>
+                </article>
+
+            </div>
+
+            <div class="pr-destacado">
+                <h2>Documentación municipal actualizada</h2>
+                <p>
+                    La Municipalidad de Angol publica en su sitio oficial
+                    los documentos del Plan Regulador y sus modificaciones.
+                    Las enmiendas de reclasificación vial entraron en vigencia
+                    el 9 de marzo de 2026.
+                </p>
+                <p>
+                    Para consultar la documentación municipal disponible,
+                    incluidos los antecedentes más recientes, visita la
+                    página oficial del Plan Regulador.
+                </p>
+                <a class="pr-boton"
+                   href="https://angol.cl/index.php/plan-regulador"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Ir al Plan Regulador oficial
+                </a>
+            </div>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>¿Cómo consultar las normas de una propiedad?</h2>
+
+            <p>
+                Para revisar las condiciones urbanísticas de un terreno o
+                inmueble, se recomienda consultar los siguientes antecedentes:
+            </p>
+
+            <ol class="pr-lista">
+                <li>
+                    Identificar la ubicación del terreno y su relación con
+                    el límite urbano.
+                </li>
+                <li>
+                    Localizar el terreno en los planos oficiales de
+                    zonificación y vialidad.
+                </li>
+                <li>
+                    Revisar en la ordenanza local las disposiciones de la
+                    zona correspondiente.
+                </li>
+                <li>
+                    Comprobar si existen áreas de riesgo, protección
+                    patrimonial u otras condiciones especiales.
+                </li>
+                <li>
+                    Confirmar las disposiciones aplicables con la Dirección
+                    de Obras Municipales antes de iniciar un proyecto.
+                </li>
+            </ol>
+
+            <div class="pr-nota">
+                <strong>Nota:</strong> esta página tiene carácter informativo
+                y no reemplaza la revisión de los documentos oficiales ni
+                los certificados o pronunciamientos que correspondan emitir
+                a los organismos competentes.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
+                <p>✉️ contacto@angol.cl</p>
+                <p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="conoce-mas.html" class="btn-secondary">Ley de Transparencia</a>
+                <br><br>
+                <a href="conoce-mas.html" class="btn-secondary">Ley del Lobby</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const botonMenu = document.getElementById("menuBoton");
+            const panelMenu = document.getElementById("menuDesplegable");
+
+            if (botonMenu && panelMenu) {
+                botonMenu.addEventListener("click", () => {
+                    const abierto = panelMenu.classList.toggle("abierto");
+                    botonMenu.setAttribute("aria-expanded", String(abierto));
+                });
+            }
+
+            document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+                boton.addEventListener("click", () => {
+                    const submenu = document.getElementById(
+                        boton.getAttribute("aria-controls")
+                    );
+
+                    if (!submenu) return;
+
+                    const abierto = submenu.classList.toggle("abierto");
+                    boton.setAttribute("aria-expanded", String(abierto));
+                });
+            });
+
+            // Historial de páginas visitadas durante esta sesión.
+            const paginaActual = {
+                nombre: document.body.dataset.page,
+                url: document.body.dataset.pageUrl
+            };
+
+            let historial = [];
+
+            try {
+                historial = JSON.parse(
+                    sessionStorage.getItem("historialAngol") || "[]"
+                );
+
+                if (!Array.isArray(historial)) {
+                    historial = [];
+                }
+            } catch (error) {
+                historial = [];
+            }
+
+            const posicionExistente = historial.findIndex(
+                pagina => pagina.url === paginaActual.url
+            );
+
+            if (posicionExistente >= 0) {
+                historial = historial.slice(0, posicionExistente + 1);
+            } else {
+                historial.push(paginaActual);
+            }
+
+            if (historial.length > 8) {
+                historial = historial.slice(-8);
+            }
+
+            try {
+                sessionStorage.setItem(
+                    "historialAngol",
+                    JSON.stringify(historial)
+                );
+            } catch (error) {
+                // La página sigue funcionando si el almacenamiento está bloqueado.
+            }
+
+            const listaHistorial = document.getElementById("historialPaginas");
+
+            if (listaHistorial) {
+                historial.forEach((pagina, indice) => {
+                    const elemento = document.createElement("li");
+
+                    if (indice === historial.length - 1) {
+                        elemento.textContent = pagina.nombre;
+                        elemento.setAttribute("aria-current", "page");
+                    } else {
+                        const enlace = document.createElement("a");
+                        enlace.href = pagina.url;
+                        enlace.textContent = pagina.nombre;
+                        elemento.appendChild(enlace);
+                    }
+
+                    listaHistorial.appendChild(elemento);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
