@@ -1,226 +1,301 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias Municipales | Municipalidad de Angol</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Noticias y registros audiovisuales de Prensa Municipal de Angol, organizados por temática.">
+  <title>Noticias Municipales | Municipalidad de Angol</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos exclusivos de esta página: no requiere modificar style.css */
+    .prensa-intro { max-width:900px; line-height:1.8; color:#53604b; }
+    .prensa-seccion { margin:35px 0 50px; }
+    .prensa-seccion h2 { margin:0 0 9px; color:#456514; font-size:clamp(1.55rem,2.6vw,2rem); }
+    .prensa-subtitulo { margin:0 0 22px; color:#63705e; line-height:1.7; }
+    .prensa-grupo { margin:35px 0 42px; }
+    .prensa-grupo h3 { color:#456514; margin:0 0 20px; font-size:1.42rem; padding-bottom:10px; border-bottom:2px solid #dce7cc; }
+    .prensa-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .prensa-tarjeta { min-width:0; display:flex; flex-direction:column; overflow:hidden; background:#fff; border:1px solid #e0e6d8; border-bottom:4px solid #94a740; border-radius:10px; box-shadow:0 4px 15px #0000000b; }
+    .prensa-tarjeta:hover { border-bottom-color:#29a8d4; box-shadow:0 8px 20px #00000014; }
+    .prensa-imagen { position:relative; height:auto; aspect-ratio:16/10; overflow:hidden; background:#e4edda; }
+    .prensa-imagen-fondo { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:18px; color:#456514; font-weight:700; background:linear-gradient(140deg,#dbe8ca,#f1f5eb); }
+    .prensa-imagen-fondo span { font-size:2rem; }
+    .prensa-imagen img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
+    .prensa-cuerpo { display:flex; flex-direction:column; flex:1; gap:12px; padding:22px; }
+    .prensa-etiqueta { align-self:flex-start; padding:6px 10px; border-radius:4px; background:#edf4e2; color:#456514; font-size:.75rem; font-weight:700; text-transform:uppercase; }
+    .prensa-fecha { font-size:.84rem; color:#687461; }
+    .prensa-tarjeta h4 { margin:0; color:#456514; font-size:1.18rem; line-height:1.38; overflow-wrap:anywhere; }
+    .prensa-resumen { margin:0; color:#4e5949; font-size:.94rem; line-height:1.7; overflow-wrap:anywhere; }
+    .prensa-acciones { display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; padding-top:8px; }
+    .prensa-boton { display:inline-flex; align-items:center; justify-content:center; padding:11px 15px; border:1px solid #456514; border-radius:5px; background:#456514; color:#fff!important; text-decoration:none; text-align:center; font:inherit; font-size:.88rem; font-weight:700; cursor:pointer; }
+    .prensa-boton:hover { background:#354d0f; }
+    .prensa-boton:focus-visible { outline:3px solid #29a8d4; outline-offset:2px; }
+    .prensa-enlace-sec { background:#fff; color:#456514!important; border-color:#a6b991; }
+    .prensa-enlace-sec:hover { background:#edf4e2; }
+    /* Primera noticia en formato destacado */
+    .prensa-destacada { display:grid; grid-template-columns:1.1fr 1fr; min-height:330px; margin-bottom:22px; }
+    .prensa-destacada .prensa-imagen { height:100%; aspect-ratio:auto; min-height:330px; }
+    .prensa-destacada .prensa-cuerpo { justify-content:center; padding:32px; }
+    .prensa-destacada h4 { font-size:clamp(1.45rem,2.6vw,2.1rem); }
+    .prensa-grid-destacadas { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .prensa-grid-destacadas .prensa-tarjeta { flex-direction:row; }
+    .prensa-grid-destacadas .prensa-imagen { flex:0 0 40%; aspect-ratio:auto; }
+    /* Visor de videos */
+    .prensa-modal { width:min(860px,calc(100% - 24px)); max-height:90vh; margin:auto; padding:0; border:0; border-radius:10px; background:white; color:#333; overflow:auto; }
+    .prensa-modal::backdrop { background:#14200cce; }
+    .prensa-modal-cabecera { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:16px 20px; border-bottom:1px solid #dce6d2; }
+    .prensa-modal-cabecera h2 { margin:0; color:#456514; font-size:1.05rem; }
+    .prensa-modal-cerrar { padding:8px 14px; border:0; border-radius:5px; background:#456514; color:white; font:inherit; font-weight:700; cursor:pointer; }
+    .prensa-video-marco { aspect-ratio:16/9; background:#111; }
+    .prensa-video-marco iframe { display:block; width:100%; height:100%; border:0; }
+    @media(max-width:1050px) { .prensa-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:760px) { .prensa-destacada { grid-template-columns:1fr; } .prensa-destacada .prensa-imagen { aspect-ratio:16/9; min-height:0; } .prensa-grid-destacadas .prensa-tarjeta { flex-direction:column; } .prensa-grid-destacadas .prensa-imagen { flex:initial; aspect-ratio:16/10; } }
+    @media(max-width:600px) { .prensa-grid { grid-template-columns:1fr; } .prensa-destacada .prensa-cuerpo { padding:22px; } }
+  </style>
 </head>
+<body data-page="Noticias Municipales" data-page-url="noticias-municipales.html">
 
-<body data-page="Noticias Municipales"
-      data-page-url="noticias-municipales.html">
+  <!-- Encabezado idéntico al de Teléfonos y Dirección -->
+  <header class="interior-header">
+    <a class="interior-logo" href="index.html" aria-label="Volver al inicio">
+      <img src="Angol.ico" alt="" class="escudo-angol">
+      <span>Municipalidad de Angol</span>
+    </a>
+    <div class="interior-menu">
+      <button class="interior-menu-toggle" id="menuBoton" aria-expanded="false" aria-controls="menuDesplegable">Menú <span aria-hidden="true">☰</span></button>
+      <nav class="interior-menu-panel" id="menuDesplegable" aria-label="Menú principal">
+        <ul class="interior-menu-lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li><button class="interior-submenu-toggle" aria-expanded="false" aria-controls="submenuCiudad">La Ciudad <span>▾</span></button><ul class="interior-submenu" id="submenuCiudad"><li><a href="conoce-mas.html">Reseña</a></li><li><a href="conoce-mas.html">Hijo Ilustre</a></li></ul></li>
+          <li><button class="interior-submenu-toggle" aria-expanded="false" aria-controls="submenuMunicipalidad">Municipalidad <span>▾</span></button><ul class="interior-submenu" id="submenuMunicipalidad"><li><a href="conoce-mas.html">Alcaldía Municipal</a></li><li><a href="conoce-mas.html">Dirección de Administración</a></li><li><a href="conoce-mas.html">Dirección de Control Interno</a></li></ul></li>
+          <li><button class="interior-submenu-toggle" aria-expanded="false" aria-controls="submenuConcejo">Concejo Municipal <span>▾</span></button><ul class="interior-submenu" id="submenuConcejo"><li><a href="conoce-mas.html">Integrantes Concejo</a></li><li><a href="conoce-mas.html">Actas de Concejo</a></li></ul></li>
+          <li><button class="interior-submenu-toggle" aria-expanded="false" aria-controls="submenuServicios">Servicios Online <span>▾</span></button><ul class="interior-submenu" id="submenuServicios"><li><a href="servicios-online.html">Pago de Patentes</a></li><li><a href="servicios-online.html">Permisos de Circulación</a></li></ul></li>
+          <li><button class="interior-submenu-toggle" aria-expanded="false" aria-controls="submenuInformacion">Información <span>▾</span></button><ul class="interior-submenu" id="submenuInformacion"><li><a href="conoce-mas.html">Cuentas Públicas</a></li><li><a href="conoce-mas.html">Ordenanzas Municipales</a></li></ul></li>
+          <li><a href="plan-regulador.html">Plan Regulador</a></li>
+          <li><a href="plan-maestro-aguas-lluvias.html">Plan Maestro de Aguas Lluvias</a></li>
+          <li><a href="noticias-municipales.html" aria-current="page">Noticias Municipales</a></li>
+          <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <header class="interior-header">
-        <a class="interior-logo" href="index.html">
-            Municipalidad de Angol
-        </a>
+  <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+    <ol id="historialPaginas"><li><a href="index.html">Inicio</a></li><li aria-current="page">Noticias Municipales</li></ol>
+  </nav>
 
-        <div class="interior-menu">
-            <button
-                class="interior-menu-toggle"
-                id="menuBoton"
-                aria-expanded="false"
-                aria-controls="menuDesplegable">
-                Menú <span aria-hidden="true">☰</span>
-            </button>
+  <main class="contenido-interior">
+    <section class="encabezado-seccion">
+      <h1>Noticias Municipales</h1>
+      <p>Infórmate sobre actividades, obras, comunidad y gestión de la Municipalidad de Angol.</p>
+    </section>
 
-            <nav class="interior-menu-panel"
-                 id="menuDesplegable"
-                 aria-label="Menú principal">
+    <section class="bloque-contenido">
+      <p class="prensa-intro">Revisa las publicaciones de Prensa Municipal, organizadas por temática. Las noticias destacadas aparecen primero y cada una lleva directamente a su artículo original.</p>
 
-                <ul class="interior-menu-lista">
-                    <li><a href="index.html">Inicio</a></li>
+      <!-- Primero, las tres publicaciones con identificadores más recientes de la copia -->
+      <section class="prensa-seccion" aria-labelledby="tituloDestacadas">
+        <h2 id="tituloDestacadas">Noticias destacadas</h2>
+        <p class="prensa-subtitulo">Publicaciones ubicadas al inicio del rediseño. Los artículos restantes están organizados por categoría más abajo.</p>
+        <div id="noticiaPrincipal"></div>
+        <div id="otrasDestacadas" class="prensa-grid prensa-grid-destacadas"></div>
+      </section>
 
-                    <li>
-                        <button class="interior-submenu-toggle"
-                                aria-expanded="false"
-                                aria-controls="submenuCiudad">
-                            La Ciudad <span>▾</span>
-                        </button>
-                        <ul class="interior-submenu" id="submenuCiudad">
-                            <li><a href="conoce-mas.html">Reseña</a></li>
-                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
-                        </ul>
-                    </li>
+      <!-- Todas las demás noticias, separadas por categoría -->
+      <section class="prensa-seccion" aria-labelledby="tituloCategorias">
+        <h2 id="tituloCategorias">Noticias por categoría</h2>
+        <p class="prensa-subtitulo">Secciones temáticas con enlaces a cada noticia específica.</p>
+        <div id="noticiasPorCategoria"></div>
+      </section>
 
-                    <li>
-                        <button class="interior-submenu-toggle"
-                                aria-expanded="false"
-                                aria-controls="submenuMunicipalidad">
-                            Municipalidad <span>▾</span>
-                        </button>
-                        <ul class="interior-submenu" id="submenuMunicipalidad">
-                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
-                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
-                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
-                        </ul>
-                    </li>
+      <!-- Los videos también quedan agrupados por categoría -->
+      <section class="prensa-seccion" aria-labelledby="tituloVideos">
+        <h2 id="tituloVideos">Videos municipales</h2>
+        <p class="prensa-subtitulo">Registros audiovisuales del mismo archivo. Puedes reproducirlos aquí o abrir su publicación individual.</p>
+        <div id="videosPorCategoria"></div>
+      </section>
+    </section>
+  </main>
 
-                    <li>
-                        <button class="interior-submenu-toggle"
-                                aria-expanded="false"
-                                aria-controls="submenuConcejo">
-                            Concejo Municipal <span>▾</span>
-                        </button>
-                        <ul class="interior-submenu" id="submenuConcejo">
-                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
-                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
-                        </ul>
-                    </li>
+  <!-- Reproductor de video en la misma página -->
+  <dialog id="prensaModal" class="prensa-modal" aria-labelledby="tituloVideo">
+    <div class="prensa-modal-cabecera">
+      <h2 id="tituloVideo">Video municipal</h2>
+      <button class="prensa-modal-cerrar" id="cerrarVideo" type="button">Cerrar ×</button>
+    </div>
+    <div class="prensa-video-marco"><iframe id="marcoVideo" title="Video de Prensa Municipal" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  </dialog>
 
-                    <li>
-                        <button class="interior-submenu-toggle"
-                                aria-expanded="false"
-                                aria-controls="submenuServicios">
-                            Servicios Online <span>▾</span>
-                        </button>
-                        <ul class="interior-submenu" id="submenuServicios">
-                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
-                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
-                        </ul>
-                    </li>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section"><h4>Enlaces de Interés</h4><ul><li><a href="departamento-turismo.html">Turismo Angol</a></li><li><a href="conoce-mas.html">Cultura Angol</a></li><li><a href="departamento-turismo.html">Brotes de Chile</a></li></ul></div>
+      <div class="footer-section"><h4>Contacto Institucional</h4><p>📍 Angol, Región de La Araucanía</p><p>✉️ <a href="mailto:contacto@angol.cl">contacto@angol.cl</a></p><p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p></div>
+      <div class="footer-section"><h4>Transparencia</h4><a href="conoce-mas.html" class="btn-secondary">Ley de Transparencia</a><br><br><a href="conoce-mas.html" class="btn-secondary">Ley del Lobby</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p></div>
+  </footer>
 
-                    <li>
-                        <button class="interior-submenu-toggle"
-                                aria-expanded="false"
-                                aria-controls="submenuInformacion">
-                            Información <span>▾</span>
-                        </button>
-                        <ul class="interior-submenu" id="submenuInformacion">
-                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
-                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="conoce-mas.html">Plan Regulador</a></li>
-                    <li><a href="conoce-mas.html">Plan Maestro de Aguas Lluvias</a></li>
-                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
-                    <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
-        <ol id="historialPaginas">
-            <li><a href="index.html">Inicio</a></li>
-        </ol>
-    </nav>
-
-    <!-- REEMPLAZAR ESTE MAIN POR EL CONTENIDO DE CADA PÁGINA -->
-    <main class="contenido-interior">
-        <section class="encabezado-seccion">
-            <h1>Noticias Municipales</h1>
-            <p>Información y actualidad de la comuna de Angol.</p>
-        </section>
-
-        <section class="bloque-contenido">
-            <h2>Actualidad municipal</h2>
-            <p>Conoce las actividades, iniciativas y novedades de la Municipalidad de Angol.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Enlaces de Interés</h4>
-                <ul>
-                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
-                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
-                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contacto Institucional</h4>
-                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
-                <p>✉️ contacto@angol.cl</p>
-                <p><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Transparencia</h4>
-                <a href="conoce-mas.html" class="btn-secondary">Ley de Transparencia</a>
-                <br><br>
-                <a href="conoce-mas.html" class="btn-secondary">Ley del Lobby</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        const botonMenu = document.getElementById("menuBoton");
-        const panelMenu = document.getElementById("menuDesplegable");
-
-        botonMenu.addEventListener("click", () => {
-            const abierto = panelMenu.classList.toggle("abierto");
-            botonMenu.setAttribute("aria-expanded", String(abierto));
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* MENÚ */
+      const botonMenu = document.getElementById("menuBoton");
+      const panelMenu = document.getElementById("menuDesplegable");
+      botonMenu.addEventListener("click", () => {
+        const abierto = panelMenu.classList.toggle("abierto");
+        botonMenu.setAttribute("aria-expanded", String(abierto));
+      });
+      document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+        boton.addEventListener("click", () => {
+          const submenu = document.getElementById(boton.getAttribute("aria-controls"));
+          if (!submenu) return;
+          const abierto = submenu.classList.toggle("abierto");
+          boton.setAttribute("aria-expanded", String(abierto));
         });
+      });
 
-        document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
-            boton.addEventListener("click", () => {
-                const submenu = document.getElementById(
-                    boton.getAttribute("aria-controls")
-                );
-                const abierto = submenu.classList.toggle("abierto");
-                boton.setAttribute("aria-expanded", String(abierto));
-            });
+      /* CONTENIDO ESTÁTICO EXTRAÍDO DE LA COPIA DEL PORTAL DE PRENSA MUNICIPAL
+         No usa WordPress, Joomla API, fetch ni buscador. */
+      const base = "https://noticias.angol.cl/";
+      const noticias = [
+        { id:2751, titulo:"PRECAUCIÓN PARQUE EX ESCUELA NORMAL", categoria:"Avisos", resumen:"Precaución: continúan las labores de limpieza y desinfección del Parque Ex Escuela Normal.", foto:"451601e2c2a2c10e47fcc6138e9e1f31", enlace:"index.php/noticias/item/2751-precaucion-parque-ex-escuela-normal" },
+        { id:2750, titulo:"¡FELICES 100 AÑOS, QUERIDA AÍDA!", categoria:"Comunidad", resumen:"Consulta la publicación municipal de homenaje por este centenario.", foto:"ef60364f224305d0b9f19741ec3fdf58", enlace:"index.php/noticias/item/2750-felices-100-anos-querida-aida" },
+        { id:2749, titulo:"10 al 15 de agosto", categoria:"Comunidad", resumen:"Publicación municipal con información sobre el período del 10 al 15 de agosto. Consulta el artículo original para ver sus detalles.", foto:"159410b2d8aaed37af98fd73a83bd77e", enlace:"index.php/noticias/item/2749-10-al-15-de-agosto" },
+        { id:2748, titulo:"Limpieza Integral Parque Ex Escuela Normal", categoria:"Ciudad y obras", resumen:"Publicación sobre labores de limpieza integral en el Parque Ex Escuela Normal.", foto:"46e21e7be60567c4b9b2ca9018587f88", enlace:"index.php/noticias/item/2748-limpieza-integral-parque-ex-escuela-normal" },
+        { id:2747, titulo:"Avanza proyecto de modernización de semáforos en Angol", categoria:"Ciudad y obras", resumen:"Iniciativa orientada a fortalecer la seguridad vial y modernizar la gestión del tránsito en la comuna.", foto:"c10018f3843934a44da6fc5208ffef5b", enlace:"index.php/noticias/item/2747-avanza-proyecto-de-modernizacion-de-semaforos-en-angol" },
+        { id:2746, titulo:"Programa HIPPY en Angol", categoria:"Comunidad", resumen:"Publicación sobre la firma de una carta de patrocinio del Programa HIPPY en Angol.", foto:"a9b9add5bcfb016b8b41446ea451af04", enlace:"index.php/noticias/item/2746-programa-hippy-en-angol" },
+        { id:2745, titulo:"Coordinación con Colonia Manuel Rodríguez", categoria:"Comunidad", resumen:"Reunión de coordinación con el Centro de Padres y Apoderados de Colonia Manuel Rodríguez.", foto:"e53e70365d51081c22c1d8f970c43d59", enlace:"index.php/noticias/item/2745-coordinacion-con-colonia-manuel-rodriguez" },
+        { id:2743, titulo:"Condolencias Dara Espinoza y Karen Codoceo", categoria:"Avisos", resumen:"Comunicado publicado por la Ilustre Municipalidad de Angol.", foto:"d9640fd356a2fdd2860810454b9f9005", enlace:"index.php/noticias/item/2743-condolencias-dara-espinoza-y-karen-codoceo" },
+        { id:2739, titulo:"Conciertos Criollos", categoria:"Cultura y deporte", resumen:"Publicación municipal relacionada con Conciertos Criollos. Abre el artículo para ver más información.", foto:"21f17c9e863ce68047046a2d88bbdae5", enlace:"index.php/noticias/item/2739-conciertos-criollos" }
+      ];
+
+      const videos = [
+        { titulo:"Segundo Encuentro de Danza Adulto Mayor", categoria:"Cultura y deporte", fecha:"13 de octubre de 2025", youtube:"ttDk2BdUw7A", enlace:"index.php/component/k2/item/2744-segundo-encuentro-de-danza-adulto-mayor" },
+        { titulo:"Reflexión y condolencias", categoria:"Avisos", fecha:"13 de octubre de 2025", youtube:"eGIpkFHWjRk", enlace:"index.php/component/k2/item/2742-reflexion-y-condolencias" },
+        { titulo:"Sesión Extraordinaria de Concejo N°08", categoria:"Gestión municipal", fecha:"28 de julio de 2025", youtube:"RBCdy7OOH4c", enlace:"index.php/component/k2/item/2736-sesion-extraordinaria-de-concejo-n-08" },
+        { titulo:"Saludos en Día del Campesino", categoria:"Comunidad", fecha:"28 de julio de 2025", youtube:"HgT7kMzgu2k", enlace:"index.php/component/k2/item/2722-saludos-en-dia-del-campesino" },
+        { titulo:"Celebración en Coyanco", categoria:"Comunidad", fecha:"27 de julio de 2025", youtube:"K7ecUXOIWig", enlace:"index.php/component/k2/item/2725-celebracion-en-coyanco" },
+        { titulo:"Aniversario N°7 Agua Sanata", categoria:"Comunidad", fecha:"26 de julio de 2025", youtube:"vOLUxkKR7hY", enlace:"index.php/component/k2/item/2728-aniversario-n-7-agua-sanata" },
+        { titulo:"Celebración en Vegas de Pichipehuén", categoria:"Comunidad", fecha:"26 de julio de 2025", youtube:"-cRxDRSt8nE", enlace:"index.php/component/k2/item/2729-dia-del-campesino-vegas-de-pichipehuen" },
+        { titulo:"Obras de mejoramiento Parque Vergara", categoria:"Ciudad y obras", fecha:"18 de julio de 2025", youtube:"3Q6z7KIkT38", enlace:"index.php/component/k2/item/2719-obras-de-mejoramiento-parque-vergara" },
+        { titulo:"Entrega de 106 subsidios energéticos", categoria:"Comunidad", fecha:"17 de julio de 2025", youtube:"Zo-mDybbzXQ", enlace:"index.php/component/k2/item/2712-entrega-de-106-subsidios" },
+        { titulo:"Mejoramiento de Área Verde: Puyehue", categoria:"Ciudad y obras", fecha:"17 de julio de 2025", youtube:"CwPb8lWb7tM", enlace:"index.php/component/k2/item/2714-mejoramiento-de-area-verde-puyehue" },
+        { titulo:"Sesión Ordinaria de Concejo N°23", categoria:"Gestión municipal", fecha:"15 de julio de 2025", youtube:"ixgvWqUxXCQ", enlace:"index.php/component/k2/item/2705-sesion-ordinaria-de-concejo-n-23" },
+        { titulo:"Entrega Subvenciones Deportivas 2025", categoria:"Cultura y deporte", fecha:"15 de julio de 2025", youtube:"TEgCOFWJxrI", enlace:"index.php/component/k2/item/2702-entrega-subvenciones-deportivas-2025" },
+        { titulo:"Sesión Ordinaria de Concejo N°22", categoria:"Gestión municipal", fecha:"8 de julio de 2025", youtube:"OhE4voHR3Jg", enlace:"index.php/component/k2/item/2701-sesion-ordinaria-de-concejo-n-22" },
+        { titulo:"Nuevo Jefe de Dpto. Ed. Municipal", categoria:"Gestión municipal", fecha:"7 de julio de 2025", youtube:"8eiHR-aPf-4", enlace:"index.php/component/k2/item/2697-nuevo-jefe-de-dpto-ed-municipal" },
+        { titulo:"Resumen Aniversario Bomberos", categoria:"Comunidad", fecha:"5 de julio de 2025", youtube:"InaCefAItB0", enlace:"index.php/component/k2/item/2691-resumen-aniversario-bomberos" }
+      ];
+
+      const gruposNoticias = ["Ciudad y obras", "Comunidad", "Cultura y deporte", "Avisos"];
+      const gruposVideos = ["Comunidad", "Ciudad y obras", "Cultura y deporte", "Gestión municipal", "Avisos"];
+      const modal = document.getElementById("prensaModal");
+      const marco = document.getElementById("marcoVideo");
+      const tituloModal = document.getElementById("tituloVideo");
+      const crear = (nombre, clase, texto) => {
+        const el = document.createElement(nombre);
+        if (clase) el.className = clase;
+        if (texto !== undefined) el.textContent = texto;
+        return el;
+      };
+      function imagenPara(item, esVideo) {
+        const caja = crear("div", "prensa-imagen");
+        const fondo = crear("div", "prensa-imagen-fondo");
+        fondo.append(crear("span", "", esVideo ? "▶" : "▧"), crear("small", "", "Prensa Municipal · Angol"));
+        caja.appendChild(fondo);
+        const imagen = document.createElement("img");
+        imagen.loading = "lazy";
+        imagen.alt = "Imagen de " + item.titulo;
+        imagen.src = esVideo
+          ? "https://img.youtube.com/vi/" + item.youtube + "/hqdefault.jpg"
+          : base + "media/k2/items/cache/" + item.foto + "_L.jpg";
+        imagen.addEventListener("error", () => imagen.remove(), { once:true });
+        caja.appendChild(imagen);
+        return caja;
+      }
+      function enlace(texto, url, secundaria=false) {
+        const a = crear("a", secundaria ? "prensa-boton prensa-enlace-sec" : "prensa-boton", texto);
+        a.href = base + url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        return a;
+      }
+      function tarjetaNoticia(item, principal=false) {
+        const a = crear("article", principal ? "prensa-tarjeta prensa-destacada" : "prensa-tarjeta");
+        a.appendChild(imagenPara(item,false));
+        const cuerpo = crear("div","prensa-cuerpo");
+        cuerpo.append(crear("span","prensa-etiqueta",item.categoria), crear("h4","",item.titulo), crear("p","prensa-resumen",item.resumen));
+        const acciones = crear("div","prensa-acciones");
+        acciones.appendChild(enlace("Leer noticia completa ↗",item.enlace));
+        cuerpo.appendChild(acciones);
+        a.appendChild(cuerpo);
+        return a;
+      }
+      function tarjetaVideo(item) {
+        const a = crear("article","prensa-tarjeta");
+        a.appendChild(imagenPara(item,true));
+        const cuerpo = crear("div","prensa-cuerpo");
+        cuerpo.append(crear("span","prensa-etiqueta",item.categoria),crear("time","prensa-fecha",item.fecha),crear("h4","",item.titulo));
+        const acciones = crear("div","prensa-acciones");
+        const boton = crear("button","prensa-boton","Ver video aquí ▶");
+        boton.type = "button";
+        boton.addEventListener("click", () => {
+          tituloModal.textContent = item.titulo;
+          marco.src = "https://www.youtube-nocookie.com/embed/" + item.youtube + "?autoplay=1";
+          modal.showModal();
         });
+        acciones.append(boton, enlace("Ver publicación ↗",item.enlace,true));
+        cuerpo.appendChild(acciones);
+        a.appendChild(cuerpo);
+        return a;
+      }
+      function seccionCategoria(categoria, items, hacerTarjeta) {
+        const seccion = crear("section","prensa-grupo");
+        seccion.appendChild(crear("h3","",categoria));
+        const grid = crear("div","prensa-grid");
+        items.forEach(item => grid.appendChild(hacerTarjeta(item)));
+        seccion.appendChild(grid);
+        return seccion;
+      }
 
-        // Historial de páginas visitadas durante esta sesión.
-        const paginaActual = {
-            nombre: document.body.dataset.page,
-            url: document.body.dataset.pageUrl
-        };
+      // Los tres identificadores de noticia más altos en la copia se destacan primero.
+      const ordenadas = [...noticias].sort((a,b) => b.id - a.id);
+      const destacadas = ordenadas.slice(0,3);
+      const restantes = ordenadas.slice(3);
+      document.getElementById("noticiaPrincipal").appendChild(tarjetaNoticia(destacadas[0],true));
+      const otras = document.getElementById("otrasDestacadas");
+      destacadas.slice(1).forEach(item => otras.appendChild(tarjetaNoticia(item)));
+      const contenedorNoticias = document.getElementById("noticiasPorCategoria");
+      gruposNoticias.forEach(categoria => {
+        const items = restantes.filter(item => item.categoria === categoria);
+        if (items.length) contenedorNoticias.appendChild(seccionCategoria(categoria,items,tarjetaNoticia));
+      });
+      const contenedorVideos = document.getElementById("videosPorCategoria");
+      gruposVideos.forEach(categoria => {
+        const items = videos.filter(item => item.categoria === categoria);
+        if (items.length) contenedorVideos.appendChild(seccionCategoria(categoria,items,tarjetaVideo));
+      });
+      document.getElementById("cerrarVideo").addEventListener("click", () => modal.close());
+      modal.addEventListener("close", () => marco.removeAttribute("src"));
+      modal.addEventListener("click", evento => { if (evento.target === modal) modal.close(); });
 
-        let historial = [];
-
-        try {
-            historial = JSON.parse(
-                sessionStorage.getItem("historialAngol") || "[]"
-            );
-        } catch (error) {
-            historial = [];
-        }
-
-        // Si se vuelve a una página anterior, se recupera esa ruta.
-        const posicionExistente = historial.findIndex(
-            pagina => pagina.url === paginaActual.url
-        );
-
-        if (posicionExistente >= 0) {
-            historial = historial.slice(0, posicionExistente + 1);
-        } else {
-            historial.push(paginaActual);
-        }
-
-        if (historial.length > 8) {
-            historial = historial.slice(-8);
-        }
-
-        sessionStorage.setItem("historialAngol", JSON.stringify(historial));
-
-        const listaHistorial = document.getElementById("historialPaginas");
-
-        historial.forEach((pagina, indice) => {
-            const elemento = document.createElement("li");
-
-            if (indice === historial.length - 1) {
-                elemento.textContent = pagina.nombre;
-                elemento.setAttribute("aria-current", "page");
-            } else {
-                const enlace = document.createElement("a");
-                enlace.href = pagina.url;
-                enlace.textContent = pagina.nombre;
-                elemento.appendChild(enlace);
-            }
-
-            listaHistorial.appendChild(elemento);
-        });
-    </script>
+      /* HISTORIAL MUNICIPAL (sin duplicar Inicio) */
+      const actual = { nombre:document.body.dataset.page, url:document.body.dataset.pageUrl };
+      let historial = [];
+      try { historial = JSON.parse(sessionStorage.getItem("historialAngol") || "[]"); if (!Array.isArray(historial)) historial=[]; } catch { historial=[]; }
+      const posicion = historial.findIndex(p => p.url === actual.url);
+      historial = posicion >= 0 ? historial.slice(0,posicion+1) : [...historial,actual];
+      historial = historial.slice(-8);
+      try { sessionStorage.setItem("historialAngol",JSON.stringify(historial)); } catch { /* almacenamiento opcional */ }
+      const ruta = document.getElementById("historialPaginas");
+      ruta.replaceChildren();
+      const liInicio = crear("li"); const aInicio = crear("a","","Inicio"); aInicio.href="index.html"; liInicio.append(aInicio); ruta.append(liInicio);
+      historial.filter(p=>p.url !== "index.html").forEach((p,i,arr) => {
+        const li = crear("li");
+        if (i === arr.length-1) { li.textContent=p.nombre; li.setAttribute("aria-current","page"); }
+        else { const a=crear("a","",p.nombre); a.href=p.url; li.append(a); }
+        ruta.append(li);
+      });
+    });
+  </script>
 </body>
 </html>

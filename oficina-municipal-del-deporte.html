@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Información sobre la Oficina Municipal del Deporte de Angol y la participación deportiva en la comuna.">
+  <title>Oficina Municipal del Deporte | Municipalidad de Angol</title>
+  <link rel="icon" href="Angol.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .deporte-intro { max-width: 850px; margin: 0 0 30px; line-height: 1.8; color: #52604b; }
+    .deporte-titulo { margin: 0 0 12px; color: #456514; font-size: clamp(1.4rem, 2.7vw, 1.95rem); }
+    .deporte-texto { color: #53614c; line-height: 1.8; }
+    .deporte-destacado { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 24px; align-items: center; padding: 30px; background: #f1f6e9; border: 1px solid #dce6d3; border-left: 5px solid #94a740; border-radius: 12px; margin: 26px 0 40px; }
+    .deporte-destacado-icono { display: grid; place-items: center; width: 78px; height: 78px; border-radius: 20px; background: #e0edcf; font-size: 2.3rem; }
+    .deporte-destacado h2 { margin: 0 0 8px; color: #456514; font-size: 1.45rem; }
+    .deporte-destacado p { margin: 0; color: #52604b; line-height: 1.75; }
+    .deporte-grilla { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 20px 0 42px; }
+    .deporte-tarjeta { padding: 28px 24px; background: #fff; border: 1px solid #dfe7d8; border-bottom: 4px solid #94a740; border-radius: 12px; box-shadow: 0 5px 16px rgba(30, 54, 17, 0.05); }
+    .deporte-tarjeta-icono { font-size: 2rem; margin-bottom: 15px; }
+    .deporte-tarjeta h3 { color: #456514; margin: 0 0 10px; font-size: 1.17rem; }
+    .deporte-tarjeta p { color: #586451; line-height: 1.75; margin: 0; }
+    .deporte-pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 18px 0 42px; padding: 0; list-style: none; counter-reset: paso; }
+    .deporte-pasos li { counter-increment: paso; padding: 24px; background: #f6f8f2; border: 1px solid #e0e8d7; border-radius: 10px; line-height: 1.7; color: #52604b; }
+    .deporte-pasos li::before { content: counter(paso); display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 14px; border-radius: 50%; background: #456514; color: #fff; font-weight: 700; }
+    .deporte-pasos strong { display: block; margin-bottom: 5px; color: #456514; }
+    .deporte-contacto { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 28px; background: #edf3e6; border-radius: 12px; margin: 0 0 42px; }
+    .deporte-contacto h2 { margin: 0 0 8px; color: #456514; font-size: 1.4rem; }
+    .deporte-contacto p { margin: 0; color: #56634e; line-height: 1.7; max-width: 620px; }
+    .deporte-boton { display: inline-block; padding: 13px 20px; border-radius: 7px; background: #456514; color: #fff !important; font-weight: 700; text-decoration: none; transition: background .2s ease; }
+    .deporte-boton:hover, .deporte-boton:focus-visible { background: #30470e; }
+    .deporte-relacionados { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 15px; }
+    .deporte-relacionados a { color: #456514; border: 1px solid #cddbc0; border-radius: 7px; padding: 11px 16px; text-decoration: none; font-weight: 600; }
+    .deporte-relacionados a:hover, .deporte-relacionados a:focus-visible { background: #edf3e6; }
+    @media (max-width: 850px) { .deporte-grilla, .deporte-pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .deporte-grilla, .deporte-pasos { grid-template-columns: 1fr; } .deporte-destacado { grid-template-columns: 1fr; padding: 22px; } .deporte-contacto { padding: 22px; } }
+    @media (prefers-reduced-motion: reduce) { .deporte-boton { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="interior-header">
+    <a class="interior-logo" href="index.html" aria-label="Volver al inicio">
+      <img src="Angol.ico" alt="" class="escudo-angol">
+      <span>Municipalidad de Angol</span>
+    </a>
+    <div class="interior-menu">
+      <button class="interior-menu-toggle" type="button" id="menuBoton" aria-expanded="false" aria-controls="menuDesplegable">Menú <span aria-hidden="true">☰</span></button>
+      <nav class="interior-menu-panel" id="menuDesplegable" aria-label="Menú principal">
+        <ul class="interior-menu-lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="conoce-mas.html">La Ciudad</a></li>
+          <li><a href="concejo-municipal.html">Concejo Municipal</a></li>
+          <li><a href="servicios-online.html">Servicios Online</a></li>
+          <li><a href="noticias-municipales.html">Noticias Municipales</a></li>
+          <li><a href="plan-regulador.html">Plan Regulador</a></li>
+          <li><a href="plan-maestro-aguas-lluvias.html">Plan Maestro de Aguas Lluvias</a></li>
+          <li><a href="https://www.flickr.com/photos/158801214@N04/" target="_blank" rel="noopener noreferrer">Galería Fotográfica</a></li>
+          <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+    <ol><li><a href="index.html">Inicio</a></li><li aria-current="page">Oficina Municipal del Deporte</li></ol>
+  </nav>
+
+  <main class="contenido-interior" id="contenido-principal">
+    <section class="encabezado-seccion">
+      <h1>Oficina Municipal del Deporte</h1>
+      <p>Actividad física, deporte y participación en nuestra comuna.</p>
+    </section>
+
+    <section class="bloque-contenido" aria-labelledby="sobre-oficina">
+      <h2 class="deporte-titulo" id="sobre-oficina">Deporte para la comunidad</h2>
+      <p class="deporte-intro">El deporte y la actividad física son una parte importante de la vida comunitaria. La Oficina Municipal del Deporte es un espacio de referencia para conocer y consultar sobre iniciativas deportivas y oportunidades de participación en Angol.</p>
+      <div class="deporte-destacado">
+        <div class="deporte-destacado-icono" aria-hidden="true">🏅</div>
+        <div>
+          <h2>Una comuna activa</h2>
+          <p>El deporte favorece el encuentro entre vecinos y vecinas, la vida saludable y el desarrollo de actividades recreativas para distintas edades.</p>
+        </div>
+      </div>
+
+      <h2 class="deporte-titulo" id="areas">Ámbitos de interés</h2>
+      <p class="deporte-texto">Estas son algunas áreas sobre las que puedes solicitar orientación o consultar información municipal.</p>
+      <div class="deporte-grilla">
+        <article class="deporte-tarjeta">
+          <div class="deporte-tarjeta-icono" aria-hidden="true">🏃</div>
+          <h3>Actividad física y recreación</h3>
+          <p>Consulta por actividades físicas, instancias recreativas y alternativas de participación para la comunidad.</p>
+        </article>
+        <article class="deporte-tarjeta">
+          <div class="deporte-tarjeta-icono" aria-hidden="true">⚽</div>
+          <h3>Organizaciones deportivas</h3>
+          <p>Infórmate sobre los canales municipales de consulta relacionados con clubes, agrupaciones e iniciativas deportivas.</p>
+        </article>
+        <article class="deporte-tarjeta">
+          <div class="deporte-tarjeta-icono" aria-hidden="true">🏟️</div>
+          <h3>Espacios y encuentros</h3>
+          <p>Solicita información sobre espacios deportivos y eventos de interés para quienes practican deporte en la comuna.</p>
+        </article>
+      </div>
+
+      <h2 class="deporte-titulo" id="participar">¿Cómo obtener información?</h2>
+      <ol class="deporte-pasos">
+        <li><strong>Revisa las novedades</strong>Consulta las noticias municipales para conocer actividades y anuncios publicados.</li>
+        <li><strong>Realiza tu consulta</strong>Utiliza los canales institucionales disponibles para pedir información sobre deporte.</li>
+        <li><strong>Confirma los detalles</strong>Antes de asistir, consulta fechas, horarios, lugares y requisitos de cada actividad.</li>
+      </ol>
+
+      <section class="deporte-contacto" aria-labelledby="contacto-deporte">
+        <div>
+          <h2 id="contacto-deporte">Información y contacto</h2>
+          <p>Para consultas sobre la Oficina Municipal del Deporte, revisa los canales generales de atención de la Municipalidad de Angol.</p>
+        </div>
+        <a class="deporte-boton" href="telefonos-y-direccion.html">Ver teléfonos y dirección</a>
+      </section>
+
+      <h2 class="deporte-titulo">También te puede interesar</h2>
+      <div class="deporte-relacionados">
+        <a href="noticias-municipales.html">Noticias Municipales</a>
+        <a href="departamento-turismo.html">Departamento de Turismo</a>
+        <a href="index.html">Volver al inicio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Enlaces de Interés</h4>
+        <ul>
+          <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+          <li><a href="noticias-municipales.html">Noticias Municipales</a></li>
+          <li><a href="concejo-municipal.html">Concejo Municipal</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto Institucional</h4>
+        <p>📍 Caupolicán N.º 509, Angol</p>
+        <p>☎ <a href="tel:+56452657056">+56 45 265 7056</a></p>
+        <p>✉️ <a href="mailto:contacto@angol.cl">contacto@angol.cl</a></p>
+        <p><a href="telefonos-y-direccion.html">Ver teléfonos y dirección</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Transparencia</h4>
+        <a href="https://www.portaltransparencia.cl/PortalPdT/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Portal de Transparencia</a>
+        <br><br>
+        <a href="https://www.leylobby.gob.cl/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Ley del Lobby</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p></div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const boton = document.getElementById("menuBoton");
+      const panel = document.getElementById("menuDesplegable");
+      if (!boton || !panel) return;
+      function cerrarMenu() {
+        panel.classList.remove("abierto", "active");
+        boton.classList.remove("abierto", "active");
+        boton.setAttribute("aria-expanded", "false");
+      }
+      boton.addEventListener("click", () => {
+        const abierto = !panel.classList.contains("abierto");
+        panel.classList.toggle("abierto", abierto);
+        panel.classList.toggle("active", abierto);
+        boton.classList.toggle("abierto", abierto);
+        boton.setAttribute("aria-expanded", String(abierto));
+      });
+      document.addEventListener("click", e => {
+        if (!panel.contains(e.target) && !boton.contains(e.target)) cerrarMenu();
+      });
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") { cerrarMenu(); boton.focus(); }
+      });
+    });
+  </script>
+</body>
+</html>

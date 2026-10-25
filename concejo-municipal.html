@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conoce a los integrantes del Concejo Municipal de Angol, sus funciones y correos electrónicos.">
+
+    <title>Concejo Municipal | Municipalidad de Angol</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ESTILOS GENERALES */
+
+        .concejo-intro {
+            max-width: 950px;
+            margin: 0 0 30px;
+            color: #515b4c;
+            line-height: 1.8;
+        }
+
+        .concejo-titulo {
+            color: #456514;
+            font-size: clamp(1.55rem, 2.4vw, 2rem);
+            margin: 0 0 10px;
+        }
+
+        .concejo-subtitulo {
+            color: #606a5b;
+            line-height: 1.75;
+            margin: 0 0 25px;
+        }
+
+        .concejo-bloque {
+            margin: 34px 0 48px;
+        }
+
+        /* TARJETA DEL ALCALDE */
+
+        .concejo-alcalde {
+            display: grid;
+            grid-template-columns:
+                minmax(250px, 0.85fr)
+                minmax(0, 1.15fr);
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #dce5d4;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(25, 50, 10, 0.07);
+        }
+
+        .concejo-alcalde-foto {
+            min-height: 370px;
+            background: #e5eddc;
+        }
+
+        .concejo-alcalde-foto img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 24%;
+        }
+
+        .concejo-alcalde-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 12px;
+            padding: clamp(23px, 4vw, 45px);
+        }
+
+        .concejo-alcalde-info h3 {
+            color: #456514;
+            margin: 0;
+            font-size: clamp(1.55rem, 2.8vw, 2.35rem);
+            line-height: 1.25;
+        }
+
+        .concejo-cargo {
+            margin: 0;
+            color: #5d6b53;
+            font-weight: 700;
+        }
+
+        .concejo-descripcion {
+            margin: 4px 0;
+            color: #576451;
+            line-height: 1.75;
+        }
+
+        .concejo-contacto {
+            width: 100%;
+            margin-top: 10px;
+            padding-top: 18px;
+            border-top: 1px solid #e1e9d9;
+        }
+
+        .concejo-contacto strong {
+            display: block;
+            color: #456514;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .concejo-contacto a {
+            color: #356713;
+            overflow-wrap: anywhere;
+            text-underline-offset: 3px;
+        }
+
+        /* TARJETAS DE CONCEJALES */
+
+        .concejo-grilla {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .concejo-tarjeta {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid #dce5d4;
+            border-bottom: 4px solid #94a740;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(25, 50, 10, 0.055);
+            transition:
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .concejo-tarjeta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(25, 50, 10, 0.11);
+        }
+
+        .concejo-foto {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #e5eddc;
+        }
+
+        .concejo-foto img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .concejo-tarjeta-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            flex: 1;
+            padding: 22px;
+        }
+
+        .concejo-tarjeta-info h3 {
+            color: #456514;
+            font-size: 1.19rem;
+            line-height: 1.35;
+            margin: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .concejo-tarjeta-info .concejo-contacto {
+            margin-top: auto;
+        }
+
+        /* FUNCIONES DEL CONCEJO */
+
+        .concejo-funciones {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .concejo-funcion {
+            padding: 22px;
+            border: 1px solid #e0e8d7;
+            border-radius: 8px;
+            background: #f3f7ed;
+        }
+
+        .concejo-funcion h3 {
+            color: #456514;
+            font-size: 1.12rem;
+            margin: 0 0 10px;
+        }
+
+        .concejo-funcion p {
+            color: #4f5b49;
+            line-height: 1.75;
+            margin: 0;
+            font-size: 0.94rem;
+        }
+
+        .concejo-contacto-general {
+            padding: 22px 24px;
+            margin-top: 26px;
+            border-left: 4px solid #456514;
+            border-radius: 0 8px 8px 0;
+            background: #edf3e6;
+        }
+
+        .concejo-contacto-general h3 {
+            margin: 0 0 8px;
+            color: #456514;
+        }
+
+        .concejo-contacto-general p {
+            color: #4e5a46;
+            line-height: 1.7;
+            margin: 6px 0;
+        }
+
+        .concejo-contacto-general a {
+            color: #356713;
+            overflow-wrap: anywhere;
+        }
+
+        /* DISEÑO RESPONSIVE */
+
+        @media (max-width: 1000px) {
+
+            .concejo-grilla {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .concejo-funciones {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+        @media (max-width: 680px) {
+
+            .concejo-alcalde {
+                grid-template-columns: 1fr;
+            }
+
+            .concejo-alcalde-foto {
+                min-height: 0;
+                aspect-ratio: 1 / 1;
+            }
+
+            .concejo-grilla,
+            .concejo-funciones {
+                grid-template-columns: 1fr;
+            }
+
+            .concejo-alcalde-info {
+                padding: 24px;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .concejo-tarjeta {
+                transition: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body data-page="Concejo Municipal"
+      data-page-url="concejo-municipal.html">
+
+    <!-- ENCABEZADO MUNICIPAL -->
+
+    <header class="interior-header">
+
+        <a class="interior-logo"
+           href="index.html"
+           aria-label="Volver al inicio">
+
+            <img src="Angol.ico"
+                 alt=""
+                 class="escudo-angol">
+
+            <span>Municipalidad de Angol</span>
+
+        </a>
+
+        <div class="interior-menu">
+
+            <button
+                class="interior-menu-toggle"
+                id="menuBoton"
+                aria-expanded="false"
+                aria-controls="menuDesplegable">
+
+                Menú <span aria-hidden="true">☰</span>
+
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+
+                    <li>
+                        <button
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuCiudad">
+
+                            La Ciudad <span>▾</span>
+
+                        </button>
+
+                        <ul class="interior-submenu"
+                            id="submenuCiudad">
+
+                            <li>
+                                <a href="conoce-mas.html">Reseña</a>
+                            </li>
+
+                            <li>
+                                <a href="conoce-mas.html">Hijo Ilustre</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuMunicipalidad">
+
+                            Municipalidad <span>▾</span>
+
+                        </button>
+
+                        <ul class="interior-submenu"
+                            id="submenuMunicipalidad">
+
+                            <li>
+                                <a href="conoce-mas.html">
+                                    Alcaldía Municipal
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="conoce-mas.html">
+                                    Dirección de Administración
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="conoce-mas.html">
+                                    Dirección de Control Interno
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuConcejo">
+
+                            Concejo Municipal <span>▾</span>
+
+                        </button>
+
+                        <ul class="interior-submenu"
+                            id="submenuConcejo">
+
+                            <li>
+                                <a href="concejo-municipal.html#integrantes"
+                                   aria-current="page">
+
+                                    Integrantes del Concejo
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="conoce-mas.html">
+                                    Actas de Concejo
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuServicios">
+
+                            Servicios Online <span>▾</span>
+
+                        </button>
+
+                        <ul class="interior-submenu"
+                            id="submenuServicios">
+
+                            <li>
+                                <a href="servicios-online.html">
+                                    Pago de Patentes
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="servicios-online.html">
+                                    Permisos de Circulación
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button
+                            class="interior-submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="submenuInformacion">
+
+                            Información <span>▾</span>
+
+                        </button>
+
+                        <ul class="interior-submenu"
+                            id="submenuInformacion">
+
+                            <li>
+                                <a href="conoce-mas.html">
+                                    Cuentas Públicas
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="conoce-mas.html">
+                                    Ordenanzas Municipales
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="plan-regulador.html">
+                            Plan Regulador
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="plan-maestro-aguas-lluvias.html">
+                            Plan Maestro de Aguas Lluvias
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="noticias-municipales.html">
+                            Galería Fotográfica
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="telefonos-y-direccion.html">
+                            Teléfonos y Dirección
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- RUTA DE NAVEGACIÓN -->
+
+    <nav class="ruta-navegacion"
+         aria-label="Ruta de navegación">
+
+        <ol id="historialPaginas">
+
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+
+            <li aria-current="page">
+                Concejo Municipal
+            </li>
+
+        </ol>
+
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="contenido-interior">
+
+        <!-- TÍTULO -->
+
+        <section class="encabezado-seccion">
+
+            <h1>Concejo Municipal</h1>
+
+            <p>
+                Conoce al alcalde y a quienes integran
+                el Concejo Municipal de Angol.
+            </p>
+
+        </section>
+
+        <!-- INTEGRANTES -->
+
+        <section class="bloque-contenido"
+                 id="integrantes">
+
+            <div class="concejo-intro">
+
+                <h2 class="concejo-titulo">
+                    Integrantes del Concejo Municipal
+                </h2>
+
+                <p>
+                    El Concejo Municipal es un órgano de representación
+                    comunal que participa en las decisiones del municipio
+                    y cumple funciones normativas, resolutivas y
+                    fiscalizadoras dentro de sus atribuciones legales.
+                </p>
+
+            </div>
+
+            <!-- ALCALDE -->
+
+            <section class="concejo-bloque"
+                     aria-labelledby="tituloAlcalde">
+
+                <h2 class="concejo-titulo"
+                    id="tituloAlcalde">
+
+                    Alcaldía
+
+                </h2>
+
+                <p class="concejo-subtitulo">
+                    Presidencia del Concejo Municipal de Angol.
+                </p>
+
+                <article class="concejo-alcalde">
+
+                    <div class="concejo-alcalde-foto">
+
+                        <img
+                            src="muniang7.png"
+                            alt="Retrato del alcalde Enrique Neira Neira"
+                            loading="eager">
+
+                    </div>
+
+                    <div class="concejo-alcalde-info">
+
+                        <h3>Enrique Neira Neira</h3>
+
+                        <p class="concejo-cargo">
+                            Alcalde de Angol · Presidente del Concejo Municipal
+                        </p>
+
+                        <p class="concejo-descripcion">
+                            Encabeza la administración municipal y preside
+                            las sesiones del Concejo Municipal,
+                            conforme a la normativa vigente.
+                        </p>
+
+                        <div class="concejo-contacto">
+
+                            <strong>Correo electrónico</strong>
+
+                            <a href="mailto:concejo@angol.cl">
+                                concejo@angol.cl
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- CONCEJALES Y CONCEJALAS -->
+
+            <section class="concejo-bloque"
+                     aria-labelledby="tituloConcejales">
+
+                <h2 class="concejo-titulo"
+                    id="tituloConcejales">
+
+                    Concejales y concejalas
+
+                </h2>
+
+                <p class="concejo-subtitulo">
+                    Representantes de la comunidad que integran
+                    el Concejo Municipal de Angol.
+                </p>
+
+                <div class="concejo-grilla">
+
+                    <!-- BEATRIZ SANHUEZA ARAYA -->
+
+                    <article class="concejo-tarjeta">
+
+                        <div class="concejo-foto">
+
+                            <img
+                                src="muniang1.png"
+                                alt="Retrato de Beatriz Sanhueza Araya"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="concejo-tarjeta-info">
+
+                            <h3>Beatriz Sanhueza Araya</h3>
+
+                            <p class="concejo-cargo">
+                                Concejala de Angol
+                            </p>
+
+                            <div class="concejo-contacto">
+
+                                <strong>Correo electrónico</strong>
+
+                                <a href="mailto:beatriz.sanhueza@angol.cl">
+                                    beatriz.sanhueza@angol.cl
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- MAURICIO JIMÉNEZ TRINCADO -->
+
+                    <article class="concejo-tarjeta">
+
+                        <div class="concejo-foto">
+
+                            <img
+                                src="muniang2.png"
+                                alt="Retrato de Mauricio Jiménez Trincado"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="concejo-tarjeta-info">
+
+                            <h3>Mauricio Jiménez Trincado</h3>
+
+                            <p class="concejo-cargo">
+                                Concejal de Angol
+                            </p>
+
+                            <div class="concejo-contacto">
+
+                                <strong>Correo electrónico</strong>
+
+                                <a href="mailto:mauricio.jimenez@angol.cl">
+                                    mauricio.jimenez@angol.cl
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- NEMER SILVA LÓPEZ -->
+
+                    <article class="concejo-tarjeta">
+
+                        <div class="concejo-foto">
+
+                            <img
+                                src="muniang3.png"
+                                alt="Retrato de Nemer Silva López"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="concejo-tarjeta-info">
+
+                            <h3>Nemer Silva López</h3>
+
+                            <p class="concejo-cargo">
+                                Concejal de Angol
+                            </p>
+
+                            <div class="concejo-contacto">
+
+                                <strong>Correo electrónico</strong>
+
+                                <a href="mailto:nemersilva@angol.cl">
+                                    nemersilva@angol.cl
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- LUIS CHAMORRO DÍAZ -->
+
+                    <article class="concejo-tarjeta">
+
+                        <div class="concejo-foto">
+
+                            <img
+                                src="muniang4.png"
+                                alt="Retrato de Luis Chamorro Díaz"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="concejo-tarjeta-info">
+
+                            <h3>Luis Chamorro Díaz</h3>
+
+                            <p class="concejo-cargo">
+                                Concejal de Angol
+                            </p>
+
+                            <div class="concejo-contacto">
+
+                                <strong>Correo electrónico</strong>
+
+                                <a href="mailto:luis.chamorro@angol.cl">
+                                    luis.chamorro@angol.cl
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- DIEGO BELTRÁN CEA -->
+
+                    <article class="concejo-tarjeta">
+
+                        <div class="concejo-foto">
+
+                            <img
+                                src="muniang5.png"
+                                alt="Retrato de Diego Beltrán Cea"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="concejo-tarjeta-info">
+
+                            <h3>Diego Beltrán Cea</h3>
+
+                            <p class="concejo-cargo">
+                                Concejal de Angol
+                            </p>
+
+                            <div class="concejo-contacto">
+
+                                <strong>Correo electrónico</strong>
+
+                                <a href="mailto:diego.beltra@angol.cl">
+                                    diego.beltra@angol.cl
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- AMÉRICO LATAÑO MUÑOZ -->
+
+                    <article class="concejo-tarjeta">
+
+                        <div class="concejo-foto">
+
+                            <img
+                                src="muniang6.png"
+                                alt="Retrato de Américo Lataño Muñoz"
+                                loading="lazy">
+
+                        </div>
+
+                        <div class="concejo-tarjeta-info">
+
+                            <h3>Américo Lataño Muñoz</h3>
+
+                            <p class="concejo-cargo">
+                                Concejal de Angol
+                            </p>
+
+                            <div class="concejo-contacto">
+
+                                <strong>Correo electrónico</strong>
+
+                                <a href="mailto:americo.lata%C3%B1o@angol.cl">
+                                    americo.lataño@angol.cl
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- FUNCIONES DEL CONCEJO -->
+
+        <section class="bloque-contenido concejo-bloque"
+                 aria-labelledby="tituloFunciones">
+
+            <h2 class="concejo-titulo"
+                id="tituloFunciones">
+
+                ¿Qué hace el Concejo Municipal?
+
+            </h2>
+
+            <p class="concejo-subtitulo">
+                El Concejo contribuye al desarrollo de la comuna
+                a través de sus atribuciones legales y
+                el trabajo colegiado.
+            </p>
+
+            <div class="concejo-funciones">
+
+                <article class="concejo-funcion">
+
+                    <h3>Fiscalización municipal</h3>
+
+                    <p>
+                        Fiscaliza actuaciones de la administración municipal
+                        y realiza seguimiento a materias de competencia
+                        del municipio, según la ley.
+                    </p>
+
+                </article>
+
+                <article class="concejo-funcion">
+
+                    <h3>Acuerdos y decisiones</h3>
+
+                    <p>
+                        Se pronuncia sobre materias que requieren
+                        acuerdo del Concejo, como instrumentos de
+                        planificación y determinadas decisiones
+                        presupuestarias.
+                    </p>
+
+                </article>
+
+                <article class="concejo-funcion">
+
+                    <h3>Representación comunal</h3>
+
+                    <p>
+                        Canaliza inquietudes de la comunidad
+                        y participa en el debate de asuntos
+                        de interés público para Angol.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="concejo-contacto-general">
+
+                <h3>Contacto general del municipio</h3>
+
+                <p>
+                    Para solicitar orientación sobre el Concejo Municipal,
+                    puedes comunicarte con la Municipalidad de Angol.
+                </p>
+
+                <p>
+                    <strong>Correo general:</strong>
+
+                    <a href="mailto:contacto@angol.cl">
+                        contacto@angol.cl
+                    </a>
+                </p>
+
+                <p>
+                    <a href="telefonos-y-direccion.html">
+                        Ver teléfonos y dirección de la Municipalidad
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-section">
+
+                <h4>Enlaces de Interés</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="departamento-turismo.html">
+                            Turismo Angol
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="conoce-mas.html">
+                            Cultura Angol
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="departamento-turismo.html">
+                            Brotes de Chile
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h4>Contacto Institucional</h4>
+
+                <p>
+                    📍 Angol, Región de La Araucanía
+                </p>
+
+                <p>
+                    ✉️
+                    <a href="mailto:contacto@angol.cl">
+                        contacto@angol.cl
+                    </a>
+                </p>
+
+                <p>
+                    <a href="telefonos-y-direccion.html">
+                        Teléfonos y Dirección
+                    </a>
+                </p>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h4>Transparencia</h4>
+
+                <a href="conoce-mas.html"
+                   class="btn-secondary">
+                    Ley de Transparencia
+                </a>
+
+                <br><br>
+
+                <a href="conoce-mas.html"
+                   class="btn-secondary">
+                    Ley del Lobby
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Ilustre Municipalidad de Angol -
+                Todos los derechos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* MENÚ PRINCIPAL */
+
+            const botonMenu =
+                document.getElementById("menuBoton");
+
+            const panelMenu =
+                document.getElementById("menuDesplegable");
+
+            if (botonMenu && panelMenu) {
+
+                botonMenu.addEventListener("click", () => {
+
+                    const abierto =
+                        panelMenu.classList.toggle("abierto");
+
+                    botonMenu.setAttribute(
+                        "aria-expanded",
+                        String(abierto)
+                    );
+
+                });
+
+            }
+
+            /* SUBMENÚS */
+
+            document.querySelectorAll(
+                ".interior-submenu-toggle"
+            ).forEach(boton => {
+
+                boton.addEventListener("click", () => {
+
+                    const submenu =
+                        document.getElementById(
+                            boton.getAttribute("aria-controls")
+                        );
+
+                    if (!submenu) return;
+
+                    const abierto =
+                        submenu.classList.toggle("abierto");
+
+                    boton.setAttribute(
+                        "aria-expanded",
+                        String(abierto)
+                    );
+
+                });
+
+            });
+
+            /* HISTORIAL DE NAVEGACIÓN */
+
+            const paginaActual = {
+
+                nombre: document.body.dataset.page,
+                url: document.body.dataset.pageUrl
+
+            };
+
+            let historial = [];
+
+            try {
+
+                const guardado = JSON.parse(
+                    sessionStorage.getItem(
+                        "historialAngol"
+                    ) || "[]"
+                );
+
+                historial = Array.isArray(guardado)
+                    ? guardado
+                    : [];
+
+            } catch (error) {
+
+                historial = [];
+
+            }
+
+            const posicion = historial.findIndex(
+                pagina => pagina.url === paginaActual.url
+            );
+
+            if (posicion >= 0) {
+
+                historial = historial.slice(
+                    0,
+                    posicion + 1
+                );
+
+            } else {
+
+                historial.push(paginaActual);
+
+            }
+
+            historial = historial.slice(-8);
+
+            try {
+
+                sessionStorage.setItem(
+                    "historialAngol",
+                    JSON.stringify(historial)
+                );
+
+            } catch (error) {
+
+                // El sitio puede funcionar sin almacenamiento.
+
+            }
+
+            const ruta =
+                document.getElementById("historialPaginas");
+
+            if (ruta) {
+
+                ruta.replaceChildren();
+
+                const inicioLi =
+                    document.createElement("li");
+
+                const inicioA =
+                    document.createElement("a");
+
+                inicioA.href = "index.html";
+                inicioA.textContent = "Inicio";
+
+                inicioLi.appendChild(inicioA);
+
+                ruta.appendChild(inicioLi);
+
+                historial
+                    .filter(
+                        pagina => pagina.url !== "index.html"
+                    )
+                    .forEach((pagina, indice, paginas) => {
+
+                        const li =
+                            document.createElement("li");
+
+                        if (indice === paginas.length - 1) {
+
+                            li.textContent =
+                                pagina.nombre;
+
+                            li.setAttribute(
+                                "aria-current",
+                                "page"
+                            );
+
+                        } else {
+
+                            const a =
+                                document.createElement("a");
+
+                            a.href = pagina.url;
+                            a.textContent = pagina.nombre;
+
+                            li.appendChild(a);
+
+                        }
+
+                        ruta.appendChild(li);
+
+                    });
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

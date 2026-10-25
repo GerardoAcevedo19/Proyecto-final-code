@@ -1,203 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio de la Ilustre Municipalidad de Angol. Noticias, servicios, turismo, Concejo Municipal e información de la comuna.">
     <title>Ilustre Municipalidad de Angol</title>
+    <link rel="icon" href="Angol.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .menu-lista .item-desplegable > .submenu { display: none; }
+        .menu-lista .item-desplegable.submenu-abierto > .submenu { display: block; }
+        @media (hover: hover) and (min-width: 769px) {
+            .menu-lista .item-desplegable:hover > .submenu { display: block; }
+        }
+        .menu-principal .submenu .opcion-sin-pagina {
+            display: block;
+            padding: 10px 15px;
+            color: #717171;
+            cursor: default;
+            opacity: .8;
+        }
+        .saltar-contenido {
+            position: absolute;
+            left: -10000px;
+            z-index: 9999;
+            padding: 12px 18px;
+            background: #456514;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .saltar-contenido:focus { left: 15px; top: 15px; }
+    </style>
 </head>
 <body>
+    <a href="#contenido-principal" class="saltar-contenido">Saltar al contenido principal</a>
 
-    <!-- Encabezado transparente sobre la fotografía-->
     <header class="top-header">
         <div class="top-bar">
-            <a href="#inicio" class="logo" aria-label="Volver al inicio">
-    <img src="Angol.ico" alt="Escudo de Angol" class="escudo-angol">
-    <h1>Municipalidad de Angol</h1>
-</a>
-            <button class="menu-toggle"
-                    aria-label="Abrir menú"
-                    aria-expanded="false">
-                ☰
-            </button>
+            <a href="index.html" class="logo" aria-label="Municipalidad de Angol - Ir al inicio">
+                <img src="Angol.ico" alt="Escudo de Angol" class="escudo-angol">
+                <h1>Municipalidad de Angol</h1>
+            </a>
+            <button type="button" class="menu-toggle" aria-label="Abrir menú" aria-controls="menuPrincipal" aria-expanded="false">☰</button>
         </div>
     </header>
 
-    <!-- Menú principal -->
-    <nav class="menu-principal" aria-label="Navegación principal">
+    <nav class="menu-principal" id="menuPrincipal" aria-label="Navegación principal">
         <ul class="menu-lista">
-
-            <li><a href="#">Inicio</a></li>
-
+            <li><a href="index.html" aria-current="page">Inicio</a></li>
             <li class="item-desplegable">
-                <a href="#">La Ciudad ▾</a>
-                <ul class="submenu">
-                    <li><a href="#">Reseña</a></li>
-                    <li><a href="#">Hijo Ilustre</a></li>
+                <a href="conoce-mas.html" class="submenu-disparador" aria-controls="submenuCiudad" aria-expanded="false">La Ciudad <span aria-hidden="true">▾</span></a>
+                <ul class="submenu" id="submenuCiudad">
+                    <li><a href="conoce-mas.html">Reseña</a></li>
+                    <li><span class="opcion-sin-pagina" aria-disabled="true">Hijo Ilustre</span></li>
                 </ul>
             </li>
-
             <li class="item-desplegable">
-                <a href="#">Municipalidad ▾</a>
-                <ul class="submenu">
-                    <li><a href="#">Alcaldía Municipal</a></li>
-                    <li><a href="#">Dirección de Administración</a></li>
-                    <li><a href="#">Dirección de Control Interno</a></li>
+                <a href="telefonos-y-direccion.html" class="submenu-disparador" aria-controls="submenuMunicipalidad" aria-expanded="false">Municipalidad <span aria-hidden="true">▾</span></a>
+                <ul class="submenu" id="submenuMunicipalidad">
+                    <li><a href="concejo-municipal.html#tituloAlcalde">Alcaldía Municipal</a></li>
+                    <li><a href="telefonos-y-direccion.html#directorioContactos">Dirección de Administración</a></li>
+                    <li><a href="telefonos-y-direccion.html#directorioContactos">Dirección de Control Interno</a></li>
                 </ul>
             </li>
-
+            <li><a href="concejo-municipal.html">Concejo Municipal</a></li>
             <li class="item-desplegable">
-                <a href="#">Concejo Municipal ▾</a>
-                <ul class="submenu">
-                    <li><a href="#">Integrantes Concejo</a></li>
-                    <li><a href="#">Actas de Concejo</a></li>
+                <a href="servicios-online.html" class="submenu-disparador" aria-controls="submenuServicios" aria-expanded="false">Servicios Online <span aria-hidden="true">▾</span></a>
+                <ul class="submenu" id="submenuServicios">
+                    <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                    <li><a href="servicios-online.html">Permisos de Circulación</a></li>
                 </ul>
             </li>
-
             <li class="item-desplegable">
-                <a href="#">Servicios Online ▾</a>
-                <ul class="submenu">
-                    <li><a href="#">Pago de Patentes</a></li>
-                    <li><a href="#">Permisos de Circulación</a></li>
+                <a href="noticias-municipales.html" class="submenu-disparador" aria-controls="submenuInformacion" aria-expanded="false">Información <span aria-hidden="true">▾</span></a>
+                <ul class="submenu" id="submenuInformacion">
+                    <li><span class="opcion-sin-pagina" aria-disabled="true">Cuentas Públicas</span></li>
+                    <li><span class="opcion-sin-pagina" aria-disabled="true">Ordenanzas Municipales</span></li>
+                    <li><a href="noticias-municipales.html">Noticias Municipales</a></li>
                 </ul>
             </li>
-
-            <li class="item-desplegable">
-                <a href="#">Información ▾</a>
-                <ul class="submenu">
-                    <li><a href="#">Cuentas Públicas</a></li>
-                    <li><a href="#">Ordenanzas Municipales</a></li>
-                </ul>
-            </li>
-
             <li><a href="plan-regulador.html">Plan Regulador</a></li>
             <li><a href="plan-maestro-aguas-lluvias.html">Plan Maestro de Aguas Lluvias</a></li>
             <li><a href="https://www.flickr.com/photos/158801214@N04/" target="_blank" rel="noopener noreferrer">Galería Fotográfica</a></li>
             <li><a href="telefonos-y-direccion.html">Teléfonos y Dirección</a></li>
-
         </ul>
     </nav>
 
-    <!-- Banner principal con fotografía de araucarias -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Bienvenidos a nuestra comuna</h2>
-
-            <p>
-                El Angol que todos queremos,
-                más conectado y accesible para ti.
-            </p>
-
-            <a href="conoce-mas.html" class="btn-primary">Conoce más</a>
-        </div>
-    </section>
-
-     <!-- Servicios municipales -->
-    <section class="services">
-        <h2>Servicios y Departamentos</h2>
-
-        <div class="grid-container">
-
-            <div class="card">
-                <div class="card-icon">📰</div>
-                <h3>Noticias Municipales</h3>
-                <p>
-                    Mantente informado sobre el acontecer
-                    de nuestra comuna.
-                </p>
-                <a href="noticias-municipales.html" class="card-link">Ver más</a>
+    <main id="contenido-principal">
+        <section class="hero" id="inicio" aria-labelledby="tituloBienvenida">
+            <div class="hero-content">
+                <h2 id="tituloBienvenida">Bienvenidos a nuestra comuna</h2>
+                <p>El Angol que todos queremos, más conectado y accesible para ti.</p>
+                <a href="conoce-mas.html" class="btn-primary">Conoce más</a>
             </div>
-
-            <div class="card">
-                <div class="card-icon">🏞️</div>
-                <h3>Departamento de Turismo</h3>
-                <p>
-                    Descubre los atractivos, rutas y
-                    panoramas de Angol.
-                </p>
-                <a href="departamento-turismo.html" class="card-link">Ver más</a>
+        </section>
+        <section class="services" id="servicios" aria-labelledby="tituloServicios">
+            <h2 id="tituloServicios">Servicios y Departamentos</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">📰</div>
+                    <h3>Noticias Municipales</h3>
+                    <p>Mantente informado sobre las noticias, actividades y acontecimientos de nuestra comuna.</p>
+                    <a href="noticias-municipales.html" class="card-link">Ver más</a>
+                </article>
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">🏞️</div>
+                    <h3>Departamento de Turismo</h3>
+                    <p>Descubre los atractivos naturales, rutas turísticas y panoramas que ofrece Angol.</p>
+                    <a href="departamento-turismo.html" class="card-link">Ver más</a>
+                </article>
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">💻</div>
+                    <h3>Servicios Online</h3>
+                    <p>Accede a trámites, pagos y servicios municipales disponibles en línea.</p>
+                    <a href="servicios-online.html" class="card-link">Ver más</a>
+                </article>
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">🧑‍🌾</div>
+                    <h3>Fomento Productivo</h3>
+                    <p>Conoce programas de apoyo para emprendedores, negocios y actividades productivas locales.</p>
+                    <a href="fomento-productivo.html" class="card-link">Ver más</a>
+                </article>
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">⚽</div>
+                    <h3>Oficina Municipal del Deporte</h3>
+                    <p>Conoce las iniciativas de actividad física, recreación y deporte de la comuna.</p>
+                    <a href="oficina-municipal-del-deporte.html" class="card-link">Ver más</a>
+                </article>
             </div>
+        </section>
+    </main>
 
-            <div class="card">
-                <div class="card-icon">💻</div>
-                <h3>Servicios Online</h3>
-                <p>
-                    Realiza trámites, pagos y solicitudes
-                    desde la comodidad de tu hogar.
-                </p>
-                <a href="servicios-online.html" class="card-link">Ver más</a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🧑‍🌾</div>
-                <h3>Fomento Productivo</h3>
-                <p>
-                    Apoyo e impulso a emprendedores
-                    y negocios locales.
-                </p>
-                <a href="fomento-productivo.html" class="card-link">Ver más</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Pie de página -->
     <footer>
         <div class="footer-content">
-
             <div class="footer-section">
                 <h4>Enlaces de Interés</h4>
                 <ul>
-                    <li><a href="#">Turismo Angol</a></li>
-                    <li><a href="#">Cultura Angol</a></li>
-                    <li><a href="#">Brotes de Chile</a></li>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="noticias-municipales.html">Noticias Municipales</a></li>
+                    <li><a href="concejo-municipal.html">Concejo Municipal</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>Contacto Institucional</h4>
-                <p>📍 Pedro Aguirre Cerda 509, Angol</p>
-                <p>✉️ contacto@angol.cl</p>
+                <p>📍 Caupolicán N.º 509, Angol</p>
+                <p>☎ <a href="tel:+56452657056">+56 45 265 7056</a></p>
+                <p>✉️ <a href="mailto:contacto@angol.cl">contacto@angol.cl</a></p>
+                <p><a href="telefonos-y-direccion.html">Ver teléfonos y dirección</a></p>
             </div>
-
             <div class="footer-section">
                 <h4>Transparencia</h4>
-                <a href="#" class="btn-secondary">
-                    Ley de Transparencia
-                </a>
+                <a href="https://www.portaltransparencia.cl/PortalPdT/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Portal de Transparencia</a>
                 <br><br>
-                <a href="#" class="btn-secondary">
-                    Ley del Lobby
-                </a>
+                <a href="https://www.leylobby.gob.cl/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Ley del Lobby</a>
             </div>
-
         </div>
-
         <div class="footer-bottom">
-            <p>
-                &copy; 2026 Ilustre Municipalidad de Angol -
-                Todos los derechos reservados.
-            </p>
+            <p>&copy; 2026 Ilustre Municipalidad de Angol - Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Menú móvil -->
     <script>
-        const toggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu-principal');
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu-principal");
+            const disparadores = document.querySelectorAll(".item-desplegable > .submenu-disparador");
 
-        toggle.addEventListener('click', () => {
-            const isOpen = menu.classList.toggle('active');
+            function cerrarSubmenus() {
+                disparadores.forEach(disparador => {
+                    disparador.setAttribute("aria-expanded", "false");
+                    disparador.parentElement.classList.remove("submenu-abierto");
+                });
+            }
 
-            toggle.setAttribute('aria-expanded', String(isOpen));
-            toggle.setAttribute(
-                'aria-label',
-                isOpen ? 'Cerrar menú' : 'Abrir menú'
-            );
-            toggle.textContent = isOpen ? '✕' : '☰';
+            function cerrarMenu() {
+                if (!toggle || !menu) return;
+                menu.classList.remove("active");
+                toggle.setAttribute("aria-expanded", "false");
+                toggle.setAttribute("aria-label", "Abrir menú");
+                toggle.textContent = "☰";
+                cerrarSubmenus();
+            }
+
+            if (toggle && menu) {
+                toggle.addEventListener("click", () => {
+                    const abierto = menu.classList.toggle("active");
+                    toggle.setAttribute("aria-expanded", String(abierto));
+                    toggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+                    toggle.textContent = abierto ? "✕" : "☰";
+                    if (!abierto) cerrarSubmenus();
+                });
+            }
+
+            disparadores.forEach(disparador => {
+                disparador.addEventListener("click", evento => {
+                    // Concejo Municipal tiene página propia. No bloquear la navegación.
+                    if (disparador.getAttribute("href") === "concejo-municipal.html") {
+                        return;
+                    }
+
+                    evento.preventDefault();
+                    const elemento = disparador.parentElement;
+                    const abrir = !elemento.classList.contains("submenu-abierto");
+                    cerrarSubmenus();
+                    if (abrir) {
+                        elemento.classList.add("submenu-abierto");
+                        disparador.setAttribute("aria-expanded", "true");
+                    }
+                });
+            });
+
+            if (menu) {
+                menu.addEventListener("click", evento => {
+                    const enlace = evento.target.closest("a");
+                    if (enlace && !enlace.classList.contains("submenu-disparador")) {
+                        cerrarMenu();
+                    }
+                });
+            }
+
+            document.addEventListener("click", evento => {
+                if (!menu || !toggle) return;
+                if (!menu.contains(evento.target) && !toggle.contains(evento.target)) {
+                    cerrarMenu();
+                }
+            });
+
+            document.addEventListener("keydown", evento => {
+                if (evento.key === "Escape") cerrarMenu();
+            });
         });
     </script>
-
 </body>
 </html>

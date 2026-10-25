@@ -1,0 +1,1108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teléfonos, correos electrónicos, direcciones y contactos de las unidades municipales de Angol.">
+    <title>Teléfonos y Dirección | Municipalidad de Angol</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CONTACTO MUNICIPAL */
+
+        .contacto-intro {
+            line-height: 1.8;
+        }
+
+        .contacto-principal {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+            gap: 25px;
+            align-items: stretch;
+            margin: 25px 0 35px;
+        }
+
+        .contacto-datos-principales,
+        .contacto-mapa,
+        .contacto-card,
+        .contacto-otra-direccion {
+            padding: 24px;
+            border: 1px solid #dce4ea;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .contacto-datos-principales h2,
+        .contacto-mapa h2 {
+            margin-top: 0;
+            color: var(--color-primario-oscuro, #456514);
+        }
+
+        .contacto-dato {
+            display: flex;
+            gap: 13px;
+            align-items: flex-start;
+            margin: 20px 0;
+        }
+
+        .contacto-icono {
+            display: flex;
+            flex: 0 0 40px;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #edf4e1;
+            font-size: 1.2rem;
+        }
+
+        .contacto-dato p {
+            margin: 3px 0;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .contacto-dato a,
+        .contacto-card a,
+        .contacto-otra-direccion a {
+            color: #356713;
+            overflow-wrap: anywhere;
+        }
+
+        /* MAPA */
+
+        .contacto-mapa {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mapa-geografico {
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #cbd9ba;
+            border-radius: 10px;
+            background: #edf1e6;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .mapa-geografico iframe {
+            display: block;
+            width: 100%;
+            height: 380px;
+            border: 0;
+        }
+
+        .contacto-nota-mapa {
+            margin: 12px 0 0;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .contacto-boton {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 11px 16px;
+            border-radius: 5px;
+            background: var(--color-primario-oscuro, #456514);
+            color: #fff !important;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .contacto-boton:hover {
+            background: #354d0f;
+        }
+
+        /* BUSCADOR */
+
+        .contacto-buscador {
+            margin: 25px 0;
+            padding: 24px;
+            border-radius: 8px;
+            background: #f0f5e9;
+            border: 1px solid #dce4ea;
+        }
+
+        .contacto-buscador label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contacto-buscador input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #aebdc9;
+            border-radius: 6px;
+            background: #fff;
+            color: #222;
+            font: inherit;
+            box-sizing: border-box;
+        }
+
+        .contacto-buscador input:focus {
+            outline: 2px solid #456514;
+            outline-offset: 2px;
+        }
+
+        .contacto-buscador-ayuda {
+            margin: 10px 0 0;
+            color: #555;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .contacto-resultados {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* DEPARTAMENTOS */
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .contacto-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .contacto-card[hidden] {
+            display: none !important;
+        }
+
+        .contacto-card h3 {
+            margin: 0 0 12px;
+            color: var(--color-primario-oscuro, #456514);
+            font-size: 1.12rem;
+        }
+
+        .contacto-card .contacto-area {
+            margin: 0 0 14px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .contacto-card p {
+            margin: 7px 0;
+            line-height: 1.65;
+            overflow-wrap: anywhere;
+        }
+
+        .contacto-card .contacto-card-estado {
+            margin-top: auto;
+            padding-top: 14px;
+            color: #5d6870;
+            font-size: 0.88rem;
+        }
+
+        .contacto-sin-resultados {
+            display: none;
+            padding: 22px;
+            border: 1px dashed #aebdc9;
+            border-radius: 6px;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        /* OTRAS DIRECCIONES */
+
+        .contacto-otras-direcciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .contacto-otra-direccion h3 {
+            margin-top: 0;
+            color: var(--color-primario-oscuro, #456514);
+        }
+
+        .contacto-otra-direccion p {
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .contacto-advertencia {
+            margin-top: 24px;
+            padding: 18px 22px;
+            border-radius: 6px;
+            background: #f5f5f5;
+            line-height: 1.7;
+            font-size: 0.94rem;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 760px) {
+            .contacto-principal {
+                grid-template-columns: 1fr;
+            }
+
+            .contacto-datos-principales,
+            .contacto-mapa,
+            .contacto-card,
+            .contacto-otra-direccion,
+            .contacto-buscador {
+                padding: 18px;
+            }
+
+            .mapa-geografico iframe {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="Teléfonos y Dirección"
+      data-page-url="telefonos-y-direccion.html">
+
+    <!-- ENCABEZADO -->
+
+    <header class="interior-header">
+        <a class="interior-logo" href="index.html" aria-label="Volver al inicio">
+            <img src="Angol.ico" alt="" class="escudo-angol">
+            <span>Municipalidad de Angol</span>
+        </a>
+
+        <div class="interior-menu">
+            <button class="interior-menu-toggle"
+                    id="menuBoton"
+                    aria-expanded="false"
+                    aria-controls="menuDesplegable">
+                Menú <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav class="interior-menu-panel"
+                 id="menuDesplegable"
+                 aria-label="Menú principal">
+
+                <ul class="interior-menu-lista">
+                    <li><a href="index.html">Inicio</a></li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuCiudad">
+                            La Ciudad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuCiudad">
+                            <li><a href="conoce-mas.html">Reseña</a></li>
+                            <li><a href="conoce-mas.html">Hijo Ilustre</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuMunicipalidad">
+                            Municipalidad <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuMunicipalidad">
+                            <li><a href="conoce-mas.html">Alcaldía Municipal</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Administración</a></li>
+                            <li><a href="conoce-mas.html">Dirección de Control Interno</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuConcejo">
+                            Concejo Municipal <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuConcejo">
+                            <li><a href="conoce-mas.html">Integrantes Concejo</a></li>
+                            <li><a href="conoce-mas.html">Actas de Concejo</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuServicios">
+                            Servicios Online <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuServicios">
+                            <li><a href="servicios-online.html">Pago de Patentes</a></li>
+                            <li><a href="servicios-online.html">Permisos de Circulación</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <button class="interior-submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="submenuInformacion">
+                            Información <span>▾</span>
+                        </button>
+                        <ul class="interior-submenu" id="submenuInformacion">
+                            <li><a href="conoce-mas.html">Cuentas Públicas</a></li>
+                            <li><a href="conoce-mas.html">Ordenanzas Municipales</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="plan-regulador.html">Plan Regulador</a></li>
+                    <li><a href="plan-maestro-aguas-lluvias.html">Plan Maestro de Aguas Lluvias</a></li>
+                    <li><a href="noticias-municipales.html">Galería Fotográfica</a></li>
+                    <li><a href="telefonos-y-direccion.html" aria-current="page">Teléfonos y Dirección</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- RUTA DE NAVEGACIÓN -->
+
+    <nav class="ruta-navegacion" aria-label="Ruta de navegación">
+        <ol id="historialPaginas">
+            <li><a href="index.html">Inicio</a></li>
+        </ol>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="contenido-interior">
+
+        <section class="encabezado-seccion">
+            <h1>Teléfonos y Dirección</h1>
+            <p>
+                Encuentra los datos de contacto de la Municipalidad de Angol,
+                sus direcciones, departamentos y servicios municipales.
+            </p>
+        </section>
+
+        <!-- CONTACTO MUNICIPAL -->
+
+        <section class="bloque-contenido">
+
+            <div class="contacto-intro">
+                <h2>Contacto municipal</h2>
+                <p>
+                    En esta página puedes consultar la ubicación de la
+                    Municipalidad de Angol y buscar las unidades municipales
+                    según su nombre o área de trabajo. El directorio también
+                    está disponible completo más abajo para quienes no conocen
+                    el nombre exacto del departamento que necesitan contactar.
+                </p>
+            </div>
+
+            <div class="contacto-principal">
+
+                <!-- DATOS PRINCIPALES -->
+
+                <section class="contacto-datos-principales">
+
+                    <h2>Municipalidad de Angol</h2>
+
+                    <div class="contacto-dato">
+                        <span class="contacto-icono" aria-hidden="true">📍</span>
+                        <div>
+                            <strong>Dirección</strong>
+                            <p>Caupolicán N.º 509, Angol, Región de La Araucanía.</p>
+                        </div>
+                    </div>
+
+                    <div class="contacto-dato">
+                        <span class="contacto-icono" aria-hidden="true">☎</span>
+                        <div>
+                            <strong>Teléfonos centrales</strong>
+                            <p><a href="tel:+56452657056">+56 45 265 7056</a></p>
+                            <p><a href="tel:+56452657057">+56 45 265 7057</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contacto-dato">
+                        <span class="contacto-icono" aria-hidden="true">✉</span>
+                        <div>
+                            <strong>Correo de contacto</strong>
+                            <p><a href="mailto:contacto@angol.cl">contacto@angol.cl</a></p>
+                        </div>
+                    </div>
+
+                    <a class="contacto-boton"
+                       href="https://www.google.com/maps/search/?api=1&amp;query=Municipalidad+de+Angol+Caupolican+509"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Abrir ubicación en Google Maps ↗
+                    </a>
+
+                    <p class="contacto-nota-mapa">
+                        Se recomienda confirmar telefónicamente la ubicación
+                        de la oficina que necesitas visitar antes de acudir.
+                    </p>
+
+                </section>
+
+                <!-- MAPA: SOLO TÍTULO Y MAPA -->
+
+                <section class="contacto-mapa"
+                         aria-label="Ubicación geográfica municipal">
+
+                    <h2>Ubicación de la Municipalidad de Angol</h2>
+
+                    <div class="mapa-geografico">
+                        <iframe
+                            title="Mapa de Google Maps: Municipalidad de Angol, Caupolicán 509"
+                            src="https://maps.google.com/maps?q=Municipalidad%20de%20Angol%2C%20Caupolic%C3%A1n%20509%2C%20Angol%2C%20Chile&amp;z=17&amp;output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </section>
+
+            </div>
+        </section>
+
+        <!-- BUSCADOR DE DEPARTAMENTOS -->
+
+        <section class="bloque-contenido">
+
+            <h2>Buscar un departamento municipal</h2>
+
+            <p>
+                Escribe el nombre de un departamento, una función o una palabra
+                relacionada con tu consulta. También puedes buscar por teléfono
+                o correo electrónico cuando esos datos estén publicados.
+            </p>
+
+            <div class="contacto-buscador">
+
+                <label for="buscadorDepartamentos">
+                    ¿Qué departamento o servicio necesitas encontrar?
+                </label>
+
+                <input
+                    type="search"
+                    id="buscadorDepartamentos"
+                    placeholder="Ej.: permisos, obras, tránsito, ayuda social..."
+                    autocomplete="off"
+                    aria-describedby="ayudaBuscador"
+                    aria-controls="directorioContactos">
+
+                <p class="contacto-buscador-ayuda" id="ayudaBuscador">
+                    Puedes escribir palabras como «patentes», «construcción»,
+                    «licencia de conducir», «beneficios sociales» o
+                    «emprendimiento». Los resultados se filtran al escribir.
+                </p>
+
+                <p class="contacto-resultados"
+                   id="contadorResultados"
+                   aria-live="polite">
+                    Mostrando todos los departamentos.
+                </p>
+
+            </div>
+
+            <div class="contacto-sin-resultados" id="sinResultados">
+                <strong>No se encontraron coincidencias.</strong>
+                <p>
+                    Prueba con otra palabra o llama a la central telefónica
+                    municipal para solicitar orientación.
+                </p>
+                <a href="tel:+56452657056">Llamar al +56 45 265 7056</a>
+            </div>
+
+            <!-- DIRECTORIO -->
+
+            <div class="contacto-grid" id="directorioContactos">
+
+                <article class="contacto-card"
+                         data-search="alcaldía alcalde gabinete autoridad municipal">
+                    <h3>Alcaldía Municipal</h3>
+                    <p class="contacto-area">Autoridad comunal y coordinación institucional</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita que te comuniquen con Alcaldía o Gabinete.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="administración municipal administrador municipal gestión coordinación gabinete transparencia informática seguridad ciudadana">
+                    <h3>Administración Municipal</h3>
+                    <p class="contacto-area">Gestión y coordinación interna</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita comunicación con Administración Municipal.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="secretaría municipal oficina de partes concejo central telefónica oirs información solicitudes">
+                    <h3>Secretaría Municipal</h3>
+                    <p class="contacto-area">Oficina de Partes, Concejo y atención de consultas</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por Oficina de Partes u OIRS.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="control interno auditoría fiscalización revisión municipal">
+                    <h3>Dirección de Control Interno</h3>
+                    <p class="contacto-area">Control y auditoría municipal</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita comunicación con Control Interno.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="asesoría jurídica abogados asuntos legales orientación jurídica">
+                    <h3>Dirección de Asesoría Jurídica</h3>
+                    <p class="contacto-area">Asuntos jurídicos municipales</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita comunicación con Asesoría Jurídica.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="juzgado policía local infracciones multas citaciones tránsito juzgado">
+                    <h3>Juzgado de Policía Local</h3>
+                    <p class="contacto-area">Citaciones, infracciones y procedimientos de su competencia</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Confirma el teléfono directo y los horarios antes de acudir.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="secretaría comunal de planificación secpla planificación proyectos arquitectura licitaciones inversiones">
+                    <h3>Secretaría Comunal de Planificación (SECPLA)</h3>
+                    <p class="contacto-area">Proyectos, planificación y licitaciones</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita comunicación con SECPLA.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="dirección de obras municipales dom construcción permisos edificación urbanismo recepción obras subdivisión plan regulador">
+                    <h3>Dirección de Obras Municipales (DOM)</h3>
+                    <p class="contacto-area">Permisos de edificación, obras y consultas urbanísticas</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por permisos de construcción y trámites DOM.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="administración finanzas tesorería pagos contabilidad presupuesto adquisiciones inventario rentas patentes aseo domiciliario">
+                    <h3>Dirección de Administración y Finanzas</h3>
+                    <p class="contacto-area">Finanzas, tesorería y gestión administrativa</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por Tesorería, Rentas y Patentes o pagos municipales.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="fomento productivo emprendimiento negocios empresas empleo intermediación laboral prodesal proder pdti capacitación emprendedores">
+                    <h3>Fomento Productivo</h3>
+                    <p class="contacto-area">Emprendimiento, desarrollo económico y apoyo productivo</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por emprendimiento, empleo, PRODESAL, PRODER o PDTI.</p>
+                    <p><a href="fomento-productivo.html">Visitar página de Fomento Productivo ↗</a></p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="desarrollo comunitario dideco ayuda social beneficios sociales subsidios organizaciones comunitarias programas familia">
+                    <h3>Dirección de Desarrollo Comunitario (DIDECO)</h3>
+                    <p class="contacto-area">Programas sociales y participación comunitaria</p>
+                    <p><strong>Contacto:</strong>
+                        <a href="https://dideco.angol.cl/"
+                           target="_blank"
+                           rel="noopener noreferrer">Sitio oficial DIDECO</a>
+                    </p>
+                    <p><strong>Teléfono municipal:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por Departamento Social, Subsidios y Organizaciones Comunitarias.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="tránsito transporte público licencia de conducir permisos circulación señalización demarcación vehículos">
+                    <h3>Dirección de Tránsito y Transporte Público</h3>
+                    <p class="contacto-area">Licencias de conducir, circulación y señalización vial</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por Licencias de Conducir o Permisos de Circulación.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="operaciones municipales aseo ornato jardines áreas verdes cementerio talleres servicios generales">
+                    <h3>Dirección de Operaciones Municipales</h3>
+                    <p class="contacto-area">Servicios operativos, aseo y ornato</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por aseo, ornato, áreas verdes o servicios municipales.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="recursos humanos personal funcionarios remuneraciones bienestar trabajo">
+                    <h3>Dirección de Recursos Humanos</h3>
+                    <p class="contacto-area">Gestión de personal municipal</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita comunicación con Recursos Humanos.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="medio ambiente reciclaje residuos educación ambiental naturaleza protección ambiental">
+                    <h3>Oficina de Medio Ambiente</h3>
+                    <p class="contacto-area">Gestión ambiental y consultas relacionadas con el entorno comunal</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita orientación sobre la unidad municipal correspondiente.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="turismo información turística visitantes atractivos patrimonio viajes">
+                    <h3>Oficina de Turismo</h3>
+                    <p class="contacto-area">Orientación e información turística de Angol</p>
+                    <p><strong>Contacto:</strong>
+                        <a href="departamento-turismo.html">Página de Turismo Angol</a>
+                    </p>
+                    <p><strong>Teléfono municipal:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por información turística y servicios para visitantes.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="cultura extensión cultural museo biblioteca actividades culturales patrimonio">
+                    <h3>Extensión Cultural y Biblioteca Municipal</h3>
+                    <p class="contacto-area">Actividades culturales y servicios bibliotecarios</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por actividades, horarios y servicios disponibles.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="deportes complejo deportivo actividad física talleres deporte municipal">
+                    <h3>Oficina Comunal de Deportes</h3>
+                    <p class="contacto-area">Actividades deportivas y recintos municipales</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Consulta por talleres, actividades y uso de recintos deportivos.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="seguridad ciudadana prevención emergencias denuncias seguridad pública">
+                    <h3>Seguridad Ciudadana</h3>
+                    <p class="contacto-area">Orientación sobre servicios municipales de seguridad</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">
+                        Para emergencias, contacta directamente a los servicios
+                        de emergencia correspondientes.
+                    </p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="transparencia información pública solicitudes acceso información">
+                    <h3>Unidad de Transparencia</h3>
+                    <p class="contacto-area">Acceso a información pública y transparencia municipal</p>
+                    <p><strong>Contacto:</strong>
+                        <a href="https://www.angol.cl/"
+                           target="_blank"
+                           rel="noopener noreferrer">Sitio oficial municipal</a>
+                    </p>
+                    <p><strong>Teléfono municipal:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">
+                        Consulta en el sitio oficial los procedimientos
+                        para solicitar información pública.
+                    </p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="informática soporte tecnológico sistemas computación tecnología municipal">
+                    <h3>Unidad de Informática</h3>
+                    <p class="contacto-area">Soporte y gestión de sistemas municipales</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita comunicación con la unidad correspondiente.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="salud municipal cesfam consultorio atención médica salud pública">
+                    <h3>Salud Municipal</h3>
+                    <p class="contacto-area">Servicios de salud comunal</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal para orientación.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">
+                        Para consultas clínicas, confirma el contacto directo
+                        de tu CESFAM o establecimiento.
+                    </p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="educación municipal escuelas colegios establecimientos educacionales departamento educación">
+                    <h3>Dirección de Educación</h3>
+                    <p class="contacto-area">Gestión y coordinación de establecimientos educacionales municipales</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal para orientación.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">Solicita el contacto directo de la unidad de Educación.</p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="oficina de partes documentos cartas solicitudes ingreso documentos">
+                    <h3>Oficina de Partes</h3>
+                    <p class="contacto-area">Ingreso y recepción de documentación</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">
+                        Consulta los horarios y medios habilitados para presentar documentos.
+                    </p>
+                </article>
+
+                <article class="contacto-card"
+                         data-search="oirs información reclamos sugerencias solicitudes atención ciudadana">
+                    <h3>Oficina de Información, Reclamos y Sugerencias (OIRS)</h3>
+                    <p class="contacto-area">Orientación y atención ciudadana</p>
+                    <p><strong>Contacto:</strong> central telefónica municipal.</p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+56452657056">45 265 7056</a></p>
+                    <p class="contacto-card-estado">
+                        Solicita información sobre los canales de atención ciudadana disponibles.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- OTRAS DIRECCIONES -->
+
+        <section class="bloque-contenido">
+
+            <h2>Otras direcciones y servicios relacionados</h2>
+
+            <p>
+                Algunas unidades municipales o servicios vinculados pueden
+                funcionar en recintos distintos del edificio principal. Antes
+                de acudir, confirma su ubicación y horario mediante los canales
+                oficiales.
+            </p>
+
+            <div class="contacto-otras-direcciones">
+
+                <article class="contacto-otra-direccion">
+                    <h3>Dirección de Desarrollo Comunitario</h3>
+                    <p>
+                        Información sobre programas sociales, organizaciones
+                        comunitarias, subsidios y actividades de participación.
+                    </p>
+                    <p>
+                        <strong>Canal web:</strong>
+                        <a href="https://dideco.angol.cl/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            dideco.angol.cl
+                        </a>
+                    </p>
+                    <p>
+                        <strong>Ubicación:</strong> consultar directamente con
+                        la unidad para confirmar su dirección de atención.
+                    </p>
+                </article>
+
+                <article class="contacto-otra-direccion">
+                    <h3>Fomento Productivo</h3>
+                    <p>
+                        Orientación para emprendedores, negocios, desarrollo
+                        productivo y programas municipales de apoyo.
+                    </p>
+                    <p>
+                        <strong>Información:</strong>
+                        <a href="fomento-productivo.html">
+                            Página de Fomento Productivo
+                        </a>
+                    </p>
+                    <p>
+                        <strong>Ubicación:</strong> confirmar con la central
+                        telefónica municipal.
+                    </p>
+                </article>
+
+                <article class="contacto-otra-direccion">
+                    <h3>Servicios de Salud Municipal</h3>
+                    <p>
+                        Para ubicar CESFAM, postas rurales y otros
+                        establecimientos, confirma cuál corresponde según
+                        el sector de residencia.
+                    </p>
+                    <p>
+                        <strong>Ubicación y contacto:</strong> solicitar
+                        información actualizada a través del establecimiento
+                        o de los canales municipales.
+                    </p>
+                </article>
+
+                <article class="contacto-otra-direccion">
+                    <h3>Establecimientos de Educación Municipal</h3>
+                    <p>
+                        Para conocer la dirección de una escuela, liceo u otro
+                        establecimiento, identifica primero el nombre del recinto.
+                    </p>
+                    <p>
+                        <strong>Ubicación y contacto:</strong> confirmar con
+                        la unidad de Educación correspondiente.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- AYUDA MUNICIPAL -->
+
+        <section class="bloque-contenido">
+
+            <h2>¿No sabes qué departamento necesitas?</h2>
+
+            <p>
+                Si no conoces el nombre de la unidad municipal, puedes llamar
+                a la central telefónica y explicar brevemente el trámite o
+                la consulta. El personal podrá orientarte hacia el departamento
+                correspondiente.
+            </p>
+
+            <div class="contacto-destacado pr-destacado">
+                <h3>Central telefónica municipal</h3>
+
+                <p>
+                    <strong>Teléfono:</strong>
+                    <a href="tel:+56452657056">+56 45 265 7056</a>
+                </p>
+
+                <p>
+                    <strong>Alternativa:</strong>
+                    <a href="tel:+56452657057">+56 45 265 7057</a>
+                </p>
+
+                <p>
+                    <strong>Correo general:</strong>
+                    <a href="mailto:contacto@angol.cl">contacto@angol.cl</a>
+                </p>
+            </div>
+
+            <div class="contacto-advertencia">
+                <strong>Importante:</strong> los teléfonos centrales y la
+                dirección se presentan a partir de antecedentes institucionales
+                publicados. Los números directos, correos específicos y
+                direcciones de atención de cada departamento deben confirmarse
+                con la Municipalidad, ya que no se dispone de una nómina pública
+                completa y verificada para todas las unidades.
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h4>Enlaces de Interés</h4>
+                <ul>
+                    <li><a href="departamento-turismo.html">Turismo Angol</a></li>
+                    <li><a href="conoce-mas.html">Cultura Angol</a></li>
+                    <li><a href="departamento-turismo.html">Brotes de Chile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto Institucional</h4>
+                <p>📍 Caupolicán 509, Angol</p>
+                <p>
+                    ✉️ <a href="mailto:contacto@angol.cl">contacto@angol.cl</a>
+                </p>
+                <p>
+                    <a href="telefonos-y-direccion.html">
+                        Teléfonos y Dirección
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Transparencia</h4>
+                <a href="conoce-mas.html" class="btn-secondary">
+                    Ley de Transparencia
+                </a>
+                <br><br>
+                <a href="conoce-mas.html" class="btn-secondary">
+                    Ley del Lobby
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; 2026 Ilustre Municipalidad de Angol -
+                Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // MENÚ PRINCIPAL
+
+            const botonMenu = document.getElementById("menuBoton");
+            const panelMenu = document.getElementById("menuDesplegable");
+
+            if (botonMenu && panelMenu) {
+                botonMenu.addEventListener("click", () => {
+                    const abierto = panelMenu.classList.toggle("abierto");
+                    botonMenu.setAttribute("aria-expanded", String(abierto));
+                });
+            }
+
+            // SUBMENÚS
+
+            document.querySelectorAll(".interior-submenu-toggle").forEach(boton => {
+                boton.addEventListener("click", () => {
+                    const submenu = document.getElementById(
+                        boton.getAttribute("aria-controls")
+                    );
+
+                    if (!submenu) return;
+
+                    const abierto = submenu.classList.toggle("abierto");
+                    boton.setAttribute("aria-expanded", String(abierto));
+                });
+            });
+
+            // BUSCADOR DE DEPARTAMENTOS
+
+            const buscador = document.getElementById("buscadorDepartamentos");
+            const directorio = document.getElementById("directorioContactos");
+
+            const tarjetas = Array.from(
+                directorio.querySelectorAll(".contacto-card")
+            );
+
+            const contador = document.getElementById("contadorResultados");
+            const sinResultados = document.getElementById("sinResultados");
+
+            function normalizarTexto(texto) {
+                return texto
+                    .toLocaleLowerCase("es")
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .trim();
+            }
+
+            function filtrarContactos() {
+                const consulta = normalizarTexto(buscador.value);
+                let cantidad = 0;
+
+                tarjetas.forEach(tarjeta => {
+                    const contenido = normalizarTexto(
+                        tarjeta.textContent + " " +
+                        (tarjeta.dataset.search || "")
+                    );
+
+                    const coincide = contenido.includes(consulta);
+                    tarjeta.hidden = !coincide;
+
+                    if (coincide) {
+                        cantidad++;
+                    }
+                });
+
+                if (consulta === "") {
+                    contador.textContent =
+                        "Mostrando todos los departamentos (" +
+                        cantidad + ").";
+                } else {
+                    contador.textContent =
+                        "Se encontraron " + cantidad +
+                        (cantidad === 1
+                            ? " resultado."
+                            : " resultados.") +
+                        " para «" + buscador.value.trim() + "».";
+                }
+
+                sinResultados.style.display =
+                    cantidad === 0 ? "block" : "none";
+            }
+
+            buscador.addEventListener("input", filtrarContactos);
+            filtrarContactos();
+
+            // HISTORIAL DE NAVEGACIÓN
+
+            const paginaActual = {
+                nombre: document.body.dataset.page,
+                url: document.body.dataset.pageUrl
+            };
+
+            let historial = [];
+
+            try {
+                historial = JSON.parse(
+                    sessionStorage.getItem("historialAngol") || "[]"
+                );
+
+                if (!Array.isArray(historial)) {
+                    historial = [];
+                }
+            } catch (error) {
+                historial = [];
+            }
+
+            const posicionExistente = historial.findIndex(
+                pagina => pagina.url === paginaActual.url
+            );
+
+            if (posicionExistente >= 0) {
+                historial = historial.slice(0, posicionExistente + 1);
+            } else {
+                historial.push(paginaActual);
+            }
+
+            if (historial.length > 8) {
+                historial = historial.slice(-8);
+            }
+
+            try {
+                sessionStorage.setItem(
+                    "historialAngol",
+                    JSON.stringify(historial)
+                );
+            } catch (error) {
+                // La página funciona aunque el almacenamiento esté bloqueado.
+            }
+
+            const listaHistorial = document.getElementById("historialPaginas");
+
+            if (listaHistorial) {
+                historial.forEach((pagina, indice) => {
+                    const elemento = document.createElement("li");
+
+                    if (indice === historial.length - 1) {
+                        elemento.textContent = pagina.nombre;
+                        elemento.setAttribute("aria-current", "page");
+                    } else {
+                        const enlace = document.createElement("a");
+                        enlace.href = pagina.url;
+                        enlace.textContent = pagina.nombre;
+                        elemento.appendChild(enlace);
+                    }
+
+                    listaHistorial.appendChild(elemento);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
